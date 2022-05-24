@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9d88dc0a1e0f98a4f972720644d61854
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - enemyAttackArea: {instanceID: 0}
+  - enemyHealthSlider: {instanceID: 0}
+  - player: {fileID: 6101990204450081457, guid: 2537db1df28d8c64fbb8025baba94676, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
