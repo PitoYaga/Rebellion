@@ -8,21 +8,26 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PausemENU.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/PausemENU.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/SCENES.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/SceneLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Save.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MoveToCollidor.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -75,6 +80,12 @@
       <workItem from="1653219235543" duration="6622000" />
       <workItem from="1653233988381" duration="2392000" />
       <workItem from="1653302030985" duration="12162000" />
+      <workItem from="1653388815790" duration="1696000" />
+      <workItem from="1653406778444" duration="670000" />
+      <workItem from="1653478080196" duration="188000" />
+      <workItem from="1653544222223" duration="305000" />
+      <workItem from="1653550544149" duration="532000" />
+      <workItem from="1653553287540" duration="3588000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
 {
     int startingSceneIndex;
 
+    public int playerHealth;
+    public int playerRageBar = 0;
+    public int shurikenCount = 15;
+    
+
     private void Awake()
     {
         int numScenePersist = FindObjectsOfType<GameManager>().Length;

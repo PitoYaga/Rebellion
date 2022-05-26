@@ -40,10 +40,12 @@ public class MoveToCollidor : MonoBehaviour
         if (other.CompareTag(Constants.doorTag))
         {
             moveToCollidor = true;
+            GameObject.Find("MeleeEnemy").GetComponent<MeleeEnemy>().enabled = false;
         }
         else if (other.CompareTag(Constants.collidorTag))
         {
             moveToCollidor = false;
+            GameObject.Find("MeleeEnemy").GetComponent<MeleeEnemy>().enabled = true;
         }
     }
 }

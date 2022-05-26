@@ -14,7 +14,7 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private float enemyRageXp = 20;
     [SerializeField] private float walkSpeed = 3;
     [SerializeField] private float chaseSpeed = 6;
-    [SerializeField] private float attackSpeed = 0;
+    [SerializeField] private float attackSpeed = 1;
     [SerializeField] private float knockBackPower;
 
     [Header("States")]
