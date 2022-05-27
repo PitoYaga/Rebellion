@@ -23,11 +23,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraMovement.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Save.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MoveToCollidor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -86,6 +86,7 @@
       <workItem from="1653544222223" duration="305000" />
       <workItem from="1653550544149" duration="532000" />
       <workItem from="1653553287540" duration="4338000" />
+      <workItem from="1653640456898" duration="976000" />
     </task>
     <servers />
   </component>

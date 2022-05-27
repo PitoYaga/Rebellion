@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     [Header("Stats")]
     public float playerHealth = 20;
     public float playerMaxHealth = 20;
-    [SerializeField] private float speed = 5;
+    [SerializeField] private float speed = 4;
+    [SerializeField] private float runSpeed = 7;
     [SerializeField] private float dashSpeed = 200;
     [SerializeField] private float dashCooldown = 2;
     [SerializeField] private ParticleSystem dashVFX;
@@ -105,16 +106,30 @@ public class Player : MonoBehaviour
                 Vector3 appliedGravity = gravity * Time.deltaTime * Vector3.down;
                 _characterController.Move(appliedGravity);
             }
-
-            if (!_audioSources[0].isPlaying)
-            {
-                _audioSources[0].Play();
-            }
-
+            
             _move = new Vector3(h, 0, v);
             _move = camera.transform.TransformDirection(_move);
             _move.y = 0;
-            _characterController.Move(_move / 10 * speed);
+            
+            
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                _audioSources[0].Stop();
+                _characterController.Move(_move / 10 * runSpeed);
+                if (!_audioSources[7].isPlaying)
+                {
+                    _audioSources[7].Play();
+                }
+            }
+            else
+            {
+                _audioSources[7].Stop();
+                _characterController.Move(_move / 10 * speed);
+                if (!_audioSources[0].isPlaying)
+                {
+                    _audioSources[0].Play();
+                }
+            }
             
             //walking animation
 
@@ -140,7 +155,7 @@ public class Player : MonoBehaviour
     {
         if (_isMoving && dashCooldown >= 1f)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.LeftControl))
             {
                 dashCooldown = 0;
                 _isDashing = true;
