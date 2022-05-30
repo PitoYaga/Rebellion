@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioSource[] _audioSources;
 
     private Vector3 _move;
+    private Animator _animator;
     private bool _isMoving;
     private bool _isDashing;
     private Collider[] _colliders;
@@ -69,6 +70,7 @@ public class Player : MonoBehaviour
         
         _characterController = GetComponent<CharacterController>();
         _camera = FindObjectOfType<CameraTry>();
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -101,6 +103,8 @@ public class Player : MonoBehaviour
 
         if (!_isDashing)
         {
+            //_animator.SetBool("isDashing", false);
+            
             if (!_characterController.isGrounded)
             {
                 Vector3 appliedGravity = gravity * Time.deltaTime * Vector3.down;
@@ -111,10 +115,14 @@ public class Player : MonoBehaviour
             _move = camera.transform.TransformDirection(_move);
             _move.y = 0;
             
-            
             if (Input.GetKey(KeyCode.LeftShift))
             {
+                //_animator.SetBool("isWalking", false);
+                //_animator.SetBool("isRunning", true);
+                
+                _animator.SetFloat("isRunning", 6);
                 _audioSources[0].Stop();
+                
                 _characterController.Move(_move / 10 * runSpeed);
                 if (!_audioSources[7].isPlaying)
                 {
@@ -123,15 +131,18 @@ public class Player : MonoBehaviour
             }
             else
             {
+                //_animator.SetBool("isRunning", false);
+                //_animator.SetBool("isWalking", true);
+                
+                _animator.SetFloat("isWalking", 0.2f);
                 _audioSources[7].Stop();
+                
                 _characterController.Move(_move / 10 * speed);
                 if (!_audioSources[0].isPlaying)
                 {
                     _audioSources[0].Play();
                 }
             }
-            
-            //walking animation
 
             if ((Mathf.Abs(h) > 0 && Mathf.Abs(v) > 0) || (Mathf.Abs(h) > 0 || Mathf.Abs(v) > 0))
             {
@@ -140,12 +151,20 @@ public class Player : MonoBehaviour
             }
             else
             {
+                //_animator.SetBool("isRunning", false);
+                //_animator.SetBool("isWalking", false);
+                
                 _audioSources[0].Stop();
                 StopCoroutine(DashVFX());
             }
         }
         else
         {
+            //_animator.SetBool("isRunning", false);
+            //_animator.SetBool("isWalking", false);
+            //_animator.SetBool("isDashing", true);
+            
+            _animator.SetTrigger("isDashing");
             StartCoroutine(DashVFX());
             StartCoroutine(DashMove());
         }
@@ -155,7 +174,7 @@ public class Player : MonoBehaviour
     {
         if (_isMoving && dashCooldown >= 1f)
         {
-            if (Input.GetKeyDown(KeyCode.LeftControl))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 dashCooldown = 0;
                 _isDashing = true;
