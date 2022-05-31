@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
 
     private Vector3 _move;
     private Animator _animator;
+    private float currentSpeed = 4;
     private bool _isMoving;
     private bool _isDashing;
     private Collider[] _colliders;
@@ -67,6 +68,7 @@ public class Player : MonoBehaviour
         rageBarSlider.value = rageBar;
         rageBarSlider.maxValue = maxRageBar;
         _currentRageModeCooldown = rageModeCooldown;
+        currentSpeed = speed;
         
         _characterController = GetComponent<CharacterController>();
         _camera = FindObjectOfType<CameraTry>();
@@ -103,8 +105,6 @@ public class Player : MonoBehaviour
 
         if (!_isDashing)
         {
-            //_animator.SetBool("isDashing", false);
-            
             if (!_characterController.isGrounded)
             {
                 Vector3 appliedGravity = gravity * Time.deltaTime * Vector3.down;
@@ -120,10 +120,12 @@ public class Player : MonoBehaviour
                 //_animator.SetBool("isWalking", false);
                 //_animator.SetBool("isRunning", true);
                 
-                _animator.SetFloat("isRunning", 6);
+                //_animator.SetFloat("speed", currentSpeed);
                 _audioSources[0].Stop();
+
+                currentSpeed = runSpeed;
+                _characterController.Move(_move / 10 * currentSpeed);
                 
-                _characterController.Move(_move / 10 * runSpeed);
                 if (!_audioSources[7].isPlaying)
                 {
                     _audioSources[7].Play();
@@ -134,10 +136,11 @@ public class Player : MonoBehaviour
                 //_animator.SetBool("isRunning", false);
                 //_animator.SetBool("isWalking", true);
                 
-                _animator.SetFloat("isWalking", 0.2f);
+                _animator.SetFloat("speed", currentSpeed);
                 _audioSources[7].Stop();
-                
-                _characterController.Move(_move / 10 * speed);
+
+                currentSpeed = speed;
+                _characterController.Move(_move / 10 * currentSpeed);
                 if (!_audioSources[0].isPlaying)
                 {
                     _audioSources[0].Play();
@@ -151,20 +154,14 @@ public class Player : MonoBehaviour
             }
             else
             {
-                //_animator.SetBool("isRunning", false);
-                //_animator.SetBool("isWalking", false);
-                
+                currentSpeed = 0;
                 _audioSources[0].Stop();
                 StopCoroutine(DashVFX());
             }
         }
         else
         {
-            //_animator.SetBool("isRunning", false);
-            //_animator.SetBool("isWalking", false);
-            //_animator.SetBool("isDashing", true);
-            
-            _animator.SetTrigger("isDashing");
+            _animator.SetFloat("speed", currentSpeed);
             StartCoroutine(DashVFX());
             StartCoroutine(DashMove());
         }
@@ -189,16 +186,15 @@ public class Player : MonoBehaviour
 
     IEnumerator DashMove()
     {
-        //dash animation
-        
         if (!_audioSources[1].isPlaying)
         {
             _audioSources[1].Play();
         }
-        
-        _characterController.Move(_move / 10 * dashSpeed);
+
+        currentSpeed = dashSpeed;
+        _characterController.Move(_move / 10 * currentSpeed);
         yield return new WaitForSeconds(0.05f);
-        _characterController.Move(_move / 10 * speed);
+        _characterController.Move(_move / 10 * currentSpeed);
 
         _isDashing = false;
     }
@@ -214,7 +210,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         { 
-            //attack animation
+            //_animator.SetTrigger("isAttacking");
+            
             if (!_audioSources[2].isPlaying)
             { 
                 _audioSources[2].Play();
