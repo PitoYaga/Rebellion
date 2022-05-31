@@ -18,18 +18,33 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/DeathScene.unity
     guid: 5ff5b0997e5c87d42953c27452f9674f
   - enabled: 1
-    path: Assets/Scenes/Psychologist/Psikolog1.unity
-    guid: b55827e0b0b93f44d99478fb93dce73a
+    path: "Assets/Levels/Ac\u0131l\u0131s.unity"
+    guid: 53c77541b42d02f48ba63b08c4fee04e
   - enabled: 1
-    path: Assets/Scenes/Psychologist/Psikolog2.unity
-    guid: da7e32062443f724d83502e990c60aee
+    path: Assets/Levels/1Leve.unity
+    guid: 0ea098c6a193d434a807166f7e0895ea
   - enabled: 1
-    path: Assets/Scenes/Psychologist/Psikolog3.unity
-    guid: 9f78908038cd1f842bbd534740824e21
+    path: Assets/Levels/OldBoy.unity
+    guid: 38811e8ef9eef374786b930e10c874bc
   - enabled: 1
-    path: Assets/Scenes/Psychologist/Psikolog4.unity
-    guid: 74c3e52b736d9254c8bc2dfc1965ca66
+    path: Assets/Levels/Level3.unity
+    guid: bbad269153371e54181c8497dbe65549
   - enabled: 1
-    path: Assets/Scenes/Psychologist/Psikolog5.unity
-    guid: 8142e6f86e8041843b3d617dfb5b8b41
+    path: Assets/Levels/Level4.unity
+    guid: 9b6a1e410c503e447ae0da71914949b7
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
