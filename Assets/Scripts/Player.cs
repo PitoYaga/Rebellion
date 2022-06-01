@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         playerHealthText.text = playerHealth.ToString();
+        shurikenMagazineText.text = shurikenMagazine.ToString();
         
         if (isAlive)
         {
@@ -89,7 +90,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("DeathScreen");
+            //SceneManager.LoadScene("DeathScreen");
         }
     }
     
@@ -120,7 +121,7 @@ public class Player : MonoBehaviour
                 //_animator.SetBool("isWalking", false);
                 //_animator.SetBool("isRunning", true);
                 
-                //_animator.SetFloat("speed", currentSpeed);
+                _animator.SetFloat("speed", currentSpeed);
                 _audioSources[0].Stop();
 
                 currentSpeed = runSpeed;
@@ -193,7 +194,7 @@ public class Player : MonoBehaviour
 
         currentSpeed = dashSpeed;
         _characterController.Move(_move / 10 * currentSpeed);
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
         _characterController.Move(_move / 10 * currentSpeed);
 
         _isDashing = false;
@@ -210,7 +211,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         { 
-            //_animator.SetTrigger("isAttacking");
+            _animator.SetTrigger("isAttacking");
             
             if (!_audioSources[2].isPlaying)
             { 
@@ -244,7 +245,6 @@ public class Player : MonoBehaviour
 
     void PlayerFire()
     {
-        shurikenMagazineText.text = shurikenMagazine.ToString();
         if (Input.GetMouseButton(1))
         {
             transform.LookAt(_camera.crosshair);
@@ -259,6 +259,7 @@ public class Player : MonoBehaviour
                         _audioSources[4].Play();
                     }
 
+                    _animator.SetTrigger("shuriken");
                     Instantiate(shuriken, barrel.position, transform.rotation);
                     shurikenMagazine--;
                     _timeSinceLastFire = 0;
@@ -324,7 +325,7 @@ public class Player : MonoBehaviour
             playerHeathSlider.value = 0;
             playerHealth = 0;
             
-            //death animation
+            _animator.SetBool("death", true);
            
             _audioSources[5].Play();
             isAlive = false;
