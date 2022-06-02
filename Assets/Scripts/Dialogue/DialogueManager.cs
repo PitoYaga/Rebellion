@@ -13,11 +13,7 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
     
     public Dialogue dialogue;
-
-    public void TriggerDialogue()
-    {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-    }
+    
     
     void Start()
     {
@@ -41,16 +37,7 @@ public class DialogueManager : MonoBehaviour
 
         if (sentences.Count <= 0)
         {
-            ResumeGame();
             return;
         }
-    }
-
-
-    public void ResumeGame()
-    {
-        gameObject.SetActive(false);
-        close.SetActive(true);
-        Time.timeScale = 1;
     }
 }

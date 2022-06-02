@@ -100,7 +100,6 @@ MonoBehaviour:
   bulletSpeed: 100
   shurikenDamage: 5
   barrel: {fileID: 0}
-  target: {fileID: 0}
 --- !u!136 &2078652589865808640
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -1361,7 +1361,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6017908882566481592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.37, y: 53.9, z: 17.8}
+  m_LocalPosition: {x: 0.37, y: 3.2, z: 17.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6017908884363057893}
@@ -2215,7 +2215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6017908883864887383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 45.5, z: 25.9}
+  m_LocalPosition: {x: 0, y: -5.200001, z: 25.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6017908884363057893}
@@ -2537,7 +2537,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6017908884363057898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 49.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3653791761224829813}
@@ -2969,7 +2969,7 @@ MonoBehaviour:
   playerMaxHealth: 100
   speed: 4
   runSpeed: 9
-  dashSpeed: 60
+  dashSpeed: 40
   dashCooldown: 2
   dashVFX: {fileID: 4178973136292777643}
   gravity: 9.8
@@ -3017,10 +3017,10 @@ CharacterController:
   m_Height: 63.56
   m_Radius: 8.53
   m_SlopeLimit: 10
-  m_StepOffset: 0.06
+  m_StepOffset: 0.8
   m_SkinWidth: 0.5
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 39, z: 0}
+  m_Center: {x: 0, y: 35, z: 0}
 --- !u!95 &7154981793513083207
 Animator:
   serializedVersion: 3

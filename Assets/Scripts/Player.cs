@@ -46,7 +46,6 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject shuriken;
     [SerializeField] private Transform barrel;
     public bool oldboy;
-    [SerializeField] private GameObject[] enemies;
     private MeleeEnemy _meleeEnemyCs;
     [SerializeField] private AudioSource[] _audioSources;
 
@@ -194,7 +193,7 @@ public class Player : MonoBehaviour
 
         currentSpeed = dashSpeed;
         _characterController.Move(_move / 10 * currentSpeed);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         _characterController.Move(_move / 10 * currentSpeed);
 
         _isDashing = false;
@@ -325,8 +324,8 @@ public class Player : MonoBehaviour
             playerHeathSlider.value = 0;
             playerHealth = 0;
             
-            _animator.SetBool("death", true);
-           
+            _animator.SetTrigger("death");
+
             _audioSources[5].Play();
             isAlive = false;
             StartCoroutine(LoadDeathScene());

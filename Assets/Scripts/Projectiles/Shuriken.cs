@@ -7,17 +7,14 @@ public class Shuriken : MonoBehaviour
 {
     [SerializeField] float bulletSpeed = 50;
     [SerializeField] private float shurikenDamage = 5;
-    [SerializeField] private Transform barrel;
-    [SerializeField] private Transform target;
-    
+
     private Rigidbody _rigidbody;
     
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        
-        Vector3 direction = FindObjectOfType<CameraTry>().Crosshair() - barrel.position;
-        transform.forward = direction;
+
+        transform.forward = FindObjectOfType<CameraTry>().crosshair;
         _rigidbody.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
     }
 
