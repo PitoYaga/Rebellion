@@ -57,10 +57,14 @@ public class Player : MonoBehaviour
     private Collider[] _colliders;
     private CharacterController _characterController;
     public bool isAlive = true;
-    private CameraTry _camera;
+    private CameraTry _cameraTry;
     
     void Start()
     {
+        _characterController = GetComponent<CharacterController>();
+        _cameraTry = FindObjectOfType<CameraTry>();
+        _animator = GetComponent<Animator>();
+        
         dashVFX.Stop();
         playerHeathSlider.maxValue = playerMaxHealth;
         playerHeathSlider.value = playerHealth;
@@ -68,17 +72,13 @@ public class Player : MonoBehaviour
         rageBarSlider.maxValue = maxRageBar;
         _currentRageModeCooldown = rageModeCooldown;
         currentSpeed = speed;
-        
-        _characterController = GetComponent<CharacterController>();
-        _camera = FindObjectOfType<CameraTry>();
-        _animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         playerHealthText.text = playerHealth.ToString();
         shurikenMagazineText.text = shurikenMagazine.ToString();
-        
+
         if (isAlive)
         {
             CharacterControllerMove();
@@ -117,9 +117,6 @@ public class Player : MonoBehaviour
             
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                //_animator.SetBool("isWalking", false);
-                //_animator.SetBool("isRunning", true);
-                
                 _animator.SetFloat("speed", currentSpeed);
                 _audioSources[0].Stop();
 
@@ -133,9 +130,6 @@ public class Player : MonoBehaviour
             }
             else
             {
-                //_animator.SetBool("isRunning", false);
-                //_animator.SetBool("isWalking", true);
-                
                 _animator.SetFloat("speed", currentSpeed);
                 _audioSources[7].Stop();
 
@@ -246,7 +240,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
-            transform.LookAt(_camera.crosshair);
+            _cameraTry.Crosshair();
+            transform.LookAt(_cameraTry.crosshair);
 
             if (shurikenMagazine > 0)
             {
@@ -269,7 +264,6 @@ public class Player : MonoBehaviour
                 //empty gun sound
             }
         }
-       
     }
 
     void RageMode()

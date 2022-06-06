@@ -9,12 +9,14 @@ public class Shuriken : MonoBehaviour
     [SerializeField] private float shurikenDamage = 5;
 
     private Rigidbody _rigidbody;
-    
+    private CameraTry _cameraTry;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-
-        transform.forward = FindObjectOfType<CameraTry>().crosshair;
+        _cameraTry = FindObjectOfType<CameraTry>();
+        
+        transform.LookAt(_cameraTry.crosshair);
         _rigidbody.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
     }
 
@@ -31,9 +33,4 @@ public class Shuriken : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-    //Rage mode
-    //Alan içindeki düşmanları algıla.
-    //Mermiyi seçili olan düşmana döndür.
-    //Ateş edildiğinde aimsiz düşman doğrultusunda ateşlesin.
 }

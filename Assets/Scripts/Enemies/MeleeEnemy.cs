@@ -43,7 +43,6 @@ public class MeleeEnemy : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private Slider enemyHealthSlider;
-    [SerializeField] GameObject player;
     private AudioSource _audioSource;
     [SerializeField] private AudioClip[] _audioClips;
     
@@ -58,7 +57,7 @@ public class MeleeEnemy : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        _playerCs = player.GetComponent<Player>();
+        _playerCs = FindObjectOfType<Player>();
         _audioSource = GetComponent<AudioSource>();
         _target = GameObject.FindGameObjectWithTag(Constants.playerTag).transform;
         

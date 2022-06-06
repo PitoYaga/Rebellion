@@ -14,6 +14,8 @@ namespace Enemies
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            
+            transform.LookAt(target.position);
             _rigidbody.AddForce(barrel.forward * bulletSpeed, ForceMode.Impulse);
         }
 
