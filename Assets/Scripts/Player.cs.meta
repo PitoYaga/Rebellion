@@ -3,7 +3,16 @@ guid: 0cf882c4f4a7347459c837c71c6e7bb3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - dashVFX: {instanceID: 0}
+  - katanaArea: {instanceID: 0}
+  - shurikenMagazineText: {instanceID: 0}
+  - camera: {instanceID: 0}
+  - playerHeathSlider: {instanceID: 0}
+  - playerHealthText: {instanceID: 0}
+  - rageBarSlider: {instanceID: 0}
+  - shuriken: {fileID: 4856607958228005482, guid: 2fc7a73021315d84a8d0c2c9d12b4b31, type: 3}
+  - barrel: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
