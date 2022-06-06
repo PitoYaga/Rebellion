@@ -6,9 +6,8 @@ namespace Enemies
     {
         [SerializeField] float bulletSpeed = 50;
         [SerializeField] private float bulletDamage = 5;
-        [SerializeField] private Transform barrel;
         [SerializeField] private Transform target;
-    
+        
         private Rigidbody _rigidbody;
     
         void Start()
@@ -16,7 +15,7 @@ namespace Enemies
             _rigidbody = GetComponent<Rigidbody>();
             
             transform.LookAt(target.position);
-            _rigidbody.AddForce(barrel.forward * bulletSpeed, ForceMode.Impulse);
+            _rigidbody.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
         }
 
         private void OnCollisionEnter(Collision other)
@@ -27,11 +26,5 @@ namespace Enemies
                 Destroy(gameObject);
             }
         }
-
-    
-        //Rage mode
-        //Alan içindeki düşmanları algıla.
-        //Mermiyi seçili olan düşmana döndür.
-        //Ateş edildiğinde aimsiz düşman doğrultusunda ateşlesin.
     }
 }

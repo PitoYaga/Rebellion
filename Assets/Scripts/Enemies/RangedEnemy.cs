@@ -189,7 +189,7 @@ public class RangedEnemy : MonoBehaviour
             {
                 //_audioSource.PlayOneShot(_audioClips[1]);
                 
-                Instantiate(bullet, rangedEnemyBarrel.position, transform.rotation);
+                Instantiate(bullet, rangedEnemyBarrel.position, Quaternion.identity);
                 _timeSinceLastFire = 0;
             }
         }

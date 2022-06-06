@@ -16,7 +16,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PausemENU.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/PausemENU.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/SCENES.cs" />
@@ -30,9 +29,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -111,6 +112,8 @@
       <workItem from="1654436090274" duration="5043000" />
       <workItem from="1654518595762" duration="1956000" />
       <workItem from="1654520801229" duration="748000" />
+      <workItem from="1654535388886" duration="894000" />
+      <workItem from="1654536642408" duration="2216000" />
     </task>
     <servers />
   </component>
