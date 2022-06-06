@@ -31,9 +31,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -114,7 +114,7 @@
       <workItem from="1654520801229" duration="748000" />
       <workItem from="1654535388886" duration="894000" />
       <workItem from="1654536642408" duration="2216000" />
-      <workItem from="1654544059981" duration="368000" />
+      <workItem from="1654544059981" duration="4872000" />
     </task>
     <servers />
   </component>

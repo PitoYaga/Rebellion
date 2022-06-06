@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
 
     private int enemyType;
     private int spawnPos;
+    private GameObject enemy;
     
     void Start()
     {
@@ -19,25 +20,26 @@ public class EnemySpawner : MonoBehaviour
     
     void Update()
     {
-        
+        enemyType = Random.Range(0, 2);
+        Debug.Log(enemyType);
     }
 
     void EnemySpawn()
     {
+        
         for (int i = 0; i < spawnPoses.Length * 1.5f; i++)
         {
-            enemyType = Random.Range(0, 1);
             spawnPos = Random.Range(0, spawnPoses.Length);
-            
-            Instantiate(enemies[enemyType], spawnPoses[spawnPos]);
 
-            if (i == spawnPoses.Length * 1.5f)
+            enemy = Instantiate(enemies[Random.Range(0, enemies.Length - 1)], spawnPoses[spawnPos]);
+            enemy.transform.position = spawnPoses[spawnPos].position;
+
+            
+            if (i == (spawnPoses.Length * 1.5f) - 1)
             {
                 Destroy(gameObject);
             }
         }
-        
-        
     }
 
     private void OnTriggerEnter(Collider other)
