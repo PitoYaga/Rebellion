@@ -27,10 +27,7 @@ public class Player : MonoBehaviour
     public float shurikenMagazine = 10;
     [SerializeField] private Text shurikenMagazineText;
     private float _timeSinceLastFire;
-    
-    //[SerializeField] private float pistolDamage;
-    //[SerializeField] private float sniperDamage;
-    
+
     [Header("Rage Mode")]
     public float rageBar;
     [SerializeField] float maxRageBar = 100;
@@ -46,12 +43,11 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject shuriken;
     [SerializeField] private Transform barrel;
     public bool oldboy;
-    private MeleeEnemy _meleeEnemyCs;
-    [SerializeField] private AudioSource[] _audioSources;
+    [SerializeField] private AudioSource[] audioSources;
 
     private Vector3 _move;
     private Animator _animator;
-    private float currentSpeed = 4;
+    private float _currentSpeed = 4;
     private bool _isMoving;
     private bool _isDashing;
     private Collider[] _colliders;
@@ -71,7 +67,7 @@ public class Player : MonoBehaviour
         rageBarSlider.value = rageBar;
         rageBarSlider.maxValue = maxRageBar;
         _currentRageModeCooldown = rageModeCooldown;
-        currentSpeed = speed;
+        _currentSpeed = speed;
     }
 
     void Update()
@@ -117,27 +113,27 @@ public class Player : MonoBehaviour
             
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                _animator.SetFloat("speed", currentSpeed);
-                _audioSources[0].Stop();
+                _animator.SetFloat("speed", _currentSpeed);
+                audioSources[0].Stop();
 
-                currentSpeed = runSpeed;
-                _characterController.Move(_move / 10 * currentSpeed);
+                _currentSpeed = runSpeed;
+                _characterController.Move(_move / 10 * _currentSpeed);
                 
-                if (!_audioSources[7].isPlaying)
+                if (!audioSources[7].isPlaying)
                 {
-                    _audioSources[7].Play();
+                    audioSources[7].Play();
                 }
             }
             else
             {
-                _animator.SetFloat("speed", currentSpeed);
-                _audioSources[7].Stop();
+                _animator.SetFloat("speed", _currentSpeed);
+                audioSources[7].Stop();
 
-                currentSpeed = speed;
-                _characterController.Move(_move / 10 * currentSpeed);
-                if (!_audioSources[0].isPlaying)
+                _currentSpeed = speed;
+                _characterController.Move(_move / 10 * _currentSpeed);
+                if (!audioSources[0].isPlaying)
                 {
-                    _audioSources[0].Play();
+                    audioSources[0].Play();
                 }
             }
 
@@ -148,14 +144,14 @@ public class Player : MonoBehaviour
             }
             else
             {
-                currentSpeed = 0;
-                _audioSources[0].Stop();
+                _currentSpeed = 0;
+                audioSources[0].Stop();
                 StopCoroutine(DashVFX());
             }
         }
         else
         {
-            _animator.SetFloat("speed", currentSpeed);
+            _animator.SetFloat("speed", _currentSpeed);
             StartCoroutine(DashVFX());
             StartCoroutine(DashMove());
         }
@@ -180,15 +176,15 @@ public class Player : MonoBehaviour
 
     IEnumerator DashMove()
     {
-        if (!_audioSources[1].isPlaying)
+        if (!audioSources[1].isPlaying)
         {
-            _audioSources[1].Play();
+            audioSources[1].Play();
         }
 
-        currentSpeed = dashSpeed;
-        _characterController.Move(_move / 10 * currentSpeed);
+        _currentSpeed = dashSpeed;
+        _characterController.Move(_move / 10 * _currentSpeed);
         yield return new WaitForSeconds(0.2f);
-        _characterController.Move(_move / 10 * currentSpeed);
+        _characterController.Move(_move / 10 * _currentSpeed);
 
         _isDashing = false;
     }
@@ -206,17 +202,17 @@ public class Player : MonoBehaviour
         { 
             _animator.SetTrigger("isAttacking");
             
-            if (!_audioSources[2].isPlaying)
+            if (!audioSources[2].isPlaying)
             { 
-                _audioSources[2].Play();
+                audioSources[2].Play();
             }
 
             _colliders = Physics.OverlapSphere(katanaArea.position, katanaRange, LayerMask.GetMask("MeleeEnemy"));
             foreach (Collider hit in _colliders)
             {
-                if (!_audioSources[3].isPlaying)
+                if (!audioSources[3].isPlaying)
                 { 
-                    _audioSources[3].Play();
+                    audioSources[3].Play();
                 }
                 hit.GetComponent<MeleeEnemy>().MeleeEnemyGetHit(katanaDamage);
             }
@@ -225,9 +221,9 @@ public class Player : MonoBehaviour
             _colliders = Physics.OverlapSphere(katanaArea.position, katanaRange, LayerMask.GetMask("RangedEnemy"));
             foreach (Collider hit in _colliders)
             {
-                if (!_audioSources[3].isPlaying)
+                if (!audioSources[3].isPlaying)
                 { 
-                    _audioSources[3].Play();
+                    audioSources[3].Play();
                 }
                 hit.GetComponent<RangedEnemy>().RangedEnemyGetHit(katanaDamage);
             }
@@ -248,9 +244,9 @@ public class Player : MonoBehaviour
                 _timeSinceLastFire += Time.deltaTime;
                 if (_timeSinceLastFire > fireRate)
                 {
-                    if (!_audioSources[4].isPlaying)
+                    if (!audioSources[4].isPlaying)
                     {
-                        _audioSources[4].Play();
+                        audioSources[4].Play();
                     }
 
                     _animator.SetTrigger("shuriken");
@@ -309,7 +305,7 @@ public class Player : MonoBehaviour
     {
         //color can change
         
-        _audioSources[6].Play();
+        audioSources[6].Play();
         playerHealth -= enemyDamage;
         playerHeathSlider.value = playerHealth;
         
@@ -320,7 +316,7 @@ public class Player : MonoBehaviour
             
             _animator.SetTrigger("death");
 
-            _audioSources[5].Play();
+            audioSources[5].Play();
             isAlive = false;
             StartCoroutine(LoadDeathScene());
         }
@@ -331,6 +327,8 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene("DeathScene");
     }
+    
+    
 
     private void OnTriggerEnter(Collider other)
     {

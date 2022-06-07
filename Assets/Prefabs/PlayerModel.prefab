@@ -2957,6 +2957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7494071851569400830}
   - component: {fileID: 7154981793513083201}
+  - component: {fileID: 5363021554785544050}
   - component: {fileID: 7154981793513083206}
   - component: {fileID: 7154981793513083207}
   m_Layer: 6
@@ -3021,16 +3022,23 @@ MonoBehaviour:
   shuriken: {fileID: 4856607958228005482, guid: 2fc7a73021315d84a8d0c2c9d12b4b31, type: 3}
   barrel: {fileID: 6017908882566481595}
   oldboy: 0
-  _audioSources:
-  - {fileID: 6017908884317844424}
-  - {fileID: 6017908884187730849}
-  - {fileID: 6017908883514537929}
-  - {fileID: 6017908882972371315}
-  - {fileID: 6017908882972762392}
-  - {fileID: 6017908883024209073}
-  - {fileID: 6017908882722394154}
-  - {fileID: 6017908883689456034}
+  audioSources: []
   isAlive: 1
+--- !u!114 &5363021554785544050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7154981793513083204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabfed36d50de40419b9ea1cd4a8c70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardUI: {fileID: 0}
+  securityCardText: {fileID: 0}
+  securityCard: 0
 --- !u!143 &7154981793513083206
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3078,9 +3086,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6661365043850989723}
   - component: {fileID: 1971039891212806539}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

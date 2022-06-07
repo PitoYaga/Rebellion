@@ -1,52 +1,45 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class EnemySpawner : MonoBehaviour
+namespace Enemies
 {
-    [SerializeField] private GameObject[] enemies;
-    [SerializeField] private Transform[] spawnPoses;
+    public class EnemySpawner : MonoBehaviour
+    {
+        [SerializeField] private GameObject[] enemies;
+        [SerializeField] private Transform[] spawnPoses;
 
-    private int enemyType;
-    private int spawnPos;
-    private GameObject enemy;
-    
-    void Start()
-    {
-       
-    }
-    
-    void Update()
-    {
-        enemyType = Random.Range(0, 2);
-        Debug.Log(enemyType);
-    }
-
-    void EnemySpawn()
-    {
+        private int _enemyType;
+        private int _spawnPos;
+        private GameObject _enemy;
         
-        for (int i = 0; i < spawnPoses.Length * 1.5f; i++)
+        void Update()
         {
-            spawnPos = Random.Range(0, spawnPoses.Length);
+            _enemyType = Random.Range(0, 2);
+        }
 
-            enemy = Instantiate(enemies[Random.Range(0, enemies.Length - 1)], spawnPoses[spawnPos]);
-            enemy.transform.position = spawnPoses[spawnPos].position;
-
-            
-            if (i == (spawnPoses.Length * 1.5f) - 1)
+        void EnemySpawn()
+        {
+        
+            for (int i = 0; i < spawnPoses.Length * 1.5f; i++)
             {
-                Destroy(gameObject);
+                _spawnPos = Random.Range(0, spawnPoses.Length);
+
+                _enemy = Instantiate(enemies[_enemyType], spawnPoses[_spawnPos]);
+                _enemy.transform.position = spawnPoses[_spawnPos].position;
+            
+                if (i == (spawnPoses.Length * 1.5f) - 1)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(Constants.playerTag))
+        private void OnTriggerEnter(Collider other)
         {
-            EnemySpawn();
+            if (other.CompareTag(Constants.playerTag))
+            {
+                EnemySpawn();
+            }
         }
     }
 }
