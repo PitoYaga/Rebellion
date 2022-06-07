@@ -313,6 +313,7 @@ public class Player : MonoBehaviour
         {
             playerHeathSlider.value = 0;
             playerHealth = 0;
+            gameObject.layer = 0;
             
             _animator.SetTrigger("death");
 

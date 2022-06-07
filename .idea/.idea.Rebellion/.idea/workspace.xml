@@ -31,17 +31,18 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/HealthPosion.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interaction.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/SecurityCard.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/EndLevel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteraction.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/KayriWasHere/PathsScript.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -123,7 +124,10 @@
       <workItem from="1654535388886" duration="894000" />
       <workItem from="1654536642408" duration="2216000" />
       <workItem from="1654544059981" duration="5114000" />
-      <workItem from="1654590074683" duration="6139000" />
+      <workItem from="1654590074683" duration="7344000" />
+      <workItem from="1654600253754" duration="24000" />
+      <workItem from="1654600345011" duration="75000" />
+      <workItem from="1654611097799" duration="1438000" />
     </task>
     <servers />
   </component>

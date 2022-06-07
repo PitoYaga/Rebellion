@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47226333aee841e43b13fca64866719a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookAtPlayer: {fileID: 0}
+  lookAtPlayer: {fileID: 7494071851569400830, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
 --- !u!223 &1534950686626824036
 Canvas:
   m_ObjectHideFlags: 0
@@ -452,11 +452,11 @@ MonoBehaviour:
     m_Bits: 64
   fireRate: 0.5
   rangedEnemyBarrel: {fileID: 1534950685861195398}
-  bullet: {fileID: 0}
-  attackRadius: 15
+  bullet: {fileID: 8825756520780227631, guid: 678af2a790a23134594e78dcc3b051a8, type: 3}
+  attackRadius: 25
   loots:
   - {fileID: 3052687373951041460, guid: 3202b50a89e1b654a80d40bbc572967f, type: 3}
-  - {fileID: 0}
+  - {fileID: 9149979268551800228, guid: 29b553709f7dfda47a8691c37073a5ba, type: 3}
   potionTreshold: 20
   shurikenTreshold: 40
   path:
@@ -465,7 +465,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   enemyHealthSlider: {fileID: 1534950686303041774}
-  player: {fileID: 0}
+  player: {fileID: 7154981793513083204, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
   _audioSource: {fileID: 1534950686663640426}
   _audioClips: []
 --- !u!33 &1534950686663640343

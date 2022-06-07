@@ -2516,14 +2516,6 @@ PrefabInstance:
       value: MeleeEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 4923948674901728174, guid: f9b1722c5e7e6644e839b115832b080f, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1641452787}
-    - target: {fileID: 4923948674901728174, guid: f9b1722c5e7e6644e839b115832b080f, type: 3}
-      propertyPath: potionTreshold
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4923948674901728174, guid: f9b1722c5e7e6644e839b115832b080f, type: 3}
       propertyPath: path.Array.data[0]
       value: 
       objectReference: {fileID: 1708449900}
