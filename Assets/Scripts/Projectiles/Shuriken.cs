@@ -18,19 +18,24 @@ public class Shuriken : MonoBehaviour
         
         transform.LookAt(_cameraTry.crosshair);
         _rigidbody.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
+        
+        Destroy(gameObject, 3);
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.collider.CompareTag(Constants.meleeEnemyTag))
+        Destroy(gameObject);
+        
+        if (other.CompareTag(Constants.meleeEnemyTag))
         {
             FindObjectOfType<MeleeEnemy>().MeleeEnemyGetHit(shurikenDamage);
             Destroy(gameObject);
         }
-        if (other.collider.CompareTag(Constants.rangedEnemyTag))
+        if (other.CompareTag(Constants.rangedEnemyTag))
         {
             FindObjectOfType<RangedEnemy>().RangedEnemyGetHit(shurikenDamage);
             Destroy(gameObject);
         }
     }
+    
 }

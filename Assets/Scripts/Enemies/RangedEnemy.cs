@@ -64,7 +64,7 @@ public class RangedEnemy : MonoBehaviour
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
-        _playerCs = player.GetComponent<Player>();
+        _playerCs = FindObjectOfType<Player>();
         _target = GameObject.FindGameObjectWithTag(Constants.playerTag).transform;
         currentState = EnemyStates.Attack;
         
@@ -180,13 +180,13 @@ public class RangedEnemy : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
-            _rigidbody.velocity = Vector3.zero;
-
             transform.LookAt(player.transform.position);
+            
             _timeSinceLastFire += Time.deltaTime;
             if (_timeSinceLastFire > fireRate)
             {
                 //_audioSource.PlayOneShot(_audioClips[1]);
+                transform.rotation = Quaternion.Inverse(transform.rotation);
                 
                 _animator.SetTrigger("isAttacking");
                 Instantiate(bullet, rangedEnemyBarrel.position, Quaternion.identity);

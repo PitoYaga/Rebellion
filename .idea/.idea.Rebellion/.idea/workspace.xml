@@ -30,7 +30,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/HealthPosion.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
@@ -41,8 +40,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/KayriWasHere/PathsScript.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -130,6 +130,7 @@
       <workItem from="1654611097799" duration="2470000" />
       <workItem from="1654614337856" duration="5848000" />
       <workItem from="1654627554248" duration="1351000" />
+      <workItem from="1654635554624" duration="4486000" />
     </task>
     <servers />
   </component>

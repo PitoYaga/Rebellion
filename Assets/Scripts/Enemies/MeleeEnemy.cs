@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public enum EnemyStates { Walk, Chase, Attack };
 
@@ -66,6 +67,7 @@ public class MeleeEnemy : MonoBehaviour
         currentState = EnemyStates.Walk;
         enemyHealthSlider.maxValue = meleeEnemyMaxHealth;
         enemyHealthSlider.value = meleeEnemyHealth;
+        _currentIdx = Random.Range(0, path.Length - 1);
     }
     
     void Update()
@@ -147,7 +149,7 @@ public class MeleeEnemy : MonoBehaviour
     
     void IterateIndex()
     {
-        _currentIdx++;
+        _currentIdx = Random.Range(0, path.Length - 1);
         _currentIdx %= path.Length;
     }
     
