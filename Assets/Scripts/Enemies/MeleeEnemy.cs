@@ -52,6 +52,7 @@ public class MeleeEnemy : MonoBehaviour
     private Player _playerCs;
     private Rigidbody _rigidbody;
     private bool isAlive = true;
+    private Animator _animator;
     
     void Start()
     {
@@ -59,6 +60,7 @@ public class MeleeEnemy : MonoBehaviour
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _playerCs = FindObjectOfType<Player>();
         _audioSource = GetComponent<AudioSource>();
+        _animator = GetComponent<Animator>();
         _target = GameObject.FindGameObjectWithTag(Constants.playerTag).transform;
         
         currentState = EnemyStates.Walk;
@@ -126,6 +128,7 @@ public class MeleeEnemy : MonoBehaviour
             //walking animation
             //_audioSource.PlayOneShot(_audioClips[0]);
             
+            _animator.SetTrigger("isWalking");
             _navMeshAgent.speed = walkSpeed;
             _navMeshAgent.SetDestination(path[_currentIdx].position);
             return;
@@ -150,6 +153,7 @@ public class MeleeEnemy : MonoBehaviour
     
     void Chase()
     {
+        _animator.SetTrigger("alerted");
         _navMeshAgent.speed = chaseSpeed;
         _navMeshAgent.SetDestination(_target.position);
 
@@ -174,9 +178,10 @@ public class MeleeEnemy : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
-            //attack animation
+            _animator.SetTrigger("isAttacking");
             //_audioSource.PlayOneShot(_audioClips[1]);
             _navMeshAgent.velocity = Vector3.zero;
+            _rigidbody.velocity = Vector3.zero;
             _navMeshAgent.speed = attackSpeed;
             _playerCs.PlayerGetHit(enemyDamage);
         }
@@ -184,6 +189,7 @@ public class MeleeEnemy : MonoBehaviour
         
         if (!Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
+            _animator.SetTrigger("isWalking");
             currentState = EnemyStates.Chase;
         }
 
@@ -203,6 +209,7 @@ public class MeleeEnemy : MonoBehaviour
         //_audioSource.PlayOneShot(_audioClips[2]);
         
         _navMeshAgent.velocity = -transform.forward * knockBackPower;
+        _animator.SetTrigger("knockback");
 
         meleeEnemyHealth -= playerDamage;
         enemyHealthSlider.value = meleeEnemyHealth;
@@ -217,6 +224,8 @@ public class MeleeEnemy : MonoBehaviour
     {
         isAlive = false;
         _playerCs.rageBar += enemyRageXp;
+        _animator.SetTrigger("death");
+        
         if(UnityEngine.Random.Range(1 , 100) <= potionTreshold)
         {
             Instantiate(loots[0], transform.position, Quaternion.identity);
@@ -227,9 +236,8 @@ public class MeleeEnemy : MonoBehaviour
         }
         
         //_audioSource.PlayOneShot(_audioClips[3]);
-        //death animation
-        
-        Destroy(gameObject, 1);//death animation time
+
+        Destroy(gameObject, 1);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -47,7 +47,6 @@ public class RangedEnemy : MonoBehaviour
     [Header("Objects")]
     [SerializeField] private Slider enemyHealthSlider;
     [SerializeField] GameObject player;
-    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip[] _audioClips;
     
     private float _timeSinceLastDecision;
@@ -56,14 +55,15 @@ public class RangedEnemy : MonoBehaviour
     private Player _playerCs;
     private Rigidbody _rigidbody;
     private bool _isAlive = true;
-    
-    //navmesh rigidbody kullanabilir
-    //kapatsak bile velocity durur.
+    private AudioSource _audioSource;
+    private Animator _animator;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _audioSource = GetComponent<AudioSource>();
+        _animator = GetComponent<Animator>();
         _playerCs = player.GetComponent<Player>();
         _target = GameObject.FindGameObjectWithTag(Constants.playerTag).transform;
         currentState = EnemyStates.Attack;
@@ -181,14 +181,14 @@ public class RangedEnemy : MonoBehaviour
         if (Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
             _rigidbody.velocity = Vector3.zero;
-            //attack animation
-            
-            transform.LookAt(_target.position);
+
+            transform.LookAt(player.transform.position);
             _timeSinceLastFire += Time.deltaTime;
             if (_timeSinceLastFire > fireRate)
             {
                 //_audioSource.PlayOneShot(_audioClips[1]);
                 
+                _animator.SetTrigger("isAttacking");
                 Instantiate(bullet, rangedEnemyBarrel.position, Quaternion.identity);
                 _timeSinceLastFire = 0;
             }
@@ -215,6 +215,7 @@ public class RangedEnemy : MonoBehaviour
         
         //_audioSource.PlayOneShot(_audioClips[2]);
         
+        _animator.SetTrigger("getHit");
         _navMeshAgent.velocity = -transform.forward * knockBackPower;
         rangedEnemyHealth -= playerDamage;
         enemyHealthSlider.value = rangedEnemyHealth;
@@ -240,9 +241,9 @@ public class RangedEnemy : MonoBehaviour
         }
         
         //_audioSource.PlayOneShot(_audioClips[3]);
-        //death animation
+        _animator.SetTrigger("death");
         
-        Destroy(gameObject, 2);
+        Destroy(gameObject, 1);
     }
     
     
