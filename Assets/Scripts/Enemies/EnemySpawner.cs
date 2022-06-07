@@ -12,17 +12,12 @@ namespace Enemies
         private int _spawnPos;
         private GameObject _enemy;
         
-        void Update()
-        {
-            _enemyType = Random.Range(0, 2);
-        }
-
         void EnemySpawn()
         {
-        
             for (int i = 0; i < spawnPoses.Length * 1.5f; i++)
             {
                 _spawnPos = Random.Range(0, spawnPoses.Length);
+                _enemyType = Random.Range(0, 2);
 
                 _enemy = Instantiate(enemies[_enemyType], spawnPoses[_spawnPos]);
                 _enemy.transform.position = spawnPoses[_spawnPos].position;

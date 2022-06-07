@@ -8,13 +8,8 @@ public class PlayerInteraction : MonoBehaviour
     [Header("SecurityCard")] 
     [SerializeField] private GameObject cardUI;
     [SerializeField] private Text securityCardText;
-    public int securityCard = 0;
-    
-    void Start()
-    {
-        
-    }
-    
+    public int securityCard;
+
     void Update()
     {
         securityCardText.text = securityCard.ToString();
