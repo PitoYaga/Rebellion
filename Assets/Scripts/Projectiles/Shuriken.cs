@@ -22,20 +22,19 @@ public class Shuriken : MonoBehaviour
         Destroy(gameObject, 3);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         Destroy(gameObject);
         
-        if (other.CompareTag(Constants.meleeEnemyTag))
+        if (other.collider.CompareTag(Constants.meleeEnemyTag))
         {
             FindObjectOfType<MeleeEnemy>().MeleeEnemyGetHit(shurikenDamage);
             Destroy(gameObject);
         }
-        if (other.CompareTag(Constants.rangedEnemyTag))
+        if (other.collider.CompareTag(Constants.rangedEnemyTag))
         {
             FindObjectOfType<RangedEnemy>().RangedEnemyGetHit(shurikenDamage);
             Destroy(gameObject);
         }
     }
-    
 }

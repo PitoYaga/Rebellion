@@ -51,19 +51,20 @@ public class MeleeEnemy : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     private Transform _target;
     private Player _playerCs;
-    private Rigidbody _rigidbody;
     private bool isAlive = true;
     private Animator _animator;
-    
-    void Start()
+
+    private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _playerCs = FindObjectOfType<Player>();
         _audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
         _target = GameObject.FindGameObjectWithTag(Constants.playerTag).transform;
-        
+    }
+
+    void Start()
+    {
         currentState = EnemyStates.Walk;
         enemyHealthSlider.maxValue = meleeEnemyMaxHealth;
         enemyHealthSlider.value = meleeEnemyHealth;
@@ -72,6 +73,7 @@ public class MeleeEnemy : MonoBehaviour
     
     void Update()
     {
+        enemyHealthSlider.value = meleeEnemyHealth;
         if (isAlive)
         {
             _timeSinceLastDecision += Time.deltaTime;
@@ -182,9 +184,10 @@ public class MeleeEnemy : MonoBehaviour
         {
             _animator.SetTrigger("isAttacking");
             //_audioSource.PlayOneShot(_audioClips[1]);
+            
             _navMeshAgent.velocity = Vector3.zero;
-            _rigidbody.velocity = Vector3.zero;
             _navMeshAgent.speed = attackSpeed;
+            
             _playerCs.PlayerGetHit(enemyDamage);
         }
         _attackCollider = null;

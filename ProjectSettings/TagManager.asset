@@ -8,9 +8,8 @@ TagManager:
   - MeleeEnemy
   - RangedEnemy
   - Enemy
-  - OldBoy
   - Door
-  - Collidor
+  - Target
   layers:
   - Default
   - TransparentFX

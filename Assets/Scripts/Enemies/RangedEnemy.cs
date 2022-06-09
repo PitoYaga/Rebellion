@@ -40,32 +40,36 @@ public class RangedEnemy : MonoBehaviour
     [SerializeField] private int shurikenTreshold = 30;
     
     [Header("Path Movement")]
-    [SerializeField] private Transform[] path;
+    //[SerializeField] private Transform[] path;
     private int _currentIdx;
     //[SerializeField] private float stepSize = 1;
 
     [Header("Objects")]
     [SerializeField] private Slider enemyHealthSlider;
-    [SerializeField] GameObject player;
-    [SerializeField] private AudioClip[] _audioClips;
+    
+    //[SerializeField] private AudioClip[] _audioClips;
     
     private float _timeSinceLastDecision;
     private NavMeshAgent _navMeshAgent;
-    private Transform _target;
+    private Animator _animator;
+    GameObject player;
     private Player _playerCs;
-    private Rigidbody _rigidbody;
     private bool _isAlive = true;
     private AudioSource _audioSource;
-    private Animator _animator;
+    private bool gettingHit;
+    
 
-    void Start()
+    private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
         _playerCs = FindObjectOfType<Player>();
-        _target = GameObject.FindGameObjectWithTag(Constants.playerTag).transform;
+    }
+
+    void Start()
+    {
+        player = GameObject.FindWithTag(Constants.playerTag);
         currentState = EnemyStates.Attack;
         
         enemyHealthSlider.maxValue = rangedEnemyMaxHealth;

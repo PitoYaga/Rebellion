@@ -232,8 +232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8639151428561403942, guid: 875515c213ce8404191a4dd34141cf3a, type: 3}
+  - {fileID: 6115120778503588785, guid: 1501e9295335fed4f8678b1d40240dd8, type: 3}
   spawnPoses:
   - {fileID: 4995373138527685446}
   - {fileID: 4995373138933756652}

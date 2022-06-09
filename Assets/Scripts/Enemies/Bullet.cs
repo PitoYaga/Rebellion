@@ -6,7 +6,6 @@ namespace Enemies
     {
         [SerializeField] float bulletSpeed = 50;
         [SerializeField] private float bulletDamage = 5;
-        [SerializeField] private Transform target;
         
         private Rigidbody _rigidbody;
     
@@ -14,7 +13,7 @@ namespace Enemies
         {
             _rigidbody = GetComponent<Rigidbody>();
             
-            transform.LookAt(target.position);
+            transform.LookAt(GameObject.FindWithTag(Constants.bulletTargetTag).transform.position);
             _rigidbody.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
         }
 

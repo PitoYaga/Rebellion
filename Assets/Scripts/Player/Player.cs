@@ -54,14 +54,17 @@ public class Player : MonoBehaviour
     private CharacterController _characterController;
     public bool isAlive = true;
     private CameraTry _cameraTry;
-    
-    void Start()
+
+    private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
         _cameraTry = FindObjectOfType<CameraTry>();
         _animator = GetComponent<Animator>();
-        
         dashVFX.Stop();
+    }
+
+    void Start()
+    {
         playerHeathSlider.maxValue = playerMaxHealth;
         playerHeathSlider.value = playerHealth;
         rageBarSlider.value = rageBar;
@@ -329,9 +332,7 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene("DeathScene");
     }
     
-    
-
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Constants.oldBoyTag))
         {
@@ -340,7 +341,7 @@ public class Player : MonoBehaviour
             oldboy = true;
             Destroy(other.gameObject);
         }
-    }
+    }*/
     
 
     

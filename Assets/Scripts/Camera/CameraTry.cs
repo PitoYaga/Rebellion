@@ -46,7 +46,7 @@ public class CameraTry : MonoBehaviour
         }
         else
         {
-            crosshair = ray.GetPoint(125);
+            crosshair = ray.GetPoint(75);
         }
 
         return crosshair;
