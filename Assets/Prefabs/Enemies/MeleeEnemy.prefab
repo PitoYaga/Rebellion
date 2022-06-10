@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47226333aee841e43b13fca64866719a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookAtPlayer: {fileID: 1186183079500586230, guid: 2537db1df28d8c64fbb8025baba94676, type: 3}
+  lookAtPlayer: {fileID: 0}
 --- !u!223 &8639151427859954817
 Canvas:
   m_ObjectHideFlags: 0
@@ -406,10 +406,10 @@ MonoBehaviour:
   meleeEnemyMaxHealth: 20
   meleeEnemyHealth: 20
   enemyRageXp: 20
-  walkSpeed: 6
-  chaseSpeed: 15
+  walkSpeed: 10
+  chaseSpeed: 25
   attackSpeed: 0
-  knockBackPower: 7
+  knockBackPower: 10
   currentState: 0
   decisionInterval: 0.5
   playerLayer:
@@ -607,7 +607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8639151428758960450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: 13.56, z: 3.71}
+  m_LocalPosition: {x: -0.11, y: 9, z: 5.2050867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8639151428561403949}
@@ -656,6 +656,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8639151428561403949}
     m_Modifications:
+    - target: {fileID: 811730880346167628, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
+      propertyPath: m_Materials.Array.data[21]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb37f139a44301e48a38ca98bf98df96, type: 2}
+    - target: {fileID: 811730880346167628, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
+      propertyPath: m_Materials.Array.data[23]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb37f139a44301e48a38ca98bf98df96, type: 2}
+    - target: {fileID: 5505860066186879068, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505860066186879068, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505860066186879068, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505860066186879068, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5505860066186879068, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8309924927157215619, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
       propertyPath: m_Name
       value: EnemyModel

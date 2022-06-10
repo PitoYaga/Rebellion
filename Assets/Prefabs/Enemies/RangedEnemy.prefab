@@ -209,7 +209,7 @@ MonoBehaviour:
   rangedEnemyMaxHealth: 10
   rangedEnemyHealth: 10
   enemyRageXp: 20
-  knockBackPower: 5
+  knockBackPower: 10
   currentState: 0
   decisionInterval: 0.005
   playerLayer:
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47226333aee841e43b13fca64866719a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookAtPlayer: {fileID: 1186183079500586230, guid: 2537db1df28d8c64fbb8025baba94676, type: 3}
+  lookAtPlayer: {fileID: 0}
 --- !u!223 &6115120778792348402
 Canvas:
   m_ObjectHideFlags: 0
@@ -677,6 +677,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6115120778503588778}
     m_Modifications:
+    - target: {fileID: 811730880346167628, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
+      propertyPath: m_Materials.Array.data[21]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb37f139a44301e48a38ca98bf98df96, type: 2}
+    - target: {fileID: 811730880346167628, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
+      propertyPath: m_Materials.Array.data[23]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb37f139a44301e48a38ca98bf98df96, type: 2}
     - target: {fileID: 8309924927157215619, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
       propertyPath: m_Name
       value: EnemyModel

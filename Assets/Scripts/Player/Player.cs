@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform katanaArea;
     //[SerializeField] float katanaCooldown = 0.5f;
     //private float _timeSinceLastMelee;
+    [SerializeField] private GameObject shuriken;
     [SerializeField] float fireRate = 1;
     public float shurikenMagazine = 10;
     [SerializeField] private Text shurikenMagazineText;
@@ -35,24 +36,23 @@ public class Player : MonoBehaviour
     private float _currentRageModeCooldown = 5;
     public bool rageModeOn;
     
-    [Header("Components")] 
-    [SerializeField] private new Camera camera;
+    [Header("Components")]
     public Slider playerHeathSlider;
     [SerializeField] private Text playerHealthText;
     [SerializeField] private Slider rageBarSlider;
-    [SerializeField] private GameObject shuriken;
     [SerializeField] private Transform barrel;
     public bool oldboy;
     [SerializeField] private AudioSource[] audioSources;
 
+    private CharacterController _characterController;
     private Vector3 _move;
     private Animator _animator;
     private float _currentSpeed = 4;
     private bool _isMoving;
     private bool _isDashing;
     private Collider[] _colliders;
-    private CharacterController _characterController;
     public bool isAlive = true;
+    private GameObject camera;
     private CameraTry _cameraTry;
 
     private void Awake()
@@ -65,6 +65,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        camera = GameObject.FindWithTag(Constants.cameraTag);
+        
         playerHeathSlider.maxValue = playerMaxHealth;
         playerHeathSlider.value = playerHealth;
         rageBarSlider.value = rageBar;

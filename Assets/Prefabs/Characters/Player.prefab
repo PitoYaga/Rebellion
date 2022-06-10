@@ -59,6 +59,7 @@ MonoBehaviour:
   katanaDamage: 2
   katanaRange: 4
   katanaArea: {fileID: 4897034605477845804}
+  shuriken: {fileID: 4856607958228005482, guid: 2fc7a73021315d84a8d0c2c9d12b4b31, type: 3}
   fireRate: 0.2
   shurikenMagazine: 50
   shurikenMagazineText: {fileID: 0}
@@ -66,11 +67,9 @@ MonoBehaviour:
   maxRageBar: 100
   rageModeCooldown: 5
   rageModeOn: 0
-  camera: {fileID: 0}
   playerHeathSlider: {fileID: 0}
   playerHealthText: {fileID: 0}
   rageBarSlider: {fileID: 0}
-  shuriken: {fileID: 4856607958228005482, guid: 2fc7a73021315d84a8d0c2c9d12b4b31, type: 3}
   barrel: {fileID: 4897034605827816897}
   oldboy: 0
   audioSources:
@@ -145,7 +144,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 6.4, y: 1, z: 6.4}
+  m_Extents: {x: 4.5, y: 1, z: 4.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 0
@@ -158,6 +157,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1186183079500586230}
     m_Modifications:
+    - target: {fileID: 1971039891212806539, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c74e779763578e04bbe12f5c12d884a1, type: 2}
+    - target: {fileID: 1971039891212806539, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c74e779763578e04bbe12f5c12d884a1, type: 2}
+    - target: {fileID: 1971039891212806539, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
+      propertyPath: m_Materials.Array.data[14]
+      value: 
+      objectReference: {fileID: 2100000, guid: c74e779763578e04bbe12f5c12d884a1, type: 2}
+    - target: {fileID: 1971039891212806539, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
+      propertyPath: m_Materials.Array.data[22]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb37f139a44301e48a38ca98bf98df96, type: 2}
     - target: {fileID: 2616618220366474090, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 35
@@ -248,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661365043850989723, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 7154981793513083204, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
       propertyPath: m_Name

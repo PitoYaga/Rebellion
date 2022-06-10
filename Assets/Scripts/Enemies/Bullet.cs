@@ -8,12 +8,14 @@ namespace Enemies
         [SerializeField] private float bulletDamage = 5;
         
         private Rigidbody _rigidbody;
+        private GameObject _target;
     
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _target = GameObject.FindWithTag(Constants.bulletTargetTag);
             
-            transform.LookAt(GameObject.FindWithTag(Constants.bulletTargetTag).transform.position);
+            transform.LookAt(_target.transform.position);
             _rigidbody.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
         }
 

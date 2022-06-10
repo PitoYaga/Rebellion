@@ -11,4 +11,5 @@ public class Constants : MonoBehaviour
     public static string oldBoyTag = "OldBoy";
     public static string doorTag = "Door";
     public static string collidorTag = "Collidor";
+    public static string cameraTag = "MainCamera";
 }

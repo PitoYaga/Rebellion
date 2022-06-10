@@ -186,17 +186,37 @@ public class RangedEnemy : MonoBehaviour
         {
             transform.LookAt(player.transform.position);
             
-            _timeSinceLastFire += Time.deltaTime;
-            if (_timeSinceLastFire > fireRate)
+            Ray ray = new Ray(rangedEnemyBarrel.position, rangedEnemyBarrel.forward);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100))
             {
-                //_audioSource.PlayOneShot(_audioClips[1]);
-                transform.rotation = Quaternion.Inverse(transform.rotation);
+                if (hit.collider.CompareTag(Constants.playerTag))
+                {
+                    _timeSinceLastFire += Time.deltaTime;
+                    if (_timeSinceLastFire > fireRate)
+                    {
+                        //_audioSource.PlayOneShot(_audioClips[1]);
+                        transform.rotation = Quaternion.Inverse(transform.rotation);
                 
-                _animator.SetTrigger("isAttacking");
-                Instantiate(bullet, rangedEnemyBarrel.position, Quaternion.identity);
-                _timeSinceLastFire = 0;
+                        _animator.SetTrigger("isAttacking");
+                        Instantiate(bullet, rangedEnemyBarrel.position, Quaternion.identity);
+                        _timeSinceLastFire = 0;
+                    }
+                }
+            }
+
+            if (Physics.Raycast(rangedEnemyBarrel.position, rangedEnemyBarrel.forward, attackRadius))
+            {
+                
+            }
+
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), attackRadius,playerLayer))
+            {
+               
             }
         }
+
         //_attackCollider = null;
         
         /*if (!Physics.CheckSphere(transform.position, attackRadius, playerLayer))
@@ -265,5 +285,9 @@ public class RangedEnemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, currentChaseRadius);*/
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRadius);
+        
+        Gizmos.color = Color.yellow;
+        Vector3 direction = rangedEnemyBarrel.TransformDirection(Vector3.forward) * attackRadius;
+        Gizmos.DrawRay(rangedEnemyBarrel.position, direction);
     }
 }
