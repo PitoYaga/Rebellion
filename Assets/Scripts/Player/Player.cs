@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 {
     [Header("Stats")]
     //public float playerHealth = 20;
-    public float playerMaxHealth = 20;
+    public float playerMaxHealth = 100;
     [SerializeField] private float speed = 4;
     [SerializeField] private float runSpeed = 7;
     [SerializeField] private float dashSpeed = 200;
