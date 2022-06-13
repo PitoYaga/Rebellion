@@ -227,17 +227,18 @@ public class MeleeEnemy : MonoBehaviour
     
     void MeleeEnemyDeath()
     {
+        Vector3 lootPosOffset= new Vector3(0,  10, 0);
         isAlive = false;
         _playerCs.rageBar += enemyRageXp;
         _animator.SetTrigger("death");
         
-        if(UnityEngine.Random.Range(1 , 100) <= potionTreshold)
-        {
-            Instantiate(loots[0], transform.position, Quaternion.identity);
-        } 
         if(UnityEngine.Random.Range(1 , 100) <= shurikenTreshold)
         {
-            Instantiate(loots[1], transform.position, Quaternion.identity);
+            Instantiate(loots[1], transform.position + lootPosOffset, Quaternion.identity);
+        }
+        else if(UnityEngine.Random.Range(1 , 100) <= potionTreshold)
+        {
+            Instantiate(loots[0], transform.position + lootPosOffset, Quaternion.identity);
         }
         
         //_audioSource.PlayOneShot(_audioClips[3]);

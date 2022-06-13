@@ -1,13 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constants;
 
 public class EnemySlider : MonoBehaviour
 {
-    [SerializeField] private Transform lookAtPlayer;
-    
     void Update()
     {
-        transform.LookAt(lookAtPlayer.position);
+        transform.LookAt(GameObject.FindWithTag(Constants.cameraTag).transform.position);
     }
 }

@@ -57,7 +57,7 @@ public class RangedEnemy : MonoBehaviour
     private bool _isAlive = true;
     private AudioSource _audioSource;
     private bool gettingHit;
-    
+
 
     private void Awake()
     {
@@ -65,13 +65,13 @@ public class RangedEnemy : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
         _playerCs = FindObjectOfType<Player>();
+        currentState = EnemyStates.Attack;
     }
 
     void Start()
     {
         player = GameObject.FindWithTag(Constants.playerTag);
-        currentState = EnemyStates.Attack;
-        
+
         enemyHealthSlider.maxValue = rangedEnemyMaxHealth;
         enemyHealthSlider.value = rangedEnemyHealth;
     }
@@ -205,16 +205,6 @@ public class RangedEnemy : MonoBehaviour
                     }
                 }
             }
-
-            if (Physics.Raycast(rangedEnemyBarrel.position, rangedEnemyBarrel.forward, attackRadius))
-            {
-                
-            }
-
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), attackRadius,playerLayer))
-            {
-               
-            }
         }
 
         //_attackCollider = null;
@@ -252,21 +242,22 @@ public class RangedEnemy : MonoBehaviour
     
     void RangedEnemyDeath()
     {
+        Vector3 lootPosOffset = new Vector3(0, 10, 0);
         _isAlive = false;
         _playerCs.rageBar += enemyRageXp;
+        _animator.SetTrigger("death");
         
         if(UnityEngine.Random.Range(1 , 100) <= shurikenTreshold)
         {
-            Instantiate(loots[1], transform.position, Quaternion.identity);
+            Instantiate(loots[1], transform.position + lootPosOffset, Quaternion.identity);
         }
-        if(UnityEngine.Random.Range(1 , 100) <= potionTreshold)
+        else if(UnityEngine.Random.Range(1 , 100) <= potionTreshold)
         {
-            Instantiate(loots[0], transform.position, Quaternion.identity);
+            Instantiate(loots[0], transform.position + lootPosOffset, Quaternion.identity);
         }
         
         //_audioSource.PlayOneShot(_audioClips[3]);
-        _animator.SetTrigger("death");
-        
+
         Destroy(gameObject, 1);
     }
     

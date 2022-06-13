@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47226333aee841e43b13fca64866719a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookAtPlayer: {fileID: 0}
 --- !u!223 &8639151427859954817
 Canvas:
   m_ObjectHideFlags: 0
@@ -138,7 +137,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 8130435422008466088, guid: fde9f0fa22d076e4fb6fcae3a9c9781d, type: 3}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -423,7 +422,7 @@ MonoBehaviour:
   loots:
   - {fileID: 3052687373951041460, guid: 3202b50a89e1b654a80d40bbc572967f, type: 3}
   - {fileID: 9149979268551800228, guid: 29b553709f7dfda47a8691c37073a5ba, type: 3}
-  potionTreshold: 20
+  potionTreshold: 100
   shurikenTreshold: 30
   path:
   - {fileID: 0}
@@ -670,7 +669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5505860066186879068, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 5505860066186879068, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
       propertyPath: m_LocalPosition.z

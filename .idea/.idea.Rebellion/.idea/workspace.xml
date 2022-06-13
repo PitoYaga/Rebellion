@@ -39,10 +39,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/KayriWasHere/PathsScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Constants.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySlider.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
     </changedPaths>
   </component>
@@ -135,7 +136,8 @@
       <workItem from="1654669242323" duration="5042000" />
       <workItem from="1654780756177" duration="670000" />
       <workItem from="1654799719389" duration="3551000" />
-      <workItem from="1654863421663" duration="5945000" />
+      <workItem from="1654863421663" duration="8705000" />
+      <workItem from="1655118623876" duration="2705000" />
     </task>
     <servers />
   </component>
