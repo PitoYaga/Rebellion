@@ -46,6 +46,7 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private Slider enemyHealthSlider;
     private AudioSource _audioSource;
     [SerializeField] private AudioClip[] _audioClips;
+    [SerializeField] private StatsSaves _statsSaves;
     
     private float _timeSinceLastDecision;
     private NavMeshAgent _navMeshAgent;
@@ -204,10 +205,10 @@ public class MeleeEnemy : MonoBehaviour
     {
         if (_playerCs.rageModeOn)
         {
-            _playerCs.playerHealth += playerDamage / 2;
-            if (_playerCs.playerHealth >= _playerCs.playerMaxHealth)
+            _statsSaves.HealthVar += playerDamage / 2;
+            if ( _statsSaves.HealthVar >= _playerCs.playerMaxHealth)
             {
-                _playerCs.playerHealth = _playerCs.playerMaxHealth;
+                _statsSaves.HealthVar = _playerCs.playerMaxHealth;
             }
         }
         

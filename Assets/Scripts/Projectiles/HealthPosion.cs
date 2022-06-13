@@ -10,6 +10,8 @@ namespace Projectiles
         [SerializeField] private Transform rotateAncher;
         private Slider playerSlider;
 
+        [SerializeField] private StatsSaves _statsSaves;
+
 
         private void Start()
         {
@@ -25,15 +27,16 @@ namespace Projectiles
         {
             if (other.tag == Constants.playerTag)
             {
-                if (FindObjectOfType<Player>().playerHealth >= 80)
+                if (_statsSaves.HealthVar >= 80)
                 {
-                    FindObjectOfType<Player>().playerHealth = 100;
+                    _statsSaves.HealthVar = 100;
                 }
                 else
                 {
-                    FindObjectOfType<Player>().playerHealth += healthPosion;
+                    _statsSaves.HealthVar += healthPosion;
                 }
-                playerSlider.value = FindObjectOfType<Player>().playerHealth;
+
+                playerSlider.value = _statsSaves.HealthVar;
                 Destroy(gameObject);
             }
         }

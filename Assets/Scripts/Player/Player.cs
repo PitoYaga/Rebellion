@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [Header("Stats")]
-    public float playerHealth = 20;
+    //public float playerHealth = 20;
     public float playerMaxHealth = 20;
     [SerializeField] private float speed = 4;
     [SerializeField] private float runSpeed = 7;
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     [Header("Components")]
     public Slider playerHeathSlider;
     [SerializeField] private Text playerHealthText;
-    [SerializeField] private Slider rageBarSlider;
+    public Slider rageBarSlider;
     [SerializeField] private Transform barrel;
     public bool oldboy;
     [SerializeField] private AudioSource[] audioSources;
@@ -52,8 +52,9 @@ public class Player : MonoBehaviour
     private bool _isDashing;
     private Collider[] _colliders;
     public bool isAlive = true;
-    private GameObject camera;
+    private new GameObject _camera;
     private CameraTry _cameraTry;
+    [SerializeField] private StatsSaves _statsSaves;
 
     private void Awake()
     {
@@ -65,11 +66,11 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        camera = GameObject.FindWithTag(Constants.cameraTag);
+        _camera = GameObject.FindWithTag(Constants.cameraTag);
         
         playerHeathSlider.maxValue = playerMaxHealth;
-        playerHeathSlider.value = playerHealth;
-        rageBarSlider.value = rageBar;
+        playerHeathSlider.value = _statsSaves.HealthVar;
+        rageBarSlider.value = _statsSaves.RageVar;
         rageBarSlider.maxValue = maxRageBar;
         _currentRageModeCooldown = rageModeCooldown;
         _currentSpeed = speed;
@@ -77,8 +78,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        playerHealthText.text = playerHealth.ToString();
-        shurikenMagazineText.text = shurikenMagazine.ToString();
+        playerHealthText.text = _statsSaves.HealthVar.ToString();
+        shurikenMagazineText.text = _statsSaves.ShurikenVar.ToString();
 
         if (isAlive)
         {
@@ -113,7 +114,7 @@ public class Player : MonoBehaviour
             }
             
             _move = new Vector3(h, 0, v);
-            _move = camera.transform.TransformDirection(_move);
+            _move = _camera.transform.TransformDirection(_move);
             _move.y = 0;
             
             if (Input.GetKey(KeyCode.LeftShift))
@@ -256,7 +257,7 @@ public class Player : MonoBehaviour
 
                     _animator.SetTrigger("shuriken");
                     Instantiate(shuriken, barrel.position, transform.rotation);
-                    shurikenMagazine--;
+                    _statsSaves.ShurikenVar--;
                     _timeSinceLastFire = 0;
                 }
             }
@@ -311,13 +312,13 @@ public class Player : MonoBehaviour
         //color can change
         
         audioSources[6].Play();
-        playerHealth -= enemyDamage;
-        playerHeathSlider.value = playerHealth;
+        _statsSaves.HealthVar -= enemyDamage;
+        playerHeathSlider.value = _statsSaves.HealthVar;
         
-        if (playerHealth <= 0)
+        if (_statsSaves.HealthVar <= 0)
         {
             playerHeathSlider.value = 0;
-            playerHealth = 0;
+            _statsSaves.HealthVar = 0;
             gameObject.layer = 0;
             
             _animator.SetTrigger("death");

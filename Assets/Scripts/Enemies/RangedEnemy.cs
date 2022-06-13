@@ -46,6 +46,7 @@ public class RangedEnemy : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private Slider enemyHealthSlider;
+    [SerializeField] private StatsSaves _statsSaves;
     
     //[SerializeField] private AudioClip[] _audioClips;
     
@@ -220,10 +221,10 @@ public class RangedEnemy : MonoBehaviour
     {
         if (_playerCs.rageModeOn)
         {
-            _playerCs.playerHealth += playerDamage / 2;
-            if (_playerCs.playerHealth >= _playerCs.playerMaxHealth)
+            _statsSaves.HealthVar += playerDamage / 2;
+            if ( _statsSaves.HealthVar >= _playerCs.playerMaxHealth)
             {
-                _playerCs.playerHealth = _playerCs.playerMaxHealth;
+                _statsSaves.HealthVar = _playerCs.playerMaxHealth;
             }
         }
         
