@@ -18,6 +18,7 @@ public class Save : MonoBehaviour
         {
             numCoins++;
             PlayerPrefs.SetFloat("Coins", numCoins);
+            
             PlayerPrefs.Save();
         }
 

@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Credits.unity
     guid: ba3f7f0059ab04844bc9e61a224e19ca
   - enabled: 1
-    path: Assets/Scenes/Menus/PauseMenu.unity
-    guid: bf63d31fbe2c1ed4cbeac69ae4d06329
-  - enabled: 1
     path: Assets/Scenes/Menus/DeathScene.unity
     guid: 5ff5b0997e5c87d42953c27452f9674f
   - enabled: 1

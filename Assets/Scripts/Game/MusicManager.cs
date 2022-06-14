@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,7 +16,18 @@ namespace Game
 
         private void Awake()
         {
-            DontDestroyOnLoad(this.gameObject);
+            if (_audioSource != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                DontDestroyOnLoad(this.gameObject);
+            }
+        }
+
+        private void Start()
+        {
             _audioSource = GetComponent<AudioSource>();
         }
 
@@ -23,22 +35,17 @@ namespace Game
         {
             _sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-            Debug.Log(_currentClip);
-            Debug.Log(_audioSource.isPlaying);
-        
             SetCurrentClip();
             PlayMusic();
         }
 
         void SetCurrentClip()
         {
-            if (_sceneIndex == 0 || _sceneIndex == 1 || _sceneIndex == 3)
+            if (_sceneIndex == 0 || _sceneIndex == 1 || _sceneIndex == 2)
             {
-                StopMusic();
                 _currentClip = menuMusic;
-                PlayMusic();
             }
-            else if (_sceneIndex == 2 || _sceneIndex == 4 || _sceneIndex == 5)
+            else if (_sceneIndex == 4)
             {
                 _currentClip = gameMusics[0];
             }
@@ -50,7 +57,7 @@ namespace Game
     
         void PlayMusic()
         {
-            if (_audioSource.isPlaying)
+            if (_audioSource.isPlaying && _audioSource.clip == _currentClip)
             {
                 return;
             }
