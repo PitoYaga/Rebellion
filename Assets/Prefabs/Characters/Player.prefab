@@ -206,7 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf882c4f4a7347459c837c71c6e7bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 20
   playerMaxHealth: 100
   speed: 4
   runSpeed: 9
@@ -219,7 +218,7 @@ MonoBehaviour:
   katanaArea: {fileID: 2924896271749910320}
   shuriken: {fileID: 4856607958228005482, guid: 2fc7a73021315d84a8d0c2c9d12b4b31, type: 3}
   fireRate: 0.2
-  shurikenMagazine: 50
+  shurikenMagazine: 10
   shurikenMagazineText: {fileID: 0}
   rageBar: 0
   maxRageBar: 100

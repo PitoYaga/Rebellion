@@ -405,8 +405,8 @@ MonoBehaviour:
   meleeEnemyMaxHealth: 20
   meleeEnemyHealth: 20
   enemyRageXp: 20
-  walkSpeed: 10
-  chaseSpeed: 25
+  walkSpeed: 20
+  chaseSpeed: 60
   attackSpeed: 0
   knockBackPower: 10
   currentState: 0
@@ -416,7 +416,7 @@ MonoBehaviour:
     m_Bits: 64
   enemyDamage: 1
   enemyAttackArea: {fileID: 8639151428758960451}
-  currentChaseRadius: 40
+  currentChaseRadius: 60
   chaseRadius: 40
   attackRadius: 5
   loots:
@@ -429,8 +429,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   enemyHealthSlider: {fileID: 8639151428429501535}
   _audioClips: []
+  _statsSaves: {fileID: 11400000, guid: becd2c923b8373744a0d8ddc6f512820, type: 2}
 --- !u!136 &8639151428561403939
 CapsuleCollider:
   m_ObjectHideFlags: 0

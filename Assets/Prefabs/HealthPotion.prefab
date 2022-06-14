@@ -79,6 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPosion: 20
   rotateAncher: {fileID: 3052687373951041463}
+  _statsSaves: {fileID: 11400000, guid: becd2c923b8373744a0d8ddc6f512820, type: 2}
 --- !u!33 &3052687374783840837
 MeshFilter:
   m_ObjectHideFlags: 0

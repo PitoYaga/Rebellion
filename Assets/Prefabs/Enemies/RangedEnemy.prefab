@@ -225,6 +225,7 @@ MonoBehaviour:
   potionTreshold: 100
   shurikenTreshold: 100
   enemyHealthSlider: {fileID: 6115120777034219240}
+  _statsSaves: {fileID: 11400000, guid: becd2c923b8373744a0d8ddc6f512820, type: 2}
 --- !u!136 &6115120778503588780
 CapsuleCollider:
   m_ObjectHideFlags: 0

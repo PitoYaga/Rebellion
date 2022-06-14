@@ -19,5 +19,7 @@ public class ResetData : MonoBehaviour
       _playerCs.rageBarSlider.maxValue = 0;
       
       _statsSaves.ShurikenVar = _playerCs.shurikenMagazine;
+      
+      Destroy(gameObject, 2);
    }
 }

@@ -48,10 +48,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/HealthPosion.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/ResetData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Save.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/ResetData.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -147,7 +147,9 @@
       <workItem from="1655118623876" duration="7043000" />
       <workItem from="1655135840404" duration="1918000" />
       <workItem from="1655143070770" duration="5288000" />
-      <workItem from="1655202149280" duration="1844000" />
+      <workItem from="1655202149280" duration="2448000" />
+      <workItem from="1655205513159" duration="1295000" />
+      <workItem from="1655214787970" duration="2768000" />
     </task>
     <servers />
   </component>

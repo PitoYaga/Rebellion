@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc5ebe99a1d53d44927a56dc2cbbaa0, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  healthVar: 0
+  healthVar: 40
   rageVar: 0
-  shurikenVar: 10
+  shurikenVar: 1

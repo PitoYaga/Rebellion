@@ -45,7 +45,7 @@ namespace Game
             {
                 _currentClip = menuMusic;
             }
-            else if (_sceneIndex == 4)
+            else if (_sceneIndex == 3)
             {
                 _currentClip = gameMusics[0];
             }
