@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -13,6 +14,7 @@ namespace Game
         private AudioSource _audioSource;
         private AudioClip _currentClip;
         private int _sceneIndex;
+        private int randomMusic;
 
         private void Awake()
         {
@@ -34,6 +36,7 @@ namespace Game
         private void Update()
         {
             _sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            randomMusic = Random.Range(0, gameMusics.Length);
 
             SetCurrentClip();
             PlayMusic();
@@ -47,7 +50,7 @@ namespace Game
             }
             else if (_sceneIndex == 3)
             {
-                _currentClip = gameMusics[0];
+                _currentClip = gameMusics[randomMusic];
             }
             else
             {

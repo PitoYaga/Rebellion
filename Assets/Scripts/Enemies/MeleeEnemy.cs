@@ -143,7 +143,7 @@ public class MeleeEnemy : MonoBehaviour
     bool ReachedTarget()
     {
         float distance = Vector3.Distance(transform.position, path[_currentIdx].position);
-        if (distance < 0.5f)
+        if (distance < 5)
         {
             return true;
         }

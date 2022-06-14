@@ -422,7 +422,7 @@ MonoBehaviour:
   loots:
   - {fileID: 3052687373951041460, guid: 3202b50a89e1b654a80d40bbc572967f, type: 3}
   - {fileID: 9149979268551800228, guid: 29b553709f7dfda47a8691c37073a5ba, type: 3}
-  potionTreshold: 100
+  potionTreshold: 20
   shurikenTreshold: 30
   path:
   - {fileID: 0}

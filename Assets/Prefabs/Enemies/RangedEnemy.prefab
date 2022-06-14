@@ -218,12 +218,12 @@ MonoBehaviour:
   fireRate: 0.5
   rangedEnemyBarrel: {fileID: 6115120778639614284}
   bullet: {fileID: 8825756520780227631, guid: 678af2a790a23134594e78dcc3b051a8, type: 3}
-  attackRadius: 50
+  attackRadius: 75
   loots:
   - {fileID: 3052687373951041460, guid: 3202b50a89e1b654a80d40bbc572967f, type: 3}
   - {fileID: 9149979268551800228, guid: 29b553709f7dfda47a8691c37073a5ba, type: 3}
-  potionTreshold: 100
-  shurikenTreshold: 100
+  potionTreshold: 20
+  shurikenTreshold: 40
   enemyHealthSlider: {fileID: 6115120777034219240}
   _statsSaves: {fileID: 11400000, guid: becd2c923b8373744a0d8ddc6f512820, type: 2}
 --- !u!136 &6115120778503588780

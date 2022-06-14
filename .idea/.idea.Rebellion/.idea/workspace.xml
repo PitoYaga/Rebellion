@@ -11,6 +11,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/TutorialCanvas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/StatsSaves.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteraction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueScene.cs" root0="FORCE_HIGHLIGHTING" />
@@ -47,11 +48,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/StatsSaves.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/HealthPosion.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Save.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/ResetData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/TutorialCanvas.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -150,6 +152,7 @@
       <workItem from="1655202149280" duration="2448000" />
       <workItem from="1655205513159" duration="1295000" />
       <workItem from="1655214787970" duration="2768000" />
+      <workItem from="1655241734386" duration="2610000" />
     </task>
     <servers />
   </component>
