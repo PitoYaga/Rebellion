@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ShurikenLoot : MonoBehaviour
 {
+    [SerializeField] private StatsSaves _statsSaves;
+    
     private void Update()
     {
         transform.Rotate(new Vector3(120, 0, 0) * Time.deltaTime);
@@ -14,7 +16,7 @@ public class ShurikenLoot : MonoBehaviour
     {
         if (other.CompareTag(Constants.playerTag))
         {
-            FindObjectOfType<Player>().shurikenMagazine++;
+            _statsSaves.ShurikenVar++;
             Destroy(gameObject);
         }
     }

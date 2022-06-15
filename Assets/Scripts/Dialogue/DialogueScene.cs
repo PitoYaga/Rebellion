@@ -22,6 +22,9 @@ public class DialogueScene : MonoBehaviour
     {
         _sceneIndex = SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(TypeSentences());
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     

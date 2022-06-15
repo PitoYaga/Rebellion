@@ -261,16 +261,16 @@ public class RangedEnemy : MonoBehaviour
 
         Destroy(gameObject, 1);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.tag == (Constants.shurikenTag))
+        {
+            RangedEnemyGetHit(FindObjectOfType<Shuriken>().shurikenDamage);
+        }
+    }
+
+
     private void OnDrawGizmos()
     {
         /*Gizmos.color = Color.yellow;

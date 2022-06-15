@@ -209,7 +209,7 @@ MonoBehaviour:
   rangedEnemyMaxHealth: 10
   rangedEnemyHealth: 10
   enemyRageXp: 20
-  knockBackPower: 10
+  knockBackPower: 15
   currentState: 0
   decisionInterval: 0.005
   playerLayer:

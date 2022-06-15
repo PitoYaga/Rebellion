@@ -17,6 +17,8 @@ namespace Enemies
             
             transform.LookAt(_target.transform.position);
             _rigidbody.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
+            
+            Destroy(gameObject, 3);
         }
 
         private void OnCollisionEnter(Collision other)

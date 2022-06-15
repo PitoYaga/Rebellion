@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
     private bool _isDashing;
     private Collider[] _colliders;
     public bool isAlive = true;
-    private new GameObject _camera;
+    private GameObject _camera;
     private CameraTry _cameraTry;
     [SerializeField] private StatsSaves _statsSaves;
 
@@ -245,7 +245,7 @@ public class Player : MonoBehaviour
             _cameraTry.Crosshair();
             transform.LookAt(_cameraTry.crosshair);
 
-            if (shurikenMagazine > 0)
+            if ( _statsSaves.ShurikenVar > 0)
             {
                 _timeSinceLastFire += Time.deltaTime;
                 if (_timeSinceLastFire > fireRate)

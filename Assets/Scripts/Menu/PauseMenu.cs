@@ -7,10 +7,12 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public bool isPaused;
-    
+    private Player _playerCS;
+
     void Start()
     {
         pauseMenu.SetActive(false);
+        _playerCS = FindObjectOfType<Player>();
     }
     
     void Update()
@@ -30,25 +32,33 @@ public class PauseMenu : MonoBehaviour
 
     public void Paused()
     {
+        Cursor.visible = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
+        _playerCS.enabled = false;
         isPaused = true;
     }
 
     public void Resume()
     {
-        pauseMenu.SetActive(false);
+        _playerCS.enabled = true;
         Time.timeScale = 1f;
         isPaused = false;
+        Cursor.visible = false;
+        pauseMenu.SetActive(false);
     }
 
     public void MainMenu()
     {
+        Time.timeScale = 1f;
+        isPaused = false;
         SceneManager.LoadScene("MainMenu");
     }
 
     public void Restart()
     {
+        Time.timeScale = 1f;
+        isPaused = false;
         SceneManager.LoadScene("Level1");
     }
 

@@ -14,17 +14,18 @@ namespace Game
         private AudioSource _audioSource;
         private AudioClip _currentClip;
         private int _sceneIndex;
-        private int randomMusic;
+        private int _randomMusic;
 
         private void Awake()
         {
-            if (_audioSource != null)
+            int musicManagerCount = FindObjectsOfType<MusicManager>().Length;
+            if (musicManagerCount > 1)
             {
                 Destroy(gameObject);
             }
             else
             {
-                DontDestroyOnLoad(this.gameObject);
+                DontDestroyOnLoad(gameObject);
             }
         }
 
@@ -36,7 +37,6 @@ namespace Game
         private void Update()
         {
             _sceneIndex = SceneManager.GetActiveScene().buildIndex;
-            randomMusic = Random.Range(0, gameMusics.Length);
 
             SetCurrentClip();
             PlayMusic();
@@ -50,7 +50,7 @@ namespace Game
             }
             else if (_sceneIndex == 3)
             {
-                _currentClip = gameMusics[randomMusic];
+                _currentClip = gameMusics[_randomMusic];
             }
             else
             {
@@ -66,6 +66,7 @@ namespace Game
             }
             else
             {
+                _randomMusic = Random.Range(0, gameMusics.Length);
                 _audioSource.clip = _currentClip;
                 _audioSource.Play();
             }

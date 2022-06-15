@@ -259,10 +259,19 @@ public class MeleeEnemy : MonoBehaviour
              GetComponent<MoveToCollidor>().enabled = false;
              this.enabled = true;
         }
+
+
+       
     }
 
-    
-    
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.tag == (Constants.shurikenTag))
+        {
+            MeleeEnemyGetHit(FindObjectOfType<Shuriken>().shurikenDamage);
+        }
+    }
+
 
     private void OnDrawGizmos()
     {
