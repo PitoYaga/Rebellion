@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float dashSpeed = 200;
     [SerializeField] private float dashCooldown = 2;
     [SerializeField] private ParticleSystem dashVFX;
-    [SerializeField] private float gravity = 9.8f;
 
     [Header("Attack")]
     [SerializeField] private float katanaDamage;
@@ -27,7 +26,6 @@ public class Player : MonoBehaviour
     [SerializeField] float fireRate = 1;
     public float shurikenMagazine = 10;
     [SerializeField] private Text shurikenMagazineText;
-    private float _timeSinceLastFire;
 
     [Header("Rage Mode")]
     public float rageBar;
@@ -52,9 +50,12 @@ public class Player : MonoBehaviour
     private bool _isDashing;
     private Collider[] _colliders;
     public bool isAlive = true;
+    private float _timeSinceLastFire;
+    private float _timeSinceLastDash = 2;
+    private float gravity = 9.8f;
     private GameObject _camera;
     private CameraTry _cameraTry;
-    [SerializeField] private StatsSaves _statsSaves;
+    [SerializeField] private StatsSaves statsSaves;
 
     private void Awake()
     {
@@ -69,8 +70,8 @@ public class Player : MonoBehaviour
         _camera = GameObject.FindWithTag(Constants.cameraTag);
         
         playerHeathSlider.maxValue = playerMaxHealth;
-        playerHeathSlider.value = _statsSaves.HealthVar;
-        rageBarSlider.value = _statsSaves.RageVar;
+        playerHeathSlider.value = statsSaves.HealthVar;
+        rageBarSlider.value = statsSaves.RageVar;
         rageBarSlider.maxValue = maxRageBar;
         _currentRageModeCooldown = rageModeCooldown;
         _currentSpeed = speed;
@@ -78,8 +79,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        playerHealthText.text = _statsSaves.HealthVar.ToString();
-        shurikenMagazineText.text = _statsSaves.ShurikenVar.ToString();
+        playerHealthText.text = statsSaves.HealthVar.ToString();
+        shurikenMagazineText.text = statsSaves.ShurikenVar.ToString();
 
         if (isAlive)
         {
@@ -165,18 +166,18 @@ public class Player : MonoBehaviour
 
     void Dash()
     {
-        if (_isMoving && dashCooldown >= 1f)
+        _timeSinceLastDash += Time.deltaTime;
+        if (_isMoving && dashCooldown < _timeSinceLastDash)
         {
+           
+            //audioSources[8].PlayOneShot(audioSources[8].clip);
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                dashCooldown = 0;
+                _timeSinceLastDash = 0;
                 _isDashing = true;
+                //dash sound
             }
-        }
-        else
-        {
-            dashCooldown += Time.deltaTime;
-            dashCooldown = Mathf.Clamp(dashCooldown, 0, 2);
         }
     }
 
@@ -245,7 +246,7 @@ public class Player : MonoBehaviour
             _cameraTry.Crosshair();
             transform.LookAt(_cameraTry.crosshair);
 
-            if ( _statsSaves.ShurikenVar > 0)
+            if ( statsSaves.ShurikenVar > 0)
             {
                 _timeSinceLastFire += Time.deltaTime;
                 if (_timeSinceLastFire > fireRate)
@@ -257,7 +258,7 @@ public class Player : MonoBehaviour
 
                     _animator.SetTrigger("shuriken");
                     Instantiate(shuriken, barrel.position, transform.rotation);
-                    _statsSaves.ShurikenVar--;
+                    statsSaves.ShurikenVar--;
                     _timeSinceLastFire = 0;
                 }
             }
@@ -312,13 +313,13 @@ public class Player : MonoBehaviour
         //color can change
         
         audioSources[6].Play();
-        _statsSaves.HealthVar -= enemyDamage;
-        playerHeathSlider.value = _statsSaves.HealthVar;
+        statsSaves.HealthVar -= enemyDamage;
+        playerHeathSlider.value = statsSaves.HealthVar;
         
-        if (_statsSaves.HealthVar <= 0)
+        if (statsSaves.HealthVar <= 0)
         {
             playerHeathSlider.value = 0;
-            _statsSaves.HealthVar = 0;
+            statsSaves.HealthVar = 0;
             gameObject.layer = 0;
             
             _animator.SetTrigger("death");

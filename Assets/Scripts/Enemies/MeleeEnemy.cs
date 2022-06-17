@@ -15,7 +15,7 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private float enemyRageXp = 20;
     [SerializeField] private float walkSpeed = 3;
     [SerializeField] private float chaseSpeed = 6;
-    [SerializeField] private float attackSpeed = 1;
+    [SerializeField] private float attackWalkSpeed = 1;
     [SerializeField] private float knockBackPower;
 
     [Header("States")]
@@ -27,6 +27,7 @@ public class MeleeEnemy : MonoBehaviour
 
     [Header("Attack")]
     [SerializeField] private float enemyDamage = 5;
+    [SerializeField] private float meleeAttackSpeed = 1.5f;
     [SerializeField] private Transform enemyAttackArea;
     [SerializeField] float currentChaseRadius = 5;
     [SerializeField] float chaseRadius = 5;
@@ -49,6 +50,7 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private StatsSaves _statsSaves;
     
     private float _timeSinceLastDecision;
+    float attackTimer;
     private NavMeshAgent _navMeshAgent;
     private Transform _target;
     private Player _playerCs;
@@ -163,9 +165,7 @@ public class MeleeEnemy : MonoBehaviour
         _navMeshAgent.SetDestination(_target.position);
 
         //_audioSource.PlayOneShot(_audioClips[0]);
-        
-        //animation will get more fast
-        //maybe character's color can chance to red or sth like that
+        //enemy alerted sign
 
         if (!Physics.CheckSphere(transform.position, currentChaseRadius, playerLayer))
         {
@@ -183,18 +183,30 @@ public class MeleeEnemy : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
-            _animator.SetTrigger("isAttacking");
-            //_audioSource.PlayOneShot(_audioClips[1]);
-            
             _navMeshAgent.velocity = Vector3.zero;
-            _navMeshAgent.speed = attackSpeed;
-            
-            _playerCs.PlayerGetHit(enemyDamage);
+            _navMeshAgent.speed = attackWalkSpeed;
+
+            attackTimer += Time.deltaTime;
+            if (meleeAttackSpeed <= attackTimer)
+            {
+                _animator.SetTrigger("isAttacking");
+                //_audioSource.PlayOneShot(_audioClips[1]);
+                
+                _playerCs.PlayerGetHit(enemyDamage);
+                attackTimer = 0;
+            }
+            else
+            {
+                _animator.SetTrigger("waitToAttack");
+                //it is always working
+                //need to design
+            }
         }
         _attackCollider = null;
         
         if (!Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
+            _animator.SetBool("wait", false);
             _animator.SetTrigger("isWalking");
             currentState = EnemyStates.Chase;
         }
@@ -247,7 +259,7 @@ public class MeleeEnemy : MonoBehaviour
         Destroy(gameObject, 1);
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Constants.doorTag))
         {
@@ -259,10 +271,7 @@ public class MeleeEnemy : MonoBehaviour
              GetComponent<MoveToCollidor>().enabled = false;
              this.enabled = true;
         }
-
-
-       
-    }
+    }*/
 
     private void OnCollisionEnter(Collision other)
     {
@@ -273,6 +282,8 @@ public class MeleeEnemy : MonoBehaviour
     }
 
 
+    
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

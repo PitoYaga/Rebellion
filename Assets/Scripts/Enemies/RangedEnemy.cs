@@ -27,7 +27,7 @@ public class RangedEnemy : MonoBehaviour
     //[SerializeField] private float enemyDamage = 5;
     //[SerializeField] private Transform attackRange;
     private float _timeSinceLastFire;
-    [SerializeField] private float fireRate = 1;
+    [SerializeField] private float fireRate = 3;
     [SerializeField] private Transform rangedEnemyBarrel;
     [SerializeField] private GameObject bullet;
     //[SerializeField] float currentChaseRadius = 20;

@@ -405,16 +405,17 @@ MonoBehaviour:
   meleeEnemyMaxHealth: 20
   meleeEnemyHealth: 20
   enemyRageXp: 20
-  walkSpeed: 20
-  chaseSpeed: 60
-  attackSpeed: 0
+  walkSpeed: 10
+  chaseSpeed: 80
+  attackWalkSpeed: 0
   knockBackPower: 15
   currentState: 0
-  decisionInterval: 0.5
+  decisionInterval: 0.2
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
   enemyDamage: 1
+  meleeAttackSpeed: 2
   enemyAttackArea: {fileID: 8639151428758960451}
   currentChaseRadius: 60
   chaseRadius: 40
