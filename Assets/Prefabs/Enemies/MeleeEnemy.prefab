@@ -432,8 +432,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   enemyHealthSlider: {fileID: 8639151428429501535}
-  _audioClips: []
-  _statsSaves: {fileID: 11400000, guid: becd2c923b8373744a0d8ddc6f512820, type: 2}
+  audioClips: []
+  statsSaves: {fileID: 0}
 --- !u!136 &8639151428561403939
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -444,10 +444,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2.6783652
-  m_Height: 18.020878
+  m_Radius: 1.9480438
+  m_Height: 9.683772
   m_Direction: 1
-  m_Center: {x: -0.0027060509, y: 9.045576, z: -1.523581}
+  m_Center: {x: 0.09086609, y: 7.869818, z: 0.04756117}
 --- !u!195 &8639151428561403938
 NavMeshAgent:
   m_ObjectHideFlags: 0

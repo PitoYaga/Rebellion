@@ -18,6 +18,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/EndLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/LaserWall.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/SecurityCard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/ResetData.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -26,7 +27,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/PausemENU.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/PausemENU.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/SCENES.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/SceneLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Save.cs" />
@@ -42,21 +42,23 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/KayriWasHere/PathsScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySlider.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/StatsSaves.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/HealthPosion.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Save.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/TutorialCanvas.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Constants.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/PauseMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/ResetData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/ShurikenLoot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/SceneLoader.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Constants.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/StatsSaves.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/HealthPosion.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Objects/LaserWall.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -157,7 +159,10 @@
       <workItem from="1655214787970" duration="2768000" />
       <workItem from="1655241734386" duration="2610000" />
       <workItem from="1655280438216" duration="8078000" />
-      <workItem from="1655459604053" duration="7705000" />
+      <workItem from="1655459604053" duration="15385000" />
+      <workItem from="1655484118278" duration="5255000" />
+      <workItem from="1655538243218" duration="11638000" />
+      <workItem from="1655551725675" duration="643000" />
     </task>
     <servers />
   </component>
@@ -174,13 +179,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs</url>
-          <line>145</line>
+          <line>144</line>
           <properties documentPath="C:\Users\Efe Canoglu\Desktop\efe\Rebellion\Assets\Scripts\Enemies\MeleeEnemy.cs" initialLine="143" containingFunctionPresentation="method 'ReachedTarget'">
             <startOffsets>
-              <option value="4254" />
+              <option value="4150" />
             </startOffsets>
             <endOffsets>
-              <option value="4255" />
+              <option value="4151" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />

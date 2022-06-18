@@ -9,10 +9,11 @@ public class Player : MonoBehaviour
 {
     [Header("Stats")]
     //public float playerHealth = 20;
-    public float playerMaxHealth = 100;
+    public int playerMaxHealth = 100;
+    public float _currentSpeed = 4;
     [SerializeField] private float speed = 4;
     [SerializeField] private float runSpeed = 7;
-    [SerializeField] private float dashSpeed = 200;
+    public float dashSpeed = 200;
     [SerializeField] private float dashCooldown = 2;
     [SerializeField] private ParticleSystem dashVFX;
 
@@ -39,13 +40,13 @@ public class Player : MonoBehaviour
     [SerializeField] private Text playerHealthText;
     public Slider rageBarSlider;
     [SerializeField] private Transform barrel;
+    [SerializeField] private float laserDamage = 1;
     public bool oldboy;
     [SerializeField] private AudioSource[] audioSources;
 
     private CharacterController _characterController;
     private Vector3 _move;
     private Animator _animator;
-    private float _currentSpeed = 4;
     private bool _isMoving;
     private bool _isDashing;
     private Collider[] _colliders;
@@ -169,15 +170,24 @@ public class Player : MonoBehaviour
         _timeSinceLastDash += Time.deltaTime;
         if (_isMoving && dashCooldown < _timeSinceLastDash)
         {
-           
             //audioSources[8].PlayOneShot(audioSources[8].clip);
-
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _timeSinceLastDash = 0;
                 _isDashing = true;
                 //dash sound
             }
+        }
+
+        if (_timeSinceLastDash >= dashCooldown - 0.1f && _timeSinceLastDash <= dashCooldown + 0.1f)
+        {
+            if (!audioSources[8].isPlaying)
+            {
+                Debug.Log("dash");
+                audioSources[8].PlayOneShot(audioSources[8].clip);
+            }
+            
         }
     }
 
@@ -192,7 +202,6 @@ public class Player : MonoBehaviour
         _characterController.Move(_move / 10 * _currentSpeed);
         yield return new WaitForSeconds(0.2f);
         _characterController.Move(_move / 10 * _currentSpeed);
-
         _isDashing = false;
     }
 
@@ -348,12 +357,7 @@ public class Player : MonoBehaviour
     }*/
     
 
-    
-    
-    
-    
-    
-    
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(katanaArea.position, katanaRange);

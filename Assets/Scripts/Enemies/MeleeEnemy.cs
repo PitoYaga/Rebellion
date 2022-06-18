@@ -13,24 +13,23 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] float meleeEnemyMaxHealth = 10;
     [SerializeField] float meleeEnemyHealth = 10;
     [SerializeField] private float enemyRageXp = 20;
-    [SerializeField] private float walkSpeed = 3;
-    [SerializeField] private float chaseSpeed = 6;
-    [SerializeField] private float attackWalkSpeed = 1;
+    public float walkSpeed = 3;
+    public float chaseSpeed = 6;
+    [SerializeField] private float attackWalkSpeed = 0;
     [SerializeField] private float knockBackPower;
 
     [Header("States")]
     [SerializeField] private EnemyStates currentState;
     [SerializeField] private float decisionInterval = 1;
-    private Collider[] _chaseCollider;
     private Collider[] _attackCollider;
     [SerializeField] private LayerMask playerLayer;
 
     [Header("Attack")]
-    [SerializeField] private float enemyDamage = 5;
-    [SerializeField] private float meleeAttackSpeed = 1.5f;
+    [SerializeField] private int enemyDamage = 5;
+    public float meleeAttackSpeed = 1.5f;
     [SerializeField] private Transform enemyAttackArea;
     [SerializeField] float currentChaseRadius = 5;
-    [SerializeField] float chaseRadius = 5;
+    public float chaseRadius = 5;
     [SerializeField] float attackRadius = 2;
 
     [Header("Loot")] 
@@ -46,15 +45,15 @@ public class MeleeEnemy : MonoBehaviour
     [Header("Objects")]
     [SerializeField] private Slider enemyHealthSlider;
     private AudioSource _audioSource;
-    [SerializeField] private AudioClip[] _audioClips;
-    [SerializeField] private StatsSaves _statsSaves;
+    [SerializeField] private AudioClip[] audioClips;
+    [SerializeField] private StatsSaves statsSaves;
     
     private float _timeSinceLastDecision;
-    float attackTimer;
+    float _attackTimer;
     private NavMeshAgent _navMeshAgent;
     private Transform _target;
     private Player _playerCs;
-    private bool isAlive = true;
+    private bool _isAlive = true;
     private Animator _animator;
 
     private void Awake()
@@ -77,7 +76,7 @@ public class MeleeEnemy : MonoBehaviour
     void Update()
     {
         enemyHealthSlider.value = meleeEnemyHealth;
-        if (isAlive)
+        if (_isAlive)
         {
             _timeSinceLastDecision += Time.deltaTime;
             if (_timeSinceLastDecision > decisionInterval)
@@ -185,15 +184,16 @@ public class MeleeEnemy : MonoBehaviour
         {
             _navMeshAgent.velocity = Vector3.zero;
             _navMeshAgent.speed = attackWalkSpeed;
-
-            attackTimer += Time.deltaTime;
-            if (meleeAttackSpeed <= attackTimer)
+            
+            //salise gibi artıyor
+            _attackTimer += Time.deltaTime;
+            if (meleeAttackSpeed <= _attackTimer)
             {
                 _animator.SetTrigger("isAttacking");
                 //_audioSource.PlayOneShot(_audioClips[1]);
                 
                 _playerCs.PlayerGetHit(enemyDamage);
-                attackTimer = 0;
+                _attackTimer = 0;
             }
             else
             {
@@ -202,25 +202,21 @@ public class MeleeEnemy : MonoBehaviour
                 //need to design
             }
         }
-        _attackCollider = null;
-        
-        if (!Physics.CheckSphere(transform.position, attackRadius, playerLayer))
+        else
         {
-            _animator.SetBool("wait", false);
-            _animator.SetTrigger("isWalking");
+            _animator.SetTrigger("alerted");
             currentState = EnemyStates.Chase;
         }
-
     }
 
     public void MeleeEnemyGetHit(float playerDamage)
     {
         if (_playerCs.rageModeOn)
         {
-            _statsSaves.HealthVar += playerDamage / 2;
-            if ( _statsSaves.HealthVar >= _playerCs.playerMaxHealth)
+            statsSaves.HealthVar += playerDamage / 2;
+            if ( statsSaves.HealthVar >= _playerCs.playerMaxHealth)
             {
-                _statsSaves.HealthVar = _playerCs.playerMaxHealth;
+                statsSaves.HealthVar = _playerCs.playerMaxHealth;
             }
         }
         
@@ -232,7 +228,7 @@ public class MeleeEnemy : MonoBehaviour
         meleeEnemyHealth -= playerDamage;
         enemyHealthSlider.value = meleeEnemyHealth;
         
-        if (meleeEnemyHealth <= 0 && isAlive)
+        if (meleeEnemyHealth <= 0 && _isAlive)
         {
             MeleeEnemyDeath();
         }
@@ -241,7 +237,7 @@ public class MeleeEnemy : MonoBehaviour
     void MeleeEnemyDeath()
     {
         Vector3 lootPosOffset= new Vector3(0,  10, 0);
-        isAlive = false;
+        _isAlive = false;
         _playerCs.rageBar += enemyRageXp;
         _animator.SetTrigger("death");
         
@@ -259,9 +255,19 @@ public class MeleeEnemy : MonoBehaviour
         Destroy(gameObject, 1);
     }
 
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(Constants.doorTag))
+        Debug.Log("wall");
+        if (other.CompareTag(Constants.laserWallTag))
+        {
+            walkSpeed /= 2;
+            chaseSpeed /= 2;
+            meleeAttackSpeed /= 2;
+            chaseRadius -= 15;
+        }
+        
+        
+        /*if (other.CompareTag(Constants.doorTag))
         {
              GetComponent<MoveToCollidor>().enabled = true;
              this.enabled = false;
@@ -270,12 +276,12 @@ public class MeleeEnemy : MonoBehaviour
         {
              GetComponent<MoveToCollidor>().enabled = false;
              this.enabled = true;
-        }
-    }*/
+        }*/
+    }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.tag == (Constants.shurikenTag))
+        if (other.collider.CompareTag((Constants.shurikenTag)))
         {
             MeleeEnemyGetHit(FindObjectOfType<Shuriken>().shurikenDamage);
         }

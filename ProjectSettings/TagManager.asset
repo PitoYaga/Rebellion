@@ -11,6 +11,7 @@ TagManager:
   - Door
   - Target
   - Shuriken
+  - LaserWall
   layers:
   - Default
   - TransparentFX

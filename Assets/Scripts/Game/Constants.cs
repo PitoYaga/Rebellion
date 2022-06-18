@@ -13,4 +13,5 @@ public class Constants : MonoBehaviour
     public static string collidorTag = "Collidor";
     public static string cameraTag = "MainCamera";
     public static string shurikenTag = "Shuriken";
+    public static string laserWallTag = "LaserWall";
 }
