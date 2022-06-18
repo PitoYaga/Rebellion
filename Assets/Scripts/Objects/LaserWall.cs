@@ -8,16 +8,16 @@ public class LaserWall : MonoBehaviour
 {
     [SerializeField] private float laserWallDamage = 1;
     [SerializeField] private AudioClip[] audioClips;
-    
+
     private AudioSource _audioSource;
     private AudioClip _currentClip;
-    private Player _playerCS;
+    private Player _playerCs;
 
     private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
         _currentClip = audioClips[0];
-        _playerCS = FindObjectOfType<Player>();
+        _playerCs = FindObjectOfType<Player>();
     }
 
     private void Update()
@@ -40,27 +40,19 @@ public class LaserWall : MonoBehaviour
     
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag(Constants.playerTag) && _playerCS._currentSpeed < _playerCS.dashSpeed)
+        if (other.CompareTag(Constants.playerTag) && _playerCs._currentSpeed < _playerCs.dashSpeed)
         {
-            _playerCS.PlayerGetHit(laserWallDamage);
-            _currentClip = audioClips[1];
-        }
-        
-        if (other.CompareTag(Constants.meleeEnemyTag))
-        {
-            Debug.Log("enemy in wall");
-            MeleeEnemy meleeEnemy = GetComponent<MeleeEnemy>();
-            meleeEnemy.walkSpeed /= 2;
-            meleeEnemy.chaseSpeed /= 2;
-            meleeEnemy.meleeAttackSpeed /= 2;
-            meleeEnemy.chaseRadius -= 15;
+            _playerCs.PlayerGetHit(laserWallDamage);
             _currentClip = audioClips[1];
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-      
+        if (other.CompareTag(Constants.meleeEnemyTag))
+        {
+            
+        }
     }
 
     private void OnTriggerExit(Collider other)

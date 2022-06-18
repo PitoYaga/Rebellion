@@ -13,6 +13,7 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] float meleeEnemyMaxHealth = 10;
     [SerializeField] float meleeEnemyHealth = 10;
     [SerializeField] private float enemyRageXp = 20;
+    public float currentSpeed;
     public float walkSpeed = 3;
     public float chaseSpeed = 6;
     [SerializeField] private float attackWalkSpeed = 0;
@@ -28,8 +29,8 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private int enemyDamage = 5;
     public float meleeAttackSpeed = 1.5f;
     [SerializeField] private Transform enemyAttackArea;
-    [SerializeField] float currentChaseRadius = 5;
-    public float chaseRadius = 5;
+    public float currentChaseRadius = 5;
+    [SerializeField] float chaseRadius = 5;
     [SerializeField] float attackRadius = 2;
 
     [Header("Loot")] 
@@ -47,6 +48,7 @@ public class MeleeEnemy : MonoBehaviour
     private AudioSource _audioSource;
     [SerializeField] private AudioClip[] audioClips;
     [SerializeField] private StatsSaves statsSaves;
+    public bool isChasing;
     
     private float _timeSinceLastDecision;
     float _attackTimer;
@@ -55,6 +57,7 @@ public class MeleeEnemy : MonoBehaviour
     private Player _playerCs;
     private bool _isAlive = true;
     private Animator _animator;
+    private MeleeEnemy[] _meleeEnemyCS;
 
     private void Awake()
     {
@@ -76,8 +79,11 @@ public class MeleeEnemy : MonoBehaviour
     void Update()
     {
         enemyHealthSlider.value = meleeEnemyHealth;
+        _meleeEnemyCS = FindObjectsOfType<MeleeEnemy>();
+        
         if (_isAlive)
         {
+            _navMeshAgent.speed = currentSpeed;
             _timeSinceLastDecision += Time.deltaTime;
             if (_timeSinceLastDecision > decisionInterval)
             {
@@ -89,8 +95,10 @@ public class MeleeEnemy : MonoBehaviour
             {
                 IterateIndex();
             }
-        
-            if (FindObjectOfType<Player>().rageModeOn)
+
+            #region PlayerRageMode
+            
+            if (_playerCs.rageModeOn)
             {
                 currentChaseRadius = 100;
             }
@@ -98,6 +106,27 @@ public class MeleeEnemy : MonoBehaviour
             {
                 currentChaseRadius = chaseRadius;
             }
+            
+            #endregion
+
+            #region EnemyAlertMode
+
+             if (isChasing)
+             {
+                 for (int i = 0; i < _meleeEnemyCS.Length; i++)
+                 {
+                     _meleeEnemyCS[i].currentChaseRadius = _meleeEnemyCS[i].currentChaseRadius * 2;
+                 }
+             }
+             else
+             {
+                 for (int i = 0; i < _meleeEnemyCS.Length; i++)
+                 {
+                     _meleeEnemyCS[3].currentChaseRadius = _meleeEnemyCS[3].chaseRadius;
+                 }
+             }
+
+            #endregion
         }
     }
 
@@ -135,7 +164,7 @@ public class MeleeEnemy : MonoBehaviour
             //_audioSource.PlayOneShot(_audioClips[0]);
             
             _animator.SetTrigger("isWalking");
-            _navMeshAgent.speed = walkSpeed;
+            currentSpeed = walkSpeed;
             _navMeshAgent.SetDestination(path[_currentIdx].position);
             return;
         }
@@ -160,20 +189,23 @@ public class MeleeEnemy : MonoBehaviour
     void Chase()
     {
         _animator.SetTrigger("alerted");
-        _navMeshAgent.speed = chaseSpeed;
+        currentSpeed = chaseSpeed;
         _navMeshAgent.SetDestination(_target.position);
+        isChasing = true;
 
         //_audioSource.PlayOneShot(_audioClips[0]);
         //enemy alerted sign
 
         if (!Physics.CheckSphere(transform.position, currentChaseRadius, playerLayer))
         {
+            isChasing = false;
             currentState = EnemyStates.Walk;
         }
         
         _attackCollider = Physics.OverlapSphere(enemyAttackArea.position, attackRadius, playerLayer);
         foreach (var hitCollider in _attackCollider)
         {
+            isChasing = false;
             currentState = EnemyStates.Attack;
         }
     }
@@ -183,7 +215,7 @@ public class MeleeEnemy : MonoBehaviour
         if (Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
             _navMeshAgent.velocity = Vector3.zero;
-            _navMeshAgent.speed = attackWalkSpeed;
+            currentSpeed = attackWalkSpeed;
             
             //salise gibi artıyor
             _attackTimer += Time.deltaTime;
@@ -213,7 +245,8 @@ public class MeleeEnemy : MonoBehaviour
     {
         if (_playerCs.rageModeOn)
         {
-            statsSaves.HealthVar += playerDamage / 2;
+            statsSaves.HealthVar += (playerDamage / 2);
+            
             if ( statsSaves.HealthVar >= _playerCs.playerMaxHealth)
             {
                 statsSaves.HealthVar = _playerCs.playerMaxHealth;

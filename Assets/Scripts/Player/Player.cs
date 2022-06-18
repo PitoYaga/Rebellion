@@ -40,7 +40,6 @@ public class Player : MonoBehaviour
     [SerializeField] private Text playerHealthText;
     public Slider rageBarSlider;
     [SerializeField] private Transform barrel;
-    [SerializeField] private float laserDamage = 1;
     public bool oldboy;
     [SerializeField] private AudioSource[] audioSources;
 
@@ -184,10 +183,8 @@ public class Player : MonoBehaviour
         {
             if (!audioSources[8].isPlaying)
             {
-                Debug.Log("dash");
                 audioSources[8].PlayOneShot(audioSources[8].clip);
             }
-            
         }
     }
 

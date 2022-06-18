@@ -405,6 +405,7 @@ MonoBehaviour:
   meleeEnemyMaxHealth: 20
   meleeEnemyHealth: 20
   enemyRageXp: 20
+  currentSpeed: 0
   walkSpeed: 10
   chaseSpeed: 80
   attackWalkSpeed: 0
@@ -434,6 +435,7 @@ MonoBehaviour:
   enemyHealthSlider: {fileID: 8639151428429501535}
   audioClips: []
   statsSaves: {fileID: 0}
+  isChasing: 0
 --- !u!136 &8639151428561403939
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMaxHealth: 100
+  _currentSpeed: 4
   speed: 4
   runSpeed: 9
   dashSpeed: 40
@@ -1057,9 +1058,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 52ce601e2378ddb429bbc23d2d0b4832, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b94780f1f8cb9d14ab6646ad0a985674, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.524
+  m_Volume: 0.364
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1561,6 +1562,14 @@ PrefabInstance:
     - target: {fileID: 1659444859, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1971039891212806539, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -2.6610231
+      objectReference: {fileID: 0}
+    - target: {fileID: 1971039891212806539, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 32.338978
       objectReference: {fileID: 0}
     - target: {fileID: 1971039891212806539, guid: 8026397582aff7b4c9087fe0c56e29c7, type: 3}
       propertyPath: m_Materials.Array.data[0]

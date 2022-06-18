@@ -56,9 +56,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/HealthPosion.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Objects/LaserWall.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Objects/LaserWall.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -162,7 +162,7 @@
       <workItem from="1655459604053" duration="15385000" />
       <workItem from="1655484118278" duration="5255000" />
       <workItem from="1655538243218" duration="11638000" />
-      <workItem from="1655551725675" duration="643000" />
+      <workItem from="1655551725675" duration="7572000" />
     </task>
     <servers />
   </component>
@@ -173,24 +173,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs</url>
-          <line>144</line>
-          <properties documentPath="C:\Users\Efe Canoglu\Desktop\efe\Rebellion\Assets\Scripts\Enemies\MeleeEnemy.cs" initialLine="143" containingFunctionPresentation="method 'ReachedTarget'">
-            <startOffsets>
-              <option value="4150" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4151" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
