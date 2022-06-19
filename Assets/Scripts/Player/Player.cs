@@ -241,6 +241,17 @@ public class Player : MonoBehaviour
                 hit.GetComponent<RangedEnemy>().RangedEnemyGetHit(katanaDamage);
             }
             _colliders = null;
+            
+            _colliders = Physics.OverlapSphere(katanaArea.position, katanaRange, LayerMask.GetMask("Turret"));
+            foreach (Collider hit in _colliders)
+            {
+                if (!audioSources[3].isPlaying)
+                { 
+                    audioSources[3].Play();
+                }
+                hit.GetComponent<Turret>().TurretGetHit(katanaDamage);
+            }
+            _colliders = null;
         }
         //_timeSinceLastMelee = 0;
     }
