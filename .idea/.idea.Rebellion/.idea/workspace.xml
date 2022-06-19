@@ -45,7 +45,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Save.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/TutorialCanvas.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/PauseMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/ResetData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/ShurikenLoot.cs" />
@@ -58,6 +57,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/LaserWall.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
     </changedPaths>
   </component>
@@ -162,7 +162,9 @@
       <workItem from="1655459604053" duration="15385000" />
       <workItem from="1655484118278" duration="5255000" />
       <workItem from="1655538243218" duration="11638000" />
-      <workItem from="1655551725675" duration="7572000" />
+      <workItem from="1655551725675" duration="13413000" />
+      <workItem from="1655636288506" duration="4863000" />
+      <workItem from="1655645872865" duration="8363000" />
     </task>
     <servers />
   </component>

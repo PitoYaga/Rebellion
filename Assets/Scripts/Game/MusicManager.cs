@@ -8,6 +8,7 @@ namespace Game
     public class MusicManager : MonoBehaviour
     {
         [SerializeField] private AudioClip[] gameMusics;
+        [SerializeField] private AudioClip actionMusic;
         [SerializeField] private AudioClip menuMusic;
         [SerializeField] private AudioClip psychologistMusic;
     
@@ -15,6 +16,7 @@ namespace Game
         private AudioClip _currentClip;
         private int _sceneIndex;
         private int _randomMusic;
+        private MeleeEnemy[] _meleeEnemyCS;
 
         private void Awake()
         {
@@ -37,6 +39,7 @@ namespace Game
         private void Update()
         {
             _sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            _meleeEnemyCS = FindObjectsOfType<MeleeEnemy>();
 
             SetCurrentClip();
             PlayMusic();
@@ -50,7 +53,17 @@ namespace Game
             }
             else if (_sceneIndex == 3)
             {
-                _currentClip = gameMusics[_randomMusic];
+                for (int i = 0; i < _meleeEnemyCS.Length; i++)
+                {
+                    if (_meleeEnemyCS[i].isChasing)
+                    {
+                        _currentClip = actionMusic;
+                    }
+                    else
+                    {
+                         _currentClip = gameMusics[_randomMusic];
+                    }
+                }
             }
             else
             {

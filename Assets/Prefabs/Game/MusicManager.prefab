@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMusics:
-  - {fileID: 8300000, guid: 4261492bccd83324cb37664869c6a3f8, type: 3}
   - {fileID: 8300000, guid: 4c7fd469a8e4ce440af65b0c911c3d50, type: 3}
-  - {fileID: 8300000, guid: dd750d0891fb76243840f7358cb8bbf8, type: 3}
+  - {fileID: 8300000, guid: 4c7fd469a8e4ce440af65b0c911c3d50, type: 3}
+  - {fileID: 8300000, guid: 4c7fd469a8e4ce440af65b0c911c3d50, type: 3}
+  actionMusic: {fileID: 8300000, guid: 4261492bccd83324cb37664869c6a3f8, type: 3}
   menuMusic: {fileID: 8300000, guid: 73d5a96e64d30524ab4e30d22b5ba863, type: 3}
   psychologistMusic: {fileID: 8300000, guid: 01172dca10a8c7e4288f2fd36bd04e68, type: 3}
 --- !u!82 &4602259014607770627

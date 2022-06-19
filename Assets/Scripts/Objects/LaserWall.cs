@@ -46,14 +46,7 @@ public class LaserWall : MonoBehaviour
             _currentClip = audioClips[1];
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(Constants.meleeEnemyTag))
-        {
-            
-        }
-    }
+    
 
     private void OnTriggerExit(Collider other)
     {

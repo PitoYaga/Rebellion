@@ -281,16 +281,18 @@ public class Player : MonoBehaviour
 
         if (!rageModeOn)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            { 
-                if (rageBar >= maxRageBar)
+            if (rageBar >= maxRageBar)
+            {
+                if (rageBar > maxRageBar)
+                {
+                    rageBar = maxRageBar;
+                }
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     rageModeOn = true;
                     _characterController.slopeLimit *= 1.5f;
                     //katanaCooldown /= 1.5f;
                     fireRate /= 1.5f;
-                    
-                    Debug.Log("rage on");
                 }
                 else
                 { 

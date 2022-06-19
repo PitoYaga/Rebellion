@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Game;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -45,11 +46,13 @@ public class MeleeEnemy : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private Slider enemyHealthSlider;
-    private AudioSource _audioSource;
+    [SerializeField] private Image attackAlert;
     [SerializeField] private AudioClip[] audioClips;
     [SerializeField] private StatsSaves statsSaves;
     public bool isChasing;
+    public bool isAttacking;
     
+    private AudioSource _audioSource;
     private float _timeSinceLastDecision;
     float _attackTimer;
     private NavMeshAgent _navMeshAgent;
@@ -57,7 +60,9 @@ public class MeleeEnemy : MonoBehaviour
     private Player _playerCs;
     private bool _isAlive = true;
     private Animator _animator;
-    private MeleeEnemy[] _meleeEnemyCS;
+    private GameObject alertImage;
+    private Animator _alertImageAnimator;
+    private MeleeEnemy[] _meleeEnemyCs;
 
     private void Awake()
     {
@@ -65,7 +70,11 @@ public class MeleeEnemy : MonoBehaviour
         _playerCs = FindObjectOfType<Player>();
         _audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
+
+        _alertImageAnimator = attackAlert.GetComponent<Animator>();
+        
         _target = GameObject.FindGameObjectWithTag(Constants.playerTag).transform;
+        attackAlert.enabled = false;
     }
 
     void Start()
@@ -79,11 +88,12 @@ public class MeleeEnemy : MonoBehaviour
     void Update()
     {
         enemyHealthSlider.value = meleeEnemyHealth;
-        _meleeEnemyCS = FindObjectsOfType<MeleeEnemy>();
-        
+        _meleeEnemyCs = FindObjectsOfType<MeleeEnemy>();
+
         if (_isAlive)
         {
             _navMeshAgent.speed = currentSpeed;
+            
             _timeSinceLastDecision += Time.deltaTime;
             if (_timeSinceLastDecision > decisionInterval)
             {
@@ -100,7 +110,7 @@ public class MeleeEnemy : MonoBehaviour
             
             if (_playerCs.rageModeOn)
             {
-                currentChaseRadius = 100;
+                currentChaseRadius = currentChaseRadius * 2.5f;
             }
             else
             {
@@ -113,16 +123,16 @@ public class MeleeEnemy : MonoBehaviour
 
              if (isChasing)
              {
-                 for (int i = 0; i < _meleeEnemyCS.Length; i++)
+                 for (int i = 0; i < _meleeEnemyCs.Length; i++)
                  {
-                     _meleeEnemyCS[i].currentChaseRadius = _meleeEnemyCS[i].currentChaseRadius * 2;
+                     _meleeEnemyCs[i].currentChaseRadius = _meleeEnemyCs[i].currentChaseRadius * 2;
                  }
              }
              else
              {
-                 for (int i = 0; i < _meleeEnemyCS.Length; i++)
+                 for (int i = 0; i < _meleeEnemyCs.Length; i++)
                  {
-                     _meleeEnemyCS[3].currentChaseRadius = _meleeEnemyCS[3].chaseRadius;
+                     _meleeEnemyCs[i].currentChaseRadius = _meleeEnemyCs[i].chaseRadius;
                  }
              }
 
@@ -191,6 +201,7 @@ public class MeleeEnemy : MonoBehaviour
         _animator.SetTrigger("alerted");
         currentSpeed = chaseSpeed;
         _navMeshAgent.SetDestination(_target.position);
+        attackAlert.enabled = true;
         isChasing = true;
 
         //_audioSource.PlayOneShot(_audioClips[0]);
@@ -198,6 +209,7 @@ public class MeleeEnemy : MonoBehaviour
 
         if (!Physics.CheckSphere(transform.position, currentChaseRadius, playerLayer))
         {
+            attackAlert.enabled = false;
             isChasing = false;
             currentState = EnemyStates.Walk;
         }
@@ -205,7 +217,6 @@ public class MeleeEnemy : MonoBehaviour
         _attackCollider = Physics.OverlapSphere(enemyAttackArea.position, attackRadius, playerLayer);
         foreach (var hitCollider in _attackCollider)
         {
-            isChasing = false;
             currentState = EnemyStates.Attack;
         }
     }
@@ -215,10 +226,18 @@ public class MeleeEnemy : MonoBehaviour
         if (Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
             _navMeshAgent.velocity = Vector3.zero;
+            _navMeshAgent.SetDestination(transform.position);
             currentSpeed = attackWalkSpeed;
-            
+
             //salise gibi artıyor
-            _attackTimer += Time.deltaTime;
+            _attackTimer += Time.deltaTime * 8;
+            Debug.Log(_attackTimer); 
+            
+            if (_attackTimer >= 0 && _attackTimer <= meleeAttackSpeed - meleeAttackSpeed / 2)
+            {
+                _alertImageAnimator.SetTrigger("attack");
+            }
+
             if (meleeAttackSpeed <= _attackTimer)
             {
                 _animator.SetTrigger("isAttacking");
@@ -269,8 +288,10 @@ public class MeleeEnemy : MonoBehaviour
     
     void MeleeEnemyDeath()
     {
+        _navMeshAgent.speed = walkSpeed;
         Vector3 lootPosOffset= new Vector3(0,  10, 0);
         _isAlive = false;
+        isChasing = false;
         _playerCs.rageBar += enemyRageXp;
         _animator.SetTrigger("death");
         
@@ -295,8 +316,7 @@ public class MeleeEnemy : MonoBehaviour
         {
             walkSpeed /= 2;
             chaseSpeed /= 2;
-            meleeAttackSpeed /= 2;
-            chaseRadius -= 15;
+            meleeAttackSpeed *= 1.5f;
         }
         
         
