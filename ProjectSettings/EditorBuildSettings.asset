@@ -18,9 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Polygon.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Levels/Level1.unity
+    path: Assets/Levels/Level 2.unity
     guid: 5b1f666209dcf9348aafad4b13caac13
   - enabled: 1
-    path: Assets/Levels/Dialogue1.unity
+    path: Assets/Levels/Dialogue 1.unity
     guid: 4900f09fdf3a11e47a7ef2d107755d0a
   m_configObjects: {}

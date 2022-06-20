@@ -133,7 +133,7 @@ public class Turret : MonoBehaviour
         
         //_audioSource.PlayOneShot(_audioClips[3]);
 
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 2);
     }
 
     private void OnCollisionEnter(Collision other)
