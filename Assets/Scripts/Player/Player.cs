@@ -321,7 +321,6 @@ public class Player : MonoBehaviour
             {
                 rageModeOn = false;
                 rageBar = 0;
-                Debug.Log("rage off");
                 _currentRageModeCooldown = rageModeCooldown;
             }
         }
