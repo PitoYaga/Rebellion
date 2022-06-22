@@ -47,7 +47,8 @@ public class Turret : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindWithTag(Constants.playerTag);
+        transform.forward = Vector3.back;
+        player = GameObject.FindWithTag(Constants.bulletTargetTag);
 
         enemyHealthSlider.maxValue = rangedEnemyMaxHealth;
         enemyHealthSlider.value = rangedEnemyHealth;
@@ -65,10 +66,10 @@ public class Turret : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
-            
+            _animator.enabled = false;
             transform.LookAt(player.transform.position);
 
-            Ray ray = new Ray(rangedEnemyBarrel.position, rangedEnemyBarrel.forward * -1);
+            Ray ray = new Ray(rangedEnemyBarrel.position, rangedEnemyBarrel.forward * 1);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, attackRadius))
@@ -87,6 +88,10 @@ public class Turret : MonoBehaviour
                     }
                 }
             }
+        }
+        else
+        {
+            _animator.enabled = true;
         }
     }
 
@@ -153,7 +158,7 @@ public class Turret : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRadius);
         
         Gizmos.color = Color.yellow;
-        Vector3 direction = transform.forward * attackRadius;
+        Vector3 direction = rangedEnemyBarrel.forward * attackRadius;
         Gizmos.DrawRay(rangedEnemyBarrel.position, direction);
     }
 }

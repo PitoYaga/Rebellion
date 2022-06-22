@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 4;
     [SerializeField] private float runSpeed = 7;
     public float dashSpeed = 200;
+    private float fireSpeed = 0;
     [SerializeField] private float dashCooldown = 2;
     [SerializeField] private ParticleSystem dashVFX;
 
@@ -260,6 +261,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
+            _currentSpeed = fireSpeed;
             _cameraTry.Crosshair();
             transform.LookAt(_cameraTry.crosshair);
 

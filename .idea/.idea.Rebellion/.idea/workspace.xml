@@ -56,11 +56,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/HealthPosion.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/LaserWall.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Turret.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Turret.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -169,7 +169,7 @@
       <workItem from="1655645872865" duration="8363000" />
       <workItem from="1655670443188" duration="2915000" />
       <workItem from="1655749294134" duration="1601000" />
-      <workItem from="1655881061666" duration="9884000" />
+      <workItem from="1655881061666" duration="12531000" />
     </task>
     <servers />
   </component>
