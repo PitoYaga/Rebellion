@@ -231,16 +231,28 @@ public class MeleeEnemy : MonoBehaviour
 
             //salise gibi artıyor
             _attackTimer += Time.deltaTime * 8;
-            Debug.Log(_attackTimer); 
+            //Debug.Log(_attackTimer); 
             
             if (_attackTimer >= 0 && _attackTimer <= meleeAttackSpeed - meleeAttackSpeed / 2)
             {
                 _alertImageAnimator.SetTrigger("attack");
             }
 
+            
             if (meleeAttackSpeed <= _attackTimer)
             {
-                _animator.SetTrigger("isAttacking");
+                if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("EnemyAttack"))
+                {
+                    _animator.SetTrigger("isAttacking");
+                    _navMeshAgent.SetDestination(transform.position);
+                    _navMeshAgent.velocity = Vector3.zero;
+                }
+                else
+                {
+                    _navMeshAgent.SetDestination(transform.position);
+                    _navMeshAgent.velocity = Vector3.zero;
+                }
+               
                 //_audioSource.PlayOneShot(_audioClips[1]);
                 
                 _playerCs.PlayerGetHit(enemyDamage);
@@ -248,7 +260,18 @@ public class MeleeEnemy : MonoBehaviour
             }
             else
             {
-                _animator.SetTrigger("waitToAttack");
+                if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("WaitToAttack") && !_animator.GetCurrentAnimatorStateInfo(0).IsName("EnemyAttack"))
+                {
+                    _animator.SetTrigger("waitToAttack");
+                    _navMeshAgent.SetDestination(transform.position);
+                    _navMeshAgent.velocity = Vector3.zero;
+                }
+                else
+                {
+                    _navMeshAgent.SetDestination(transform.position);
+                    _navMeshAgent.velocity = Vector3.zero;
+                }
+                
                 //it is always working
                 //need to design
             }
@@ -256,6 +279,7 @@ public class MeleeEnemy : MonoBehaviour
         else
         {
             _animator.SetTrigger("alerted");
+            _animator.Play("EnemyRun");
             currentState = EnemyStates.Chase;
         }
     }

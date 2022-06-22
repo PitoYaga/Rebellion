@@ -65,15 +65,17 @@ public class Turret : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
-            transform.LookAt(player.transform.position);
             
+            transform.LookAt(player.transform.position);
+
             Ray ray = new Ray(rangedEnemyBarrel.position, rangedEnemyBarrel.forward * -1);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100))
+            if (Physics.Raycast(ray, out hit, attackRadius))
             {
                 if (hit.collider.CompareTag(Constants.playerTag))
                 {
+                    Debug.Log("turret");
                     _timeSinceLastFire += Time.deltaTime;
                     if (_timeSinceLastFire > fireRate)
                     {
@@ -117,7 +119,7 @@ public class Turret : MonoBehaviour
     
     void TurretDeath()
     {
-        Vector3 lootPosOffset = new Vector3(0, 10, 0);
+        Vector3 lootPosOffset = new Vector3(0, 0, 7);
         _isAlive = false;
         _playerCs.rageBar += enemyRageXp;
         _animator.SetTrigger("death");
@@ -133,7 +135,7 @@ public class Turret : MonoBehaviour
         
         //_audioSource.PlayOneShot(_audioClips[3]);
 
-        Destroy(gameObject, 2);
+        //Destroy(gameObject, 2);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -151,7 +153,7 @@ public class Turret : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRadius);
         
         Gizmos.color = Color.yellow;
-        Vector3 direction = rangedEnemyBarrel.TransformDirection(Vector3.forward) * attackRadius;
-        Gizmos.DrawRay(rangedEnemyBarrel.position, -direction);
+        Vector3 direction = transform.forward * attackRadius;
+        Gizmos.DrawRay(rangedEnemyBarrel.position, direction);
     }
 }

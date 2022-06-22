@@ -28,6 +28,10 @@ namespace Enemies
                 FindObjectOfType<Player>().PlayerGetHit(bulletDamage);
                 Destroy(gameObject);
             }
+            if (other.collider.CompareTag(Constants.laserWallTag))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -279,7 +279,7 @@ public class RangedEnemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRadius);
         
         Gizmos.color = Color.yellow;
-        Vector3 direction = rangedEnemyBarrel.TransformDirection(Vector3.forward) * attackRadius;
+        Vector3 direction = rangedEnemyBarrel.forward * attackRadius;
         Gizmos.DrawRay(rangedEnemyBarrel.position, direction);
     }
 }

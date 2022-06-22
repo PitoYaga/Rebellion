@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3409433739322718432}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RangedEnemyAttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 872050133016166734}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Spin Taret
   m_TagString: RangedEnemy
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527471278873025524}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.2687, y: 3.2687, z: 3.2687}
   m_Children:
@@ -63,7 +63,7 @@ Transform:
   - {fileID: 8716302998253076899}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1676158342291393236
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,9 +197,6 @@ MonoBehaviour:
   rangedEnemyMaxHealth: 10
   rangedEnemyHealth: 10
   enemyRageXp: 20
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
   fireRate: 3
   rangedEnemyBarrel: {fileID: 169191534895019678}
   bullet: {fileID: 8825756520780227631, guid: 678af2a790a23134594e78dcc3b051a8, type: 3}
@@ -209,6 +206,9 @@ MonoBehaviour:
   - {fileID: 9149979268551800228, guid: 29b553709f7dfda47a8691c37073a5ba, type: 3}
   potionTreshold: 30
   shurikenTreshold: 30
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
   enemyHealthSlider: {fileID: 8606612274090146417}
   _statsSaves: {fileID: 11400000, guid: becd2c923b8373744a0d8ddc6f512820, type: 2}
 --- !u!1 &3270399828759357495
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9039014790989863476}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 169191534895019678}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RangedEnemyBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 5402629367143722644}
   - component: {fileID: 3356950955829078258}
   - component: {fileID: 5157468024170648319}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1599180717417457062}
   - component: {fileID: 8606612274090146417}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: MeleeEnemyHeathSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 6929064404574110900}
   - component: {fileID: 5053867967821338345}
   - component: {fileID: 6818932169002333169}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Body
   m_TagString: RangedEnemy
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 4466880998122537832}
   - component: {fileID: 2147680293536323149}
   - component: {fileID: 5376744878907396290}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 2208721693874749379}
   - component: {fileID: 741853072617329806}
   - component: {fileID: 5569201370543512878}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -274,7 +274,6 @@ public class Player : MonoBehaviour
                     }
 
                     _animator.SetTrigger("shuriken");
-                    Instantiate(shuriken, barrel.position, transform.rotation);
                     statsSaves.ShurikenVar--;
                     _timeSinceLastFire = 0;
                 }
@@ -284,6 +283,11 @@ public class Player : MonoBehaviour
                 //empty gun sound
             }
         }
+    }
+
+    void ShootLaser()
+    {
+        Instantiate(shuriken, barrel.position, transform.rotation);
     }
 
     void RageMode()
