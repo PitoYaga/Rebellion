@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 4;
     [SerializeField] private float runSpeed = 7;
     public float dashSpeed = 200;
-    private float fireSpeed = 0;
+    private float stopSpeed = 0;
     [SerializeField] private float dashCooldown = 2;
     [SerializeField] private ParticleSystem dashVFX;
 
@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform barrel;
     public bool oldboy;
     [SerializeField] private AudioSource[] audioSources;
+    [SerializeField] private ParticleSystem katanaTrail;
 
     private CharacterController _characterController;
     private Vector3 _move;
@@ -64,6 +65,7 @@ public class Player : MonoBehaviour
         _cameraTry = FindObjectOfType<CameraTry>();
         _animator = GetComponent<Animator>();
         dashVFX.Stop();
+        katanaTrail.Stop();
     }
 
     void Start()
@@ -93,7 +95,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //SceneManager.LoadScene("DeathScreen");
+            SceneManager.LoadScene("DeathScreen");
         }
     }
     
@@ -107,61 +109,68 @@ public class Player : MonoBehaviour
         var h = Input.GetAxis("Horizontal");
         var v = Input.GetAxis("Vertical");
 
-        if (!_isDashing)
+        if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerAttack") &&
+            !_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerLaser"))
         {
-            if (!_characterController.isGrounded)
-            {
-                Vector3 appliedGravity = gravity * Time.deltaTime * Vector3.down;
-                _characterController.Move(appliedGravity);
-            }
+            katanaTrail.Stop();
             
-            _move = new Vector3(h, 0, v);
-            _move = _camera.transform.TransformDirection(_move);
-            _move.y = 0;
-            
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (!_isDashing)
             {
-                _animator.SetFloat("speed", _currentSpeed);
-                audioSources[0].Stop();
-
-                _currentSpeed = runSpeed;
-                _characterController.Move(_move / 10 * _currentSpeed);
-                
-                if (!audioSources[7].isPlaying)
+                if (!_characterController.isGrounded)
                 {
-                    audioSources[7].Play();
+                    Vector3 appliedGravity = gravity * Time.deltaTime * Vector3.down;
+                    _characterController.Move(appliedGravity);
+                }
+
+                _move = new Vector3(h, 0, v);
+                _move = _camera.transform.TransformDirection(_move);
+                _move.y = 0;
+
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    _animator.SetFloat("speed", _currentSpeed);
+                    audioSources[0].Stop();
+
+                    _currentSpeed = runSpeed;
+                    _characterController.Move(_move / 10 * _currentSpeed);
+
+                    if (!audioSources[7].isPlaying)
+                    {
+                        audioSources[7].Play();
+                    }
+                }
+                else
+                {
+                    _animator.SetFloat("speed", _currentSpeed);
+                    audioSources[7].Stop();
+
+                    _currentSpeed = speed;
+                    _characterController.Move(_move / 10 * _currentSpeed);
+                    if (!audioSources[0].isPlaying)
+                    {
+                        audioSources[0].Play();
+                    }
+                }
+
+                if ((Mathf.Abs(h) > 0 && Mathf.Abs(v) > 0) || (Mathf.Abs(h) > 0 || Mathf.Abs(v) > 0))
+                {
+                    _isMoving = true;
+                    RotatePlayer();
+                }
+                else
+                {
+                    _isMoving = false;
+                    _currentSpeed = 0;
+                    audioSources[0].Stop();
+                    StopCoroutine(DashVFX());
                 }
             }
             else
             {
                 _animator.SetFloat("speed", _currentSpeed);
-                audioSources[7].Stop();
-
-                _currentSpeed = speed;
-                _characterController.Move(_move / 10 * _currentSpeed);
-                if (!audioSources[0].isPlaying)
-                {
-                    audioSources[0].Play();
-                }
+                StartCoroutine(DashVFX());
+                StartCoroutine(DashMove());
             }
-
-            if ((Mathf.Abs(h) > 0 && Mathf.Abs(v) > 0) || (Mathf.Abs(h) > 0 || Mathf.Abs(v) > 0))
-            {
-                _isMoving = true;
-                RotatePlayer();
-            }
-            else
-            {
-                _currentSpeed = 0;
-                audioSources[0].Stop();
-                StopCoroutine(DashVFX());
-            }
-        }
-        else
-        {
-            _animator.SetFloat("speed", _currentSpeed);
-            StartCoroutine(DashVFX());
-            StartCoroutine(DashMove());
         }
     }
 
@@ -213,57 +222,66 @@ public class Player : MonoBehaviour
     void PlayerAttack()
     {
         if (Input.GetMouseButtonDown(0))
-        { 
-            _animator.SetTrigger("isAttacking");
+        {
+            _cameraTry.Crosshair();
+            transform.LookAt(_cameraTry.crosshair);
+            //transform.localRotation = Quaternion.Euler(0f, _camera.transform.rotation.y,0f);
             
-            if (!audioSources[2].isPlaying)
-            { 
-                audioSources[2].Play();
-            }
+            if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerAttack"))
+            {
+                _animator.SetTrigger("isAttacking");
+                katanaTrail.Play();
 
-            _colliders = Physics.OverlapSphere(katanaArea.position, katanaRange, LayerMask.GetMask("MeleeEnemy"));
-            foreach (Collider hit in _colliders)
-            {
-                if (!audioSources[3].isPlaying)
+                if (!audioSources[2].isPlaying)
                 { 
-                    audioSources[3].Play();
+                    audioSources[2].Play();
                 }
-                hit.GetComponent<MeleeEnemy>().MeleeEnemyGetHit(katanaDamage);
-            }
-            _colliders = null;
+
+                _colliders = Physics.OverlapSphere(katanaArea.position, katanaRange, LayerMask.GetMask("MeleeEnemy"));
+                foreach (Collider hit in _colliders)
+                {
+                    if (!audioSources[3].isPlaying)
+                    { 
+                        audioSources[3].Play();
+                    }
+                    hit.GetComponent<MeleeEnemy>().MeleeEnemyGetHit(katanaDamage);
+                }
+                _colliders = null;
             
-            _colliders = Physics.OverlapSphere(katanaArea.position, katanaRange, LayerMask.GetMask("RangedEnemy"));
-            foreach (Collider hit in _colliders)
-            {
-                if (!audioSources[3].isPlaying)
-                { 
-                    audioSources[3].Play();
+                _colliders = Physics.OverlapSphere(katanaArea.position, katanaRange, LayerMask.GetMask("RangedEnemy"));
+                foreach (Collider hit in _colliders)
+                {
+                    if (!audioSources[3].isPlaying)
+                    { 
+                        audioSources[3].Play();
+                    }
+                    hit.GetComponent<RangedEnemy>().RangedEnemyGetHit(katanaDamage);
                 }
-                hit.GetComponent<RangedEnemy>().RangedEnemyGetHit(katanaDamage);
-            }
-            _colliders = null;
+                _colliders = null;
             
-            _colliders = Physics.OverlapSphere(katanaArea.position, katanaRange, LayerMask.GetMask("Turret"));
-            foreach (Collider hit in _colliders)
-            {
-                if (!audioSources[3].isPlaying)
-                { 
-                    audioSources[3].Play();
+                _colliders = Physics.OverlapSphere(katanaArea.position, katanaRange, LayerMask.GetMask("Turret"));
+                foreach (Collider hit in _colliders)
+                {
+                    if (!audioSources[3].isPlaying)
+                    { 
+                        audioSources[3].Play();
+                    }
+                    hit.GetComponent<Turret>().TurretGetHit(katanaDamage);
                 }
-                hit.GetComponent<Turret>().TurretGetHit(katanaDamage);
+                _colliders = null;
             }
-            _colliders = null;
         }
-        //_timeSinceLastMelee = 0;
     }
 
     void PlayerFire()
     {
         if (Input.GetMouseButton(1))
         {
-            _currentSpeed = fireSpeed;
+            _characterController.Move(_move / 10 * _currentSpeed);
+            
             _cameraTry.Crosshair();
             transform.LookAt(_cameraTry.crosshair);
+            //transform.localRotation = Quaternion.Euler(0f, transform.rotation.y,0f);
 
             if ( statsSaves.ShurikenVar > 0)
             {
@@ -306,6 +324,7 @@ public class Player : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    _animator.SetTrigger("ragemode");
                     rageModeOn = true;
                     _characterController.slopeLimit *= 1.5f;
                     //katanaCooldown /= 1.5f;

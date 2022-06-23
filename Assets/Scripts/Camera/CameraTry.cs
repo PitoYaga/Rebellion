@@ -29,8 +29,8 @@ public class CameraTry : MonoBehaviour
     
     void Start ()
     {
-        cam = transform;
-        smoothPlayerPos = player.position;
+        //cam = transform;
+        //smoothPlayerPos = player.position;
         
         Cursor.visible = false;
     }
@@ -52,7 +52,7 @@ public class CameraTry : MonoBehaviour
         return crosshair;
     }
 
-    void LateUpdate () 
+    /*void LateUpdate () 
     {
         _angleH += Mathf.Clamp(Input.GetAxis("Mouse X") , -1, 1) * horizontalAimingSpeed * Time.deltaTime;
         _angleV += Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1) * verticalAimingSpeed * Time.deltaTime;
@@ -84,5 +84,5 @@ public class CameraTry : MonoBehaviour
             maxCamDist = hit.distance - padding;
         }
         cam.position = closeCamPoint + closeToFarDir * maxCamDist;
-    }
+    }*/
 }

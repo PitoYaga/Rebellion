@@ -126,6 +126,7 @@ public class Turret : MonoBehaviour
     {
         Vector3 lootPosOffset = new Vector3(0, 0, 7);
         _isAlive = false;
+        _animator.enabled = true;
         _playerCs.rageBar += enemyRageXp;
         _animator.SetTrigger("death");
         
