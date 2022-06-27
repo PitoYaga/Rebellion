@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     [Header("Rage Mode")]
     public float rageBar;
     [SerializeField] float maxRageBar = 100;
-    [SerializeField] private float rageModeCooldown = 5;
+    [SerializeField] private float rageModeCooldown = 7;
     private float _currentRageModeCooldown = 5;
     public bool rageModeOn;
     
@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("DeathScreen");
+            SceneManager.LoadScene("DeathScene");
         }
     }
     
@@ -110,7 +110,8 @@ public class Player : MonoBehaviour
         var v = Input.GetAxis("Vertical");
 
         if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerAttack") &&
-            !_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerLaser"))
+            !_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerLaser") &&
+            !_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerRageMode"))
         {
             katanaTrail.Stop();
             
@@ -331,7 +332,6 @@ public class Player : MonoBehaviour
                     _animator.SetTrigger("ragemode");
                     rageModeOn = true;
                     _characterController.slopeLimit *= 1.5f;
-                    //katanaCooldown /= 1.5f;
                     fireRate /= 1.5f;
                 }
                 else
@@ -343,7 +343,7 @@ public class Player : MonoBehaviour
         else
         {
             _currentRageModeCooldown -= Time.deltaTime;
-            rageBar -= maxRageBar / _currentRageModeCooldown *Time.deltaTime;
+            rageBar -= maxRageBar / _currentRageModeCooldown * Time.deltaTime;
             rageBarSlider.value = rageBar;
                     
             if (_currentRageModeCooldown <= 0)

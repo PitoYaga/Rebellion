@@ -303,7 +303,6 @@ public class MeleeEnemy : MonoBehaviour
         if (_playerCs.rageModeOn)
         {
             statsSaves.HealthVar += (playerDamage / 2);
-            
             if ( statsSaves.HealthVar >= _playerCs.playerMaxHealth)
             {
                 statsSaves.HealthVar = _playerCs.playerMaxHealth;

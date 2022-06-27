@@ -6,11 +6,12 @@ using UnityEngine;
 public class ResetData : MonoBehaviour
 {
    [SerializeField] private StatsSaves _statsSaves;
-   private Player _playerCs;
+   [SerializeField] private Player _playerCs;
+   //private Player _playerCs;
 
    private void Start()
    {
-      _playerCs = FindObjectOfType<Player>();
+      //_playerCs = FindObjectOfType<Player>();
       
       _statsSaves.HealthVar = _playerCs.playerMaxHealth;
       _playerCs.playerHeathSlider.maxValue = _playerCs.playerMaxHealth;
@@ -21,6 +22,6 @@ public class ResetData : MonoBehaviour
       
       _statsSaves.ShurikenVar = _playerCs.shurikenMagazine;
       
-      Destroy(gameObject, 2);
+      //Destroy(gameObject, 2);
    }
 }

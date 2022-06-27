@@ -13,7 +13,7 @@ public class SceneLoader : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(3);
     }
 
     public void Credits()

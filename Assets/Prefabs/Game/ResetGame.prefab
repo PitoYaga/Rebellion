@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statsSaves: {fileID: 11400000, guid: becd2c923b8373744a0d8ddc6f512820, type: 2}
+  _playerCs: {fileID: 862652003532639963, guid: 2537db1df28d8c64fbb8025baba94676, type: 3}
