@@ -179,13 +179,14 @@ public class Player : MonoBehaviour
         _timeSinceLastDash += Time.deltaTime;
         if (_isMoving && dashCooldown < _timeSinceLastDash)
         {
-            //audioSources[8].PlayOneShot(audioSources[8].clip);
-            
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _timeSinceLastDash = 0;
                 _isDashing = true;
-                //dash sound
+                if (!audioSources[1].isPlaying)
+                {
+                    audioSources[1].Play();
+                }
             }
         }
 
@@ -193,7 +194,7 @@ public class Player : MonoBehaviour
         {
             if (!audioSources[8].isPlaying)
             {
-                audioSources[8].PlayOneShot(audioSources[8].clip);
+                audioSources[8].Play();
             }
         }
     }
@@ -223,9 +224,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, -_camera.transform.rotation.y, transform.rotation.z));
+            
+            //transform.forward = _camera.transform.forward;
             //_cameraTry.Crosshair();
             //transform.LookAt(_cameraTry.crosshair);
-            transform.localRotation = Quaternion.Euler(0f, _camera.transform.rotation.y,0f);
+            //transform.localRotation = Quaternion.Euler(0f, _camera.transform.rotation.y,0f);
             
             if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerAttack"))
             {
@@ -277,36 +281,36 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
-            _characterController.Move(_move / 10 * _currentSpeed);
-            
-            _cameraTry.Crosshair();
-            //transform.LookAt(_cameraTry.crosshair);
-            transform.localRotation = Quaternion.Euler(0f, _camera.transform.rotation.y,0f);
-
-            if ( statsSaves.ShurikenVar > 0)
+            if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerLaser"))
             {
-                _timeSinceLastFire += Time.deltaTime;
-                if (_timeSinceLastFire > fireRate)
+                _cameraTry.Crosshair();
+                //transform.LookAt(_cameraTry.crosshair);
+                transform.localRotation = Quaternion.Euler(0f, _camera.transform.rotation.y, 0f);
+
+                if (statsSaves.ShurikenVar > 0)
                 {
-                    if (!audioSources[4].isPlaying)
+                    _timeSinceLastFire += Time.deltaTime;
+                    if (_timeSinceLastFire > fireRate)
                     {
-                        audioSources[4].Play();
+                        _animator.SetTrigger("shuriken");
+                        statsSaves.ShurikenVar--;
+                        _timeSinceLastFire = 0;
                     }
-
-                    _animator.SetTrigger("shuriken");
-                    statsSaves.ShurikenVar--;
-                    _timeSinceLastFire = 0;
                 }
-            }
-            else
-            {
-                //empty gun sound
+                else
+                {
+                    //empty gun sound
+                }
             }
         }
     }
 
     void ShootLaser()
     {
+        if (!audioSources[4].isPlaying)
+        {
+            audioSources[4].Play();
+        }
         Instantiate(shuriken, barrel.position, transform.rotation);
     }
 

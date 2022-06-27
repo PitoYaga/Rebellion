@@ -79,7 +79,7 @@ public class Turret : MonoBehaviour
                     if (_timeSinceLastFire >= fireRate)
                     {
                         //_audioSource.PlayOneShot(_audioClips[1]);
-                        //transform.rotation = Quaternion.Inverse(transform.rotation);
+                        transform.rotation = Quaternion.Inverse(transform.rotation);
                 
                         _animator.SetTrigger("isAttacking");
                         _timeSinceLastFire = 0;
@@ -118,7 +118,7 @@ public class Turret : MonoBehaviour
     
     void TurretDeath()
     {
-        Vector3 lootPosOffset = new Vector3(0, 0, 7);
+        Vector3 lootPosOffset = new Vector3(0, 0, 8);
         _isAlive = false;
         _playerCs.rageBar += enemyRageXp;
         _animator.SetTrigger("death");
@@ -133,8 +133,6 @@ public class Turret : MonoBehaviour
         }
         
         //_audioSource.PlayOneShot(_audioClips[3]);
-
-        //Destroy(gameObject, 2);
     }
 
     private void OnCollisionEnter(Collision other)

@@ -291,7 +291,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 853f205b1f9ac484c80f36da6d51533c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -356,8 +356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserWallDamage: 0.5
   audioClips:
-  - {fileID: 8300000, guid: 73d5a96e64d30524ab4e30d22b5ba863, type: 3}
-  - {fileID: 8300000, guid: 52ce601e2378ddb429bbc23d2d0b4832, type: 3}
+  - {fileID: 8300000, guid: da87573a96cb08e4198dedf6c9023cf3, type: 3}
+  - {fileID: 8300000, guid: d2b2c159ed2bf65479d2ff1d3d26a8cc, type: 3}
 --- !u!82 &4655127850275053636
 AudioSource:
   m_ObjectHideFlags: 0
@@ -370,7 +370,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.477
+  m_Volume: 0.792
   m_Pitch: 1
   Loop: 1
   Mute: 0
