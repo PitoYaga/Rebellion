@@ -167,6 +167,14 @@ public class MeleeEnemy : MonoBehaviour
         {
             currentState = EnemyStates.Chase;
         }
+        else if(Physics.CheckSphere(transform.position, attackRadius, 8))
+        {
+            _navMeshAgent.isStopped = true;
+        }
+        else
+        {
+            _navMeshAgent.isStopped = false;
+        }
         
         if (path != null)
         {
@@ -209,9 +217,17 @@ public class MeleeEnemy : MonoBehaviour
 
         if (!Physics.CheckSphere(transform.position, currentChaseRadius, playerLayer))
         {
-            attackAlert.enabled = false;
             isChasing = false;
             currentState = EnemyStates.Walk;
+        }
+        
+        if(Physics.CheckSphere(transform.position, attackRadius, 8))
+        {
+            _navMeshAgent.isStopped = true;
+        }
+        else
+        {
+            _navMeshAgent.isStopped = false;
         }
         
         _attackCollider = Physics.OverlapSphere(enemyAttackArea.position, attackRadius, playerLayer);
@@ -244,13 +260,11 @@ public class MeleeEnemy : MonoBehaviour
                 if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("EnemyAttack"))
                 {
                     _animator.SetTrigger("isAttacking");
-                    _navMeshAgent.SetDestination(transform.position);
-                    _navMeshAgent.velocity = Vector3.zero;
+                    _navMeshAgent.isStopped = true;
                 }
                 else
                 {
-                    _navMeshAgent.SetDestination(transform.position);
-                    _navMeshAgent.velocity = Vector3.zero;
+                    _navMeshAgent.isStopped = true;
                 }
                
                 //_audioSource.PlayOneShot(_audioClips[1]);
@@ -263,25 +277,25 @@ public class MeleeEnemy : MonoBehaviour
                 if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("WaitToAttack") && !_animator.GetCurrentAnimatorStateInfo(0).IsName("EnemyAttack"))
                 {
                     _animator.SetTrigger("waitToAttack");
-                    _navMeshAgent.SetDestination(transform.position);
-                    _navMeshAgent.velocity = Vector3.zero;
+                    _navMeshAgent.isStopped = true;
                 }
                 else
                 {
-                    _navMeshAgent.SetDestination(transform.position);
-                    _navMeshAgent.velocity = Vector3.zero;
+                    _navMeshAgent.isStopped = true;
                 }
-                
-                //it is always working
-                //need to design
             }
+        }
+        else if(Physics.CheckSphere(transform.position, attackRadius, 8))
+        {
+            _navMeshAgent.isStopped = true;
         }
         else
         {
-            _animator.SetTrigger("alerted");
+            _navMeshAgent.isStopped = false;
             _animator.Play("EnemyRun");
             currentState = EnemyStates.Chase;
         }
+        
     }
 
     public void MeleeEnemyGetHit(float playerDamage)

@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class Turret : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] float rangedEnemyMaxHealth = 10;
-    [SerializeField] float rangedEnemyHealth = 10;
+    [SerializeField] float turretMaxHealth = 10;
+    [SerializeField] float turretHealth = 10;
     [SerializeField] private float enemyRageXp = 20;
 
     [Header("Attack")]
     [SerializeField] private float fireRate = 3;
-    [SerializeField] private Transform rangedEnemyBarrel;
+    [SerializeField] private Transform turretBarrel;
     [SerializeField] private GameObject bullet;
     [SerializeField] float attackRadius = 2;
 
@@ -31,7 +31,7 @@ public class Turret : MonoBehaviour
     
     private float _timeSinceLastFire;
     private Animator _animator;
-    GameObject player;
+    GameObject _player;
     private Player _playerCs;
     private bool _isAlive = true;
     private AudioSource _audioSource;
@@ -47,11 +47,10 @@ public class Turret : MonoBehaviour
 
     void Start()
     {
-        transform.forward = Vector3.back;
-        player = GameObject.FindWithTag(Constants.bulletTargetTag);
+        _player = GameObject.FindWithTag(Constants.bulletTargetTag);
 
-        enemyHealthSlider.maxValue = rangedEnemyMaxHealth;
-        enemyHealthSlider.value = rangedEnemyHealth;
+        enemyHealthSlider.maxValue = turretMaxHealth;
+        enemyHealthSlider.value = turretHealth;
     }
     
     void Update()
@@ -66,22 +65,21 @@ public class Turret : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
-            _animator.enabled = false;
-            transform.LookAt(player.transform.position);
+            transform.LookAt(_player.transform.position);
 
-            Ray ray = new Ray(rangedEnemyBarrel.position, rangedEnemyBarrel.forward * 1);
+            Ray ray = new Ray(turretBarrel.position, turretBarrel.forward);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, attackRadius))
             {
                 if (hit.collider.CompareTag(Constants.playerTag))
                 {
-                    Debug.Log("turret");
                     _timeSinceLastFire += Time.deltaTime;
-                    if (_timeSinceLastFire > fireRate)
+                    Debug.Log(_timeSinceLastFire);
+                    if (_timeSinceLastFire >= fireRate)
                     {
                         //_audioSource.PlayOneShot(_audioClips[1]);
-                        transform.rotation = Quaternion.Inverse(transform.rotation);
+                        //transform.rotation = Quaternion.Inverse(transform.rotation);
                 
                         _animator.SetTrigger("isAttacking");
                         _timeSinceLastFire = 0;
@@ -89,15 +87,11 @@ public class Turret : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            _animator.enabled = true;
-        }
     }
 
     public void FireBullet()
     {
-        Instantiate(bullet, rangedEnemyBarrel.position, Quaternion.identity);
+        Instantiate(bullet, turretBarrel.position, Quaternion.identity);
     }
 
     public void TurretGetHit(float playerDamage)
@@ -113,10 +107,10 @@ public class Turret : MonoBehaviour
         
         //_audioSource.PlayOneShot(_audioClips[2]);
         
-        rangedEnemyHealth -= playerDamage;
-        enemyHealthSlider.value = rangedEnemyHealth;
+        turretHealth -= playerDamage;
+        enemyHealthSlider.value = turretHealth;
         
-        if (rangedEnemyHealth <= 0 && _isAlive)
+        if (turretHealth <= 0 && _isAlive)
         {
             TurretDeath();
         }
@@ -126,7 +120,6 @@ public class Turret : MonoBehaviour
     {
         Vector3 lootPosOffset = new Vector3(0, 0, 7);
         _isAlive = false;
-        _animator.enabled = true;
         _playerCs.rageBar += enemyRageXp;
         _animator.SetTrigger("death");
         
@@ -159,7 +152,7 @@ public class Turret : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRadius);
         
         Gizmos.color = Color.yellow;
-        Vector3 direction = rangedEnemyBarrel.forward * attackRadius;
-        Gizmos.DrawRay(rangedEnemyBarrel.position, direction);
+        Vector3 direction = turretBarrel.forward * attackRadius;
+        Gizmos.DrawRay(turretBarrel.position, direction);
     }
 }

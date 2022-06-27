@@ -20,8 +20,8 @@ public class Shuriken : MonoBehaviour
         laserBlast.Stop();
         
         transform.LookAt(_cameraTry.crosshair);
-        _rigidbody.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
-        
+        _rigidbody.velocity = transform.forward * bulletSpeed;
+
         Destroy(gameObject, 3);
     }
 

@@ -223,9 +223,9 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            _cameraTry.Crosshair();
-            transform.LookAt(_cameraTry.crosshair);
-            //transform.localRotation = Quaternion.Euler(0f, _camera.transform.rotation.y,0f);
+            //_cameraTry.Crosshair();
+            //transform.LookAt(_cameraTry.crosshair);
+            transform.localRotation = Quaternion.Euler(0f, _camera.transform.rotation.y,0f);
             
             if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerAttack"))
             {
@@ -280,8 +280,8 @@ public class Player : MonoBehaviour
             _characterController.Move(_move / 10 * _currentSpeed);
             
             _cameraTry.Crosshair();
-            transform.LookAt(_cameraTry.crosshair);
-            //transform.localRotation = Quaternion.Euler(0f, transform.rotation.y,0f);
+            //transform.LookAt(_cameraTry.crosshair);
+            transform.localRotation = Quaternion.Euler(0f, _camera.transform.rotation.y,0f);
 
             if ( statsSaves.ShurikenVar > 0)
             {

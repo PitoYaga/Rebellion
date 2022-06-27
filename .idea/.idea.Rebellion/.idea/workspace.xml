@@ -55,13 +55,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/LaserWall.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Turret.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/CloseTutorial.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Turret.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -173,6 +173,8 @@
       <workItem from="1655881061666" duration="13235000" />
       <workItem from="1655927159281" duration="674000" />
       <workItem from="1655976050786" duration="9407000" />
+      <workItem from="1656063301032" duration="8456000" />
+      <workItem from="1656324554458" duration="2625000" />
     </task>
     <servers />
   </component>
