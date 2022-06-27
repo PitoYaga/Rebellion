@@ -224,13 +224,11 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, -_camera.transform.rotation.y, transform.rotation.z));
-            
-            //transform.forward = _camera.transform.forward;
-            //_cameraTry.Crosshair();
-            //transform.LookAt(_cameraTry.crosshair);
-            //transform.localRotation = Quaternion.Euler(0f, _camera.transform.rotation.y,0f);
-            
+            var rotationVector = _camera.transform.rotation.eulerAngles;
+            rotationVector.x = 0;
+            rotationVector.z = 0;
+            transform.rotation = Quaternion.Euler(rotationVector);
+
             if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerAttack"))
             {
                 _animator.SetTrigger("isAttacking");
@@ -284,8 +282,10 @@ public class Player : MonoBehaviour
             if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerLaser"))
             {
                 _cameraTry.Crosshair();
-                //transform.LookAt(_cameraTry.crosshair);
-                transform.localRotation = Quaternion.Euler(0f, _camera.transform.rotation.y, 0f);
+                var rotationVector = _camera.transform.rotation.eulerAngles;
+                rotationVector.x = 0;
+                rotationVector.z = 0;
+                transform.rotation = Quaternion.Euler(rotationVector);
 
                 if (statsSaves.ShurikenVar > 0)
                 {
