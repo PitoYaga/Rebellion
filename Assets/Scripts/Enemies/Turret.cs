@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private Transform turretBarrel;
     [SerializeField] private GameObject bullet;
     [SerializeField] float attackRadius = 2;
+    [SerializeField] private ParticleSystem shootVFX;
 
     [Header("Loot")] 
     [SerializeField] private GameObject[] loots;
@@ -44,6 +46,7 @@ public class Turret : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
         _playerCs = FindObjectOfType<Player>();
+        shootVFX.Stop();
     }
 
     void Start()
@@ -81,8 +84,9 @@ public class Turret : MonoBehaviour
                     {
                         _animator.enabled = false;
                         _audioSource.PlayOneShot(_audioClips[0]);
-
-                        _animator.SetTrigger("isAttacking");
+                        //_animator.SetTrigger("isAttacking");
+                        
+                        Instantiate(shootVFX, turretBarrel.position, Quaternion.Euler(turretBarrel.rotation.eulerAngles));
                         Instantiate(bullet, turretBarrel.position, Quaternion.identity);
                         _timeSinceLastFire = 0;
                     }
