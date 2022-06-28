@@ -7,21 +7,12 @@ public class ResetData : MonoBehaviour
 {
    [SerializeField] private StatsSaves _statsSaves;
    [SerializeField] private Player _playerCs;
-   //private Player _playerCs;
+
 
    private void Start()
    {
-      //_playerCs = FindObjectOfType<Player>();
-      
       _statsSaves.HealthVar = _playerCs.playerMaxHealth;
-      _playerCs.playerHeathSlider.maxValue = _playerCs.playerMaxHealth;
-      _playerCs.playerHeathSlider.value = _playerCs.playerMaxHealth;
-      
       _statsSaves.RageVar = 0;
-      _playerCs.rageBarSlider.maxValue = 0;
-      
       _statsSaves.ShurikenVar = _playerCs.shurikenMagazine;
-      
-      //Destroy(gameObject, 2);
    }
 }

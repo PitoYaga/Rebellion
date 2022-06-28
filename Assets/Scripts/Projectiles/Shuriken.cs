@@ -8,17 +8,19 @@ public class Shuriken : MonoBehaviour
 {
     [SerializeField] float bulletSpeed = 50;
     public float shurikenDamage = 5;
-    //[SerializeField] private ParticleSystem laserBlast;
+    [SerializeField] private ParticleSystem laserBlast;
 
+    private MeshRenderer _meshRenderer;
     private Rigidbody _rigidbody;
     private CameraTry _cameraTry;
 
     void Start()
     {
+        _meshRenderer = GetComponent<MeshRenderer>();
         _rigidbody = GetComponent<Rigidbody>();
         _cameraTry = FindObjectOfType<CameraTry>();
         
-        //laserBlast.Stop();
+        laserBlast.Stop();
         
         transform.LookAt(_cameraTry.crosshair);
         _rigidbody.velocity = transform.forward * bulletSpeed;
@@ -28,8 +30,9 @@ public class Shuriken : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        transform.position = transform.position;
-        //laserBlast.Play();
-        Destroy(gameObject);
+        _meshRenderer.enabled = false;
+        laserBlast.Play();
+        _rigidbody.velocity = Vector3.zero;
+        Destroy(gameObject, 0.5f);
     }
 }

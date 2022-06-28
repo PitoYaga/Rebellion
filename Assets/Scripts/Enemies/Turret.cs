@@ -65,34 +65,40 @@ public class Turret : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
+            _animator.enabled = false;
             transform.LookAt(_player.transform.position);
-
+            
             Ray ray = new Ray(turretBarrel.position, turretBarrel.forward);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, attackRadius))
+            if (Physics.Raycast(ray, out hit, 100))
             {
                 if (hit.collider.CompareTag(Constants.playerTag))
                 {
                     _timeSinceLastFire += Time.deltaTime;
-                    Debug.Log(_timeSinceLastFire);
-                    if (_timeSinceLastFire >= fireRate)
+                    if (_timeSinceLastFire > fireRate)
                     {
+                        _animator.enabled = false;
                         //_audioSource.PlayOneShot(_audioClips[1]);
                         transform.rotation = Quaternion.Inverse(transform.rotation);
-                
-                        _animator.SetTrigger("isAttacking");
+                        
+                        //_animator.SetTrigger("isAttacking");
+                        Instantiate(bullet, turretBarrel.position, Quaternion.identity);
                         _timeSinceLastFire = 0;
                     }
                 }
             }
         }
+        else
+        {
+            //_animator.enabled = true;
+        }
     }
 
-    public void FireBullet()
+    /*void FireBullet()
     {
         Instantiate(bullet, turretBarrel.position, Quaternion.identity);
-    }
+    }*/
 
     public void TurretGetHit(float playerDamage)
     {
@@ -121,6 +127,7 @@ public class Turret : MonoBehaviour
         Vector3 lootPosOffset = new Vector3(0, 0, 8);
         _isAlive = false;
         _playerCs.rageBar += enemyRageXp;
+        _animator.enabled = true;
         _animator.SetTrigger("death");
         
         if(UnityEngine.Random.Range(1 , 100) <= shurikenTreshold)
