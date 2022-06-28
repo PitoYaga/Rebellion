@@ -80,7 +80,7 @@ public class Turret : MonoBehaviour
                     {
                         _animator.enabled = false;
                         //_audioSource.PlayOneShot(_audioClips[1]);
-                        transform.rotation = Quaternion.Inverse(transform.rotation);
+                        //transform.rotation = Quaternion.Inverse(transform.rotation);
                         
                         //_animator.SetTrigger("isAttacking");
                         Instantiate(bullet, turretBarrel.position, Quaternion.identity);

@@ -33,6 +33,6 @@ public class Shuriken : MonoBehaviour
         _meshRenderer.enabled = false;
         laserBlast.Play();
         _rigidbody.velocity = Vector3.zero;
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 0.2f);
     }
 }
