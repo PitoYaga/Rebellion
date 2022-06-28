@@ -25,6 +25,7 @@ public class Turret : MonoBehaviour
     [Header("Objects")]
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private Slider enemyHealthSlider;
+    [SerializeField] private AudioClip[] _audioClips;
     [SerializeField] private StatsSaves _statsSaves;
     
     //[SerializeField] private AudioClip[] _audioClips;
@@ -79,10 +80,9 @@ public class Turret : MonoBehaviour
                     if (_timeSinceLastFire > fireRate)
                     {
                         _animator.enabled = false;
-                        //_audioSource.PlayOneShot(_audioClips[1]);
-                        //transform.rotation = Quaternion.Inverse(transform.rotation);
-                        
-                        //_animator.SetTrigger("isAttacking");
+                        _audioSource.PlayOneShot(_audioClips[0]);
+
+                        _animator.SetTrigger("isAttacking");
                         Instantiate(bullet, turretBarrel.position, Quaternion.identity);
                         _timeSinceLastFire = 0;
                     }
@@ -91,7 +91,7 @@ public class Turret : MonoBehaviour
         }
         else
         {
-            //_animator.enabled = true;
+            _animator.enabled = true;
         }
     }
 
@@ -111,7 +111,7 @@ public class Turret : MonoBehaviour
             }
         }
         
-        //_audioSource.PlayOneShot(_audioClips[2]);
+        _audioSource.PlayOneShot(_audioClips[1]);
         
         turretHealth -= playerDamage;
         enemyHealthSlider.value = turretHealth;
@@ -139,7 +139,7 @@ public class Turret : MonoBehaviour
             Instantiate(loots[0], transform.position + lootPosOffset, Quaternion.identity);
         }
         
-        //_audioSource.PlayOneShot(_audioClips[3]);
+        //_audioSource.PlayOneShot(_audioClips[2]);
     }
 
     private void OnCollisionEnter(Collision other)
