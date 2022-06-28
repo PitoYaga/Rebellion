@@ -47,12 +47,13 @@ public class MeleeEnemy : MonoBehaviour
     [Header("Objects")]
     [SerializeField] private Slider enemyHealthSlider;
     [SerializeField] private Image attackAlert;
-    [SerializeField] private AudioClip[] audioClips;
+    [SerializeField] private AudioClip[] _audioClips;
     [SerializeField] private StatsSaves statsSaves;
     public bool isChasing;
     public bool isAttacking;
     
     private AudioSource _audioSource;
+    private AudioClip _currentClip;
     private float _timeSinceLastDecision;
     float _attackTimer;
     private NavMeshAgent _navMeshAgent;
@@ -100,10 +101,19 @@ public class MeleeEnemy : MonoBehaviour
                 DoingSth();
                 _timeSinceLastDecision = 0;
             }
-        
             if (ReachedTarget())
             {
                 IterateIndex();
+            }
+
+            if (_audioSource.isPlaying && _audioSource.clip == _currentClip)
+            {
+                return;
+            }
+            else
+            {
+                _audioSource.clip = _currentClip;
+                _audioSource.Play();
             }
 
             #region PlayerRageMode
@@ -178,8 +188,7 @@ public class MeleeEnemy : MonoBehaviour
         
         if (path != null)
         {
-            //walking animation
-            //_audioSource.PlayOneShot(_audioClips[0]);
+            _currentClip = _audioClips[0];
             
             _animator.SetTrigger("isWalking");
             currentSpeed = walkSpeed;
@@ -212,8 +221,7 @@ public class MeleeEnemy : MonoBehaviour
         attackAlert.enabled = true;
         isChasing = true;
 
-        //_audioSource.PlayOneShot(_audioClips[0]);
-        //enemy alerted sign
+        _currentClip = _audioClips[1];
 
         if (!Physics.CheckSphere(transform.position, currentChaseRadius, playerLayer))
         {
@@ -267,7 +275,7 @@ public class MeleeEnemy : MonoBehaviour
                     _navMeshAgent.isStopped = true;
                 }
                
-                //_audioSource.PlayOneShot(_audioClips[1]);
+                _currentClip = _audioClips[3];
                 
                 _playerCs.PlayerGetHit(enemyDamage);
                 _attackTimer = 0;
@@ -278,6 +286,7 @@ public class MeleeEnemy : MonoBehaviour
                 {
                     _animator.SetTrigger("waitToAttack");
                     _navMeshAgent.isStopped = true;
+                    _currentClip = _audioClips[4];
                 }
                 else
                 {
@@ -309,7 +318,7 @@ public class MeleeEnemy : MonoBehaviour
             }
         }
         
-        //_audioSource.PlayOneShot(_audioClips[2]);
+        _currentClip = _audioClips[2];
         
         _navMeshAgent.velocity = -transform.forward * knockBackPower;
         _animator.SetTrigger("knockback");
