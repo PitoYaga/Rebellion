@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8706669207077270696}
   - component: {fileID: 8706669207077270697}
   m_Layer: 0
-  m_Name: Explotion
+  m_Name: EnemyExplode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

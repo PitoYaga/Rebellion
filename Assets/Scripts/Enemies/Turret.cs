@@ -11,7 +11,8 @@ public class Turret : MonoBehaviour
     [SerializeField] float turretMaxHealth = 10;
     [SerializeField] float turretHealth = 10;
     [SerializeField] private float enemyRageXp = 20;
-
+    [SerializeField] private ParticleSystem deathVFX;
+    
     [Header("Attack")]
     [SerializeField] private float fireRate = 3;
     [SerializeField] private Transform turretBarrel;
@@ -47,6 +48,7 @@ public class Turret : MonoBehaviour
         _animator = GetComponent<Animator>();
         _playerCs = FindObjectOfType<Player>();
         shootVFX.Stop();
+        deathVFX.Stop();
     }
 
     void Start()
@@ -128,6 +130,7 @@ public class Turret : MonoBehaviour
     
     void TurretDeath()
     {
+        StartCoroutine("DeathVFX");
         Vector3 lootPosOffset = new Vector3(0, 0, 8);
         _isAlive = false;
         _playerCs.rageBar += enemyRageXp;
@@ -145,6 +148,14 @@ public class Turret : MonoBehaviour
         
         //_audioSource.PlayOneShot(_audioClips[2]);
     }
+    
+    IEnumerator DeathVFX()
+    {
+        deathVFX.Play();
+        yield return new WaitForSeconds(0.5f);
+        deathVFX.Stop();
+    }
+    
 
     private void OnCollisionEnter(Collision other)
     {

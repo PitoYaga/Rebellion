@@ -22,8 +22,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float katanaDamage;
     [SerializeField] private float katanaRange = 2;
     [SerializeField] private Transform katanaArea;
-    //[SerializeField] float katanaCooldown = 0.5f;
-    //private float _timeSinceLastMelee;
     [SerializeField] private GameObject shuriken;
     [SerializeField] float fireRate = 1;
     public float shurikenMagazine = 10;
@@ -122,7 +120,21 @@ public class Player : MonoBehaviour
                     Vector3 appliedGravity = gravity * Time.deltaTime * Vector3.down;
                     _characterController.Move(appliedGravity);
                 }
-
+                
+                if (Mathf.Abs(h) > 0.1f || Mathf.Abs(v) > 0.1f)
+                {
+                    _isMoving = true;
+                    RotatePlayer();
+                }
+                else
+                {
+                    _isMoving = false;
+                    _currentSpeed = 0;
+                    audioSources[7].Stop();
+                    audioSources[0].Stop();
+                    StopCoroutine(DashVFX());
+                }
+                
                 _move = new Vector3(h, 0, v);
                 _move = _camera.transform.TransformDirection(_move);
                 _move.y = 0;
@@ -135,7 +147,7 @@ public class Player : MonoBehaviour
                     _currentSpeed = runSpeed;
                     _characterController.Move(_move / 10 * _currentSpeed);
 
-                    if (!audioSources[7].isPlaying)
+                    if (!audioSources[7].isPlaying && _isMoving && !_isDashing)
                     {
                         audioSources[7].Play();
                     }
@@ -152,22 +164,11 @@ public class Player : MonoBehaviour
                         audioSources[0].Play();
                     }
                 }
-
-                if ((Mathf.Abs(h) > 0 && Mathf.Abs(v) > 0) || (Mathf.Abs(h) > 0 || Mathf.Abs(v) > 0))
-                {
-                    _isMoving = true;
-                    RotatePlayer();
-                }
-                else
-                {
-                    _isMoving = false;
-                    _currentSpeed = 0;
-                    audioSources[0].Stop();
-                    StopCoroutine(DashVFX());
-                }
             }
             else
             {
+                audioSources[7].Stop();
+                audioSources[0].Stop();
                 _animator.SetFloat("speed", _currentSpeed);
                 StartCoroutine(DashVFX());
                 StartCoroutine(DashMove());
@@ -184,6 +185,7 @@ public class Player : MonoBehaviour
             {
                 _timeSinceLastDash = 0;
                 _isDashing = true;
+                
                 if (!audioSources[1].isPlaying)
                 {
                     audioSources[1].Play();
@@ -206,7 +208,7 @@ public class Player : MonoBehaviour
         {
             audioSources[1].Play();
         }
-
+        
         _currentSpeed = dashSpeed;
         _characterController.Move(_move / 10 * _currentSpeed);
         yield return new WaitForSeconds(0.2f);

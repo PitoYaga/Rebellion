@@ -19,6 +19,7 @@ public class MeleeEnemy : MonoBehaviour
     public float chaseSpeed = 6;
     [SerializeField] private float attackWalkSpeed = 0;
     [SerializeField] private float knockBackPower;
+    [SerializeField] private ParticleSystem deathVFX;
 
     [Header("States")]
     [SerializeField] private EnemyStates currentState;
@@ -76,6 +77,7 @@ public class MeleeEnemy : MonoBehaviour
         
         _target = GameObject.FindGameObjectWithTag(Constants.playerTag).transform;
         attackAlert.enabled = false;
+        deathVFX.Stop();
     }
 
     void Start()
@@ -274,9 +276,7 @@ public class MeleeEnemy : MonoBehaviour
                 {
                     _navMeshAgent.isStopped = true;
                 }
-               
-                _currentClip = _audioClips[3];
-                
+
                 _playerCs.PlayerGetHit(enemyDamage);
                 _attackTimer = 0;
             }
@@ -334,6 +334,7 @@ public class MeleeEnemy : MonoBehaviour
     
     void MeleeEnemyDeath()
     {
+        StartCoroutine("DeathVFX");
         _navMeshAgent.speed = walkSpeed;
         Vector3 lootPosOffset= new Vector3(0,  10, 0);
         _isAlive = false;
@@ -353,6 +354,13 @@ public class MeleeEnemy : MonoBehaviour
         //_audioSource.PlayOneShot(_audioClips[3]);
 
         Destroy(gameObject, 1);
+    }
+    
+    IEnumerator DeathVFX()
+    {
+        deathVFX.Play();
+        yield return new WaitForSeconds(0.5f);
+        deathVFX.Stop();
     }
 
     private void OnTriggerEnter(Collider other)

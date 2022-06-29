@@ -434,6 +434,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 451004637931529411, guid: 2537db1df28d8c64fbb8025baba94676, type: 3}
+      propertyPath: m_Pitch
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 451004637931529411, guid: 2537db1df28d8c64fbb8025baba94676, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 805195932999045873, guid: 2537db1df28d8c64fbb8025baba94676, type: 3}
+      propertyPath: m_Materials.Array.data[21]
+      value: 
+      objectReference: {fileID: 2100000, guid: bdc4a18b9d542d641a580845374712b8, type: 2}
+    - target: {fileID: 805195932999045873, guid: 2537db1df28d8c64fbb8025baba94676, type: 3}
+      propertyPath: m_Materials.Array.data[23]
+      value: 
+      objectReference: {fileID: 2100000, guid: bdc4a18b9d542d641a580845374712b8, type: 2}
     - target: {fileID: 862652003532639963, guid: 2537db1df28d8c64fbb8025baba94676, type: 3}
       propertyPath: _currentSpeed
       value: 4
@@ -4477,6 +4493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4602259014607770624, guid: 26cfd65966ef4ef49834c456a71afc7c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4602259014607770877, guid: 26cfd65966ef4ef49834c456a71afc7c, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -6511,7 +6531,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871831271}
-  m_LocalRotation: {x: -0.027970728, y: -0.76082265, z: -0.03286486, w: 0.6475233}
+  m_LocalRotation: {x: -0.02797073, y: -0.76082265, z: -0.03286486, w: 0.6475233}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8635,6 +8655,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2835440649372779267, guid: 3c6944d8172300842b163c7a3c6f4064, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ec8c452e94186ea478e3e55d06b8a2ec, type: 2}
     - target: {fileID: 5464354407491177524, guid: 3c6944d8172300842b163c7a3c6f4064, type: 3}
       propertyPath: m_Name
       value: LaserWall
