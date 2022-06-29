@@ -516,8 +516,8 @@ MonoBehaviour:
   enemyDamage: 1
   meleeAttackSpeed: 1.5
   enemyAttackArea: {fileID: 8639151428758960451}
-  currentChaseRadius: 60
-  chaseRadius: 40
+  currentChaseRadius: 80
+  chaseRadius: 80
   attackRadius: 5
   loots:
   - {fileID: 3052687373951041460, guid: 3202b50a89e1b654a80d40bbc572967f, type: 3}

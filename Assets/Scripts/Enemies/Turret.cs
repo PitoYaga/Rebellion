@@ -65,6 +65,7 @@ public class Turret : MonoBehaviour
         {
             TurretAttack();
         }
+        enemyHealthSlider.value = turretHealth;
     }
     
     void TurretAttack()

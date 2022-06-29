@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     [SerializeField] float maxRageBar = 100;
     [SerializeField] private float rageModeCooldown = 7;
     private float _currentRageModeCooldown = 5;
+    [SerializeField] private GameObject rageModeFeedback;
     public bool rageModeOn;
     
     [Header("Components")]
@@ -331,6 +332,7 @@ public class Player : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    StartCoroutine("RageModeFeedBack");
                     _animator.SetTrigger("ragemode");
                     rageModeOn = true;
                     _characterController.slopeLimit *= 1.5f;
@@ -355,6 +357,13 @@ public class Player : MonoBehaviour
                 _currentRageModeCooldown = rageModeCooldown;
             }
         }
+    }
+
+    IEnumerator RageModeFeedBack()
+    {
+        rageModeFeedback.SetActive(true);
+        yield return new WaitForSeconds(0.4f);
+        rageModeFeedback.SetActive(false);
     }
 
     public void PlayerGetHit(float enemyDamage)

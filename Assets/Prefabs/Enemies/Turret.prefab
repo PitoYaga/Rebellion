@@ -226,14 +226,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a414ae0901502224cb09938f5fe3a82a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretMaxHealth: 10
-  turretHealth: 10
+  turretMaxHealth: 20
+  turretHealth: 20
   enemyRageXp: 20
   deathVFX: {fileID: 2768775433648787994}
-  fireRate: 3
+  fireRate: 2
   turretBarrel: {fileID: 4221619548518999515}
   bullet: {fileID: 857198116747606999, guid: bd8f5f61d74c9274b9a0c347151f6b88, type: 3}
-  attackRadius: 75
+  attackRadius: 100
   shootVFX: {fileID: 1747555512914147930, guid: aafd4c5c0f60269429ec4f99400b7749, type: 3}
   loots:
   - {fileID: 3052687373951041460, guid: 3202b50a89e1b654a80d40bbc572967f, type: 3}
@@ -280,8 +280,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 0.57
+  m_Volume: 0.85
+  m_Pitch: 0.5
   Loop: 0
   Mute: 0
   Spatialize: 0
