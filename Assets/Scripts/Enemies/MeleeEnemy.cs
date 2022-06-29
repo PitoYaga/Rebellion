@@ -351,7 +351,7 @@ public class MeleeEnemy : MonoBehaviour
             Instantiate(loots[0], transform.position + lootPosOffset, Quaternion.identity);
         }
         
-        //_audioSource.PlayOneShot(_audioClips[3]);
+        _audioSource.PlayOneShot(_audioClips[3]);
 
         Destroy(gameObject, 1);
     }

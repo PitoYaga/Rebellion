@@ -59,10 +59,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/ResetData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Turret.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Turret.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -180,6 +180,7 @@
       <workItem from="1656358356184" duration="7587000" />
       <workItem from="1656436090959" duration="10124000" />
       <workItem from="1656487710678" duration="7030000" />
+      <workItem from="1656506100377" duration="1133000" />
     </task>
     <servers />
   </component>

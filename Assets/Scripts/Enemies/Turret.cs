@@ -146,7 +146,7 @@ public class Turret : MonoBehaviour
             Instantiate(loots[0], transform.position + lootPosOffset, Quaternion.identity);
         }
         
-        //_audioSource.PlayOneShot(_audioClips[2]);
+        _audioSource.PlayOneShot(_audioClips[2]);
     }
     
     IEnumerator DeathVFX()
