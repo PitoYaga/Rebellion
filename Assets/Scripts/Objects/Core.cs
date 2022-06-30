@@ -31,7 +31,7 @@ public class Core : MonoBehaviour
     IEnumerator Boom()
     {
         explodeVFX.Play();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         explodeVFX.Stop();
     }
 
