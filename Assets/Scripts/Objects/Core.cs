@@ -35,9 +35,9 @@ public class Core : MonoBehaviour
         explodeVFX.Stop();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag(Constants.playerSwordTag))
+        if (other.collider.CompareTag(Constants.shurikenTag))
         {
             coreHealth--;
             if (coreHealth == 0)
@@ -47,8 +47,11 @@ public class Core : MonoBehaviour
                 Destroy(gameObject, 1);
             }
         }
+    }
 
-        if (other.CompareTag(Constants.shurikenTag))
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(Constants.playerSwordTag))
         {
             coreHealth--;
             if (coreHealth == 0)
