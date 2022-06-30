@@ -316,6 +316,8 @@ public class MeleeEnemy : MonoBehaviour
             {
                 statsSaves.HealthVar = _playerCs.playerMaxHealth;
             }
+
+            _playerCs.playerHeathSlider.value = statsSaves.HealthVar;
         }
         
         _currentClip = _audioClips[2];

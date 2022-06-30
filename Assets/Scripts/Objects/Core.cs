@@ -7,14 +7,20 @@ public class Core : MonoBehaviour
 {
     [SerializeField] private int coreHealth = 3;
     [SerializeField] private ParticleSystem explodeVFX;
+    [SerializeField] private AudioClip[] _audioClips;
     public int destroyedCore = 0;
     
     private Rigidbody _rigidbody;
+    private AudioSource _audioSource;
+    private SecurityLaser _securityLaser;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _audioSource = GetComponent<AudioSource>();
         explodeVFX.Stop();
+        _audioSource.PlayOneShot(_audioClips[0]);
+        _securityLaser = FindObjectOfType<SecurityLaser>();
     }
     
     void Update()
@@ -29,25 +35,25 @@ public class Core : MonoBehaviour
         explodeVFX.Stop();
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.collider.CompareTag(Constants.playerSwordTag))
+        if (other.CompareTag(Constants.playerSwordTag))
         {
             coreHealth--;
-            if (coreHealth <= 0)
+            if (coreHealth == 0)
             {
-                destroyedCore++;
+                _securityLaser.destroyedCore++;
                 StartCoroutine("Boom");
                 Destroy(gameObject, 1);
             }
         }
 
-        if (other.collider.CompareTag(Constants.shurikenTag))
+        if (other.CompareTag(Constants.shurikenTag))
         {
             coreHealth--;
-            if (coreHealth <= 0)
+            if (coreHealth == 0)
             {
-                destroyedCore++;
+                _securityLaser.destroyedCore++;
                 StartCoroutine("Boom");
                 Destroy(gameObject, 1);
             }

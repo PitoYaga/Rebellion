@@ -11,15 +11,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/TutorialCanvas.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/StatsSaves.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.postprocessing@3.2.2/PostProcessing/Runtime/PostProcessDebug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteraction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/EndLevel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/TutorialCanvas.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/StatsSaves.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/LaserWall.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/SecurityCard.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/SecurityLaser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Turret.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/ResetData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Core.cs" root0="FORCE_HIGHLIGHTING" />
@@ -61,10 +62,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Turret.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Constants.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Core.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Objects/SecurityLaser.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -183,7 +185,7 @@
       <workItem from="1656436090959" duration="10124000" />
       <workItem from="1656487710678" duration="7030000" />
       <workItem from="1656506100377" duration="3648000" />
-      <workItem from="1656577946095" duration="4470000" />
+      <workItem from="1656577946095" duration="9296000" />
     </task>
     <servers />
   </component>
