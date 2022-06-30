@@ -251,7 +251,7 @@ public class MeleeEnemy : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, attackRadius, playerLayer))
         {
-            _navMeshAgent.velocity = Vector3.zero;
+            transform.LookAt(_target.position);
             _navMeshAgent.SetDestination(transform.position);
             currentSpeed = attackWalkSpeed;
 

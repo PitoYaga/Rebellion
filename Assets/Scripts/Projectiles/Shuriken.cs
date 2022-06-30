@@ -25,7 +25,7 @@ public class Shuriken : MonoBehaviour
         transform.LookAt(_cameraTry.crosshair);
         _rigidbody.velocity = transform.forward * bulletSpeed;
 
-        Destroy(gameObject, 3);
+        Destroy(gameObject, 5);
     }
 
     private void OnCollisionEnter(Collision other)

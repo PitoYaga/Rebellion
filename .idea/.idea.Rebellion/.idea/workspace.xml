@@ -22,6 +22,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/SecurityCard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Turret.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/ResetData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Core.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -47,7 +48,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/PauseMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/ShurikenLoot.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Constants.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/StatsSaves.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/HealthPosion.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/LaserWall.cs" />
@@ -58,11 +58,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/SceneLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/ResetData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Turret.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Constants.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Core.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -181,6 +183,7 @@
       <workItem from="1656436090959" duration="10124000" />
       <workItem from="1656487710678" duration="7030000" />
       <workItem from="1656506100377" duration="3648000" />
+      <workItem from="1656577946095" duration="4470000" />
     </task>
     <servers />
   </component>

@@ -12,6 +12,7 @@ TagManager:
   - Target
   - Shuriken
   - LaserWall
+  - PlayerSword
   layers:
   - Default
   - TransparentFX

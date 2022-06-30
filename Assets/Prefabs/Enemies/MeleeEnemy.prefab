@@ -564,16 +564,16 @@ NavMeshAgent:
   m_GameObject: {fileID: 8639151428561403942}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 3.6
-  m_Speed: 80
+  m_Radius: 4.2
+  m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 10
+  avoidancePriority: 50
   m_AngularSpeed: 360
-  m_StoppingDistance: 0.2
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 17.4
+  m_Height: 13
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -766,17 +766,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 8639151428561403949}
     m_Modifications:
     - target: {fileID: 811730880346167628, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: c74e779763578e04bbe12f5c12d884a1, type: 2}
+    - target: {fileID: 811730880346167628, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
+      propertyPath: m_Materials.Array.data[10]
+      value: 
+      objectReference: {fileID: -8705533452240791338, guid: 48c94f344fddb2f40adb269dce485595, type: 3}
+    - target: {fileID: 811730880346167628, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
       propertyPath: m_Materials.Array.data[21]
       value: 
-      objectReference: {fileID: 2100000, guid: bb37f139a44301e48a38ca98bf98df96, type: 2}
+      objectReference: {fileID: 2100000, guid: 81eeb46ca7d436940aeadf7891f3b274, type: 2}
     - target: {fileID: 811730880346167628, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
       propertyPath: m_Materials.Array.data[23]
       value: 
-      objectReference: {fileID: 2100000, guid: bb37f139a44301e48a38ca98bf98df96, type: 2}
+      objectReference: {fileID: 2100000, guid: 81eeb46ca7d436940aeadf7891f3b274, type: 2}
+    - target: {fileID: 811730880346167628, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
+      propertyPath: m_Materials.Array.data[24]
+      value: 
+      objectReference: {fileID: 8964088591131456171, guid: 48c94f344fddb2f40adb269dce485595, type: 3}
     - target: {fileID: 811730880346167628, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
       propertyPath: m_Materials.Array.data[25]
       value: 
-      objectReference: {fileID: 2100000, guid: c74e779763578e04bbe12f5c12d884a1, type: 2}
+      objectReference: {fileID: 2100000, guid: f385b0f27723fa84b8a737a7459ed67b, type: 2}
     - target: {fileID: 5505860066186879068, guid: ace05967cfb5db3438ae9470136ceb8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -935,11 +947,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 74a2ce916a27fc546a30b2491718704c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c74e779763578e04bbe12f5c12d884a1, type: 2}
+      objectReference: {fileID: 2100000, guid: d7eadb6556437cf4bbc23a338f580833, type: 2}
     - target: {fileID: -7511558181221131132, guid: 74a2ce916a27fc546a30b2491718704c, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: f541c3513b9e5df46b1278c79126c42f, type: 2}
+      objectReference: {fileID: 2100000, guid: 861666679d179794d84fcc390afa56b4, type: 2}
     - target: {fileID: 919132149155446097, guid: 74a2ce916a27fc546a30b2491718704c, type: 3}
       propertyPath: m_Name
       value: Futuristic_sword
