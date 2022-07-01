@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player2
+  m_Name: Player2 1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 1
@@ -63,7 +63,7 @@ Material:
     - _GlossMapScale: 0.596
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _Metallic: 0.851
+    - _Metallic: 0.763
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -74,5 +74,5 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0.015095234, a: 1}
-    - _EmissionColor: {r: 99.13468, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 84.44851, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
