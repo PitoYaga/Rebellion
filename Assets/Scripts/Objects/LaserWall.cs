@@ -40,7 +40,7 @@ public class LaserWall : MonoBehaviour
     
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag(Constants.playerTag) && _playerCs._currentSpeed < _playerCs.dashSpeed)
+        if (other.CompareTag(Constants.playerTag) && _playerCs.currentSpeed < _playerCs.dashSpeed)
         {
             _playerCs.PlayerGetHit(laserWallDamage);
             _currentClip = audioClips[1];

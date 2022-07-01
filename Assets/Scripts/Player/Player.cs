@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [Header("Stats")]
     //public float playerHealth = 20;
     public int playerMaxHealth = 100;
-    public float _currentSpeed = 4;
+    public float currentSpeed = 4;
     [SerializeField] private float speed = 4;
     [SerializeField] private float runSpeed = 7;
     public float dashSpeed = 200;
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         rageBarSlider.value = statsSaves.RageVar;
         rageBarSlider.maxValue = maxRageBar;
         _currentRageModeCooldown = rageModeCooldown;
-        _currentSpeed = speed;
+        currentSpeed = speed;
     }
 
     void Update()
@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
                 else
                 {
                     _isMoving = false;
-                    _currentSpeed = 0;
+                    currentSpeed = 0;
                     audioSources[7].Stop();
                     audioSources[0].Stop();
                     StopCoroutine(DashVFX());
@@ -141,11 +141,11 @@ public class Player : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
-                    _animator.SetFloat("speed", _currentSpeed);
+                    _animator.SetFloat("speed", currentSpeed);
                     audioSources[0].Stop();
 
-                    _currentSpeed = runSpeed;
-                    _characterController.Move(_move / 10 * _currentSpeed);
+                    currentSpeed = runSpeed;
+                    _characterController.Move(_move / 10 * currentSpeed);
 
                     if (!audioSources[7].isPlaying && _isMoving && !_isDashing)
                     {
@@ -154,11 +154,11 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    _animator.SetFloat("speed", _currentSpeed);
+                    _animator.SetFloat("speed", currentSpeed);
                     audioSources[7].Stop();
 
-                    _currentSpeed = speed;
-                    _characterController.Move(_move / 10 * _currentSpeed);
+                    currentSpeed = speed;
+                    _characterController.Move(_move / 10 * currentSpeed);
                     if (!audioSources[0].isPlaying)
                     {
                         audioSources[0].Play();
@@ -169,7 +169,7 @@ public class Player : MonoBehaviour
             {
                 audioSources[7].Stop();
                 audioSources[0].Stop();
-                _animator.SetFloat("speed", _currentSpeed);
+                _animator.SetFloat("speed", currentSpeed);
                 StartCoroutine(DashVFX());
                 StartCoroutine(DashMove());
             }
@@ -209,10 +209,10 @@ public class Player : MonoBehaviour
             audioSources[1].Play();
         }
         
-        _currentSpeed = dashSpeed;
-        _characterController.Move(_move / 10 * _currentSpeed);
+        currentSpeed = dashSpeed;
+        _characterController.Move(_move / 10 * currentSpeed);
         yield return new WaitForSeconds(0.2f);
-        _characterController.Move(_move / 10 * _currentSpeed);
+        _characterController.Move(_move / 10 * currentSpeed);
         _isDashing = false;
     }
 
