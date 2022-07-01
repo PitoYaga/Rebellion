@@ -452,8 +452,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.2773, y: 186.61}
-  m_SizeDelta: {x: 1890.5, y: 686.79}
+  m_AnchoredPosition: {x: -0.0067644, y: 185.33}
+  m_SizeDelta: {x: 1920, y: 709.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &834861368
 MonoBehaviour:
@@ -475,7 +475,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 02bfae365b07ccb4e92373e4693a6fbb, type: 3}
+  m_Texture: {fileID: 2800000, guid: 9dd443904a6c7064ea9d83fc9d3ff511, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1038,11 +1038,13 @@ MonoBehaviour:
   textSpeed: 0.05
   dialogue: {fileID: 1747154517}
   sentences:
-  - 'Psychologits:  Do you know why you are hear ?'
-  - 'Isaac: Yes, but that does not change anything.'
-  - 'Psychologits: What do you mean ?'
-  - 'Isaac: I have no regret for what I did.'
-  - 'Psychologits: We will see that. Let''s talk about when you get into the office. '
+  - 'Psychologist: You destroyed the reactors also yoru friends and get into the
+    office.'
+  - 'Isaac: They are not my friends. They were a thing, not my friends. '
+  - 'Psychologist: Okay, what was your next move ?'
+  - 'Isaac: Kill my boss.'
+  - 'Psychologist: Why?'
+  - 'Isaac: Because he was a piece of shit.'
   restartButton: {fileID: 70757467}
   coninueButton: {fileID: 1296085440}
   finishButton: {fileID: 1078921010}
