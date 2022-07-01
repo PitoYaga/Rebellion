@@ -36,10 +36,11 @@ public class DialogueScene : MonoBehaviour
             coninueButton.SetActive(true);
         }
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Space))
         {
             timer += Time.deltaTime;
-            if (timer >= 3)
+            Debug.Log(timer);
+            if (timer >= 1.7f)
             {
                 SceneManager.LoadScene(_sceneIndex + 1);
             }
