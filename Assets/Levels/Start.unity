@@ -1041,7 +1041,7 @@ MonoBehaviour:
   - 'Psychologist:  Hello Isaac, Welcome to our session.'
   - 'Isaac: I just want to get out of here say what you have to say.'
   - 'Psychologist: Calm Down, Lets start with the beginning.'
-  - 'Isaac: Fine,  I walked into the street and I knew what my target was.'
+  - 'Isaac: Fine, I walked into the street and I knew what my target was.'
   - 'Psychologist: What was your target ?'
   - 'Isaac: A way to get into the office.'
   restartButton: {fileID: 70757467}
