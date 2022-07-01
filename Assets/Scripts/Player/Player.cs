@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("DeathScene");
+            StartCoroutine("LoadDeathScene");
         }
     }
     
@@ -389,7 +389,7 @@ public class Player : MonoBehaviour
     
     IEnumerator LoadDeathScene()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("DeathScene");
     }
     
