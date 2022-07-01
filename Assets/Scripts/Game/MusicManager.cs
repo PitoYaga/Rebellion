@@ -47,11 +47,11 @@ namespace Game
 
         void SetCurrentClip()
         {
-            if (_sceneIndex == 0 || _sceneIndex == 1 || _sceneIndex == 2)
+            if (_sceneIndex == 0 || _sceneIndex == 1 || _sceneIndex == 2 || _sceneIndex == 6)
             {
                 _currentClip = menuMusic;
             }
-            else if (_sceneIndex == 3)
+            else if (_sceneIndex == 4)
             {
                 for (int i = 0; i < _meleeEnemyCS.Length; i++)
                 {

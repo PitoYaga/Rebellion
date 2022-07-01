@@ -51,7 +51,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/PauseMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/StatsSaves.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/LaserWall.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/CloseTutorial.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerBarrel.cs" />
@@ -69,6 +68,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyWaveSpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -190,7 +190,7 @@
       <workItem from="1656577946095" duration="11012000" />
       <workItem from="1656626241869" duration="713000" />
       <workItem from="1656677512801" duration="3069000" />
-      <workItem from="1656686398326" duration="756000" />
+      <workItem from="1656686398326" duration="2183000" />
     </task>
     <servers />
   </component>
