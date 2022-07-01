@@ -7,7 +7,6 @@ namespace Projectiles
     public class HealthPosion : MonoBehaviour
     {
         [SerializeField] private float healthPosion = 20;
-        [SerializeField] private Transform rotateAncher;
         private Slider playerSlider;
 
         [SerializeField] private StatsSaves _statsSaves;
@@ -20,7 +19,7 @@ namespace Projectiles
 
         private void Update()
         {
-            rotateAncher.Rotate(new Vector3(0, 120,0) * Time.deltaTime);
+            transform.Rotate(new Vector3(120, 0,0) * Time.deltaTime);
         }
 
         private void OnTriggerEnter(Collider other)

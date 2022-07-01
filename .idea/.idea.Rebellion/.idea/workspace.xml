@@ -48,9 +48,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/TutorialCanvas.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Dialogue/DialogueScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/PauseMenu.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/ShurikenLoot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/StatsSaves.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/HealthPosion.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/LaserWall.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/MusicManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Bullet.cs" />
@@ -59,14 +57,16 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/SceneLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/RangedEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/ResetData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Turret.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/Shuriken.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/Constants.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/MeleeEnemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/SecurityLaser.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Core.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/HealthPosion.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Projectiles/ShurikenLoot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTry.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="29QYk12wXHZaa1xApoHdrreLxuF" />
@@ -187,6 +187,7 @@
       <workItem from="1656506100377" duration="3648000" />
       <workItem from="1656577946095" duration="11012000" />
       <workItem from="1656626241869" duration="713000" />
+      <workItem from="1656677512801" duration="2467000" />
     </task>
     <servers />
   </component>

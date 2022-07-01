@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 4;
     [SerializeField] private float runSpeed = 7;
     public float dashSpeed = 200;
-    private float stopSpeed = 0;
     [SerializeField] private float dashCooldown = 2;
     [SerializeField] private ParticleSystem dashVFX;
 
@@ -30,7 +29,7 @@ public class Player : MonoBehaviour
     [Header("Rage Mode")]
     public float rageBar;
     [SerializeField] float maxRageBar = 100;
-    [SerializeField] private float rageModeCooldown = 7;
+    [SerializeField] private float rageModeCooldown = 10;
     private float _currentRageModeCooldown = 5;
     [SerializeField] private GameObject rageModeFeedback;
     public bool rageModeOn;
@@ -362,7 +361,7 @@ public class Player : MonoBehaviour
     IEnumerator RageModeFeedBack()
     {
         rageModeFeedback.SetActive(true);
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.6f);
         rageModeFeedback.SetActive(false);
     }
 
