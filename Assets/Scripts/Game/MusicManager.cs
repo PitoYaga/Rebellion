@@ -53,7 +53,7 @@ namespace Game
             }
             else if (_sceneIndex == 4)
             {
-                for (int i = 0; i < _meleeEnemyCS.Length; i++)
+                /*for (int i = 0; i < _meleeEnemyCS.Length; i++)
                 {
                     if (_meleeEnemyCS[i].isChasing)
                     {
@@ -63,7 +63,8 @@ namespace Game
                     {
                          _currentClip = gameMusics[_randomMusic];
                     }
-                }
+                }*/
+                _currentClip = gameMusics[_randomMusic];
             }
             else
             {
