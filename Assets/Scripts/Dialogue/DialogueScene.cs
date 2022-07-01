@@ -15,6 +15,7 @@ public class DialogueScene : MonoBehaviour
     
     private int _index;
     int _sceneIndex;
+    private float timer;
 
     private int clicked;
 
@@ -33,6 +34,15 @@ public class DialogueScene : MonoBehaviour
         if (dialogue.text == sentences[_index])
         {
             coninueButton.SetActive(true);
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            timer += Time.deltaTime;
+            if (timer >= 3)
+            {
+                SceneManager.LoadScene(_sceneIndex + 1);
+            }
         }
     }
 
