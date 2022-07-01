@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
         _camera = GameObject.FindWithTag(Constants.cameraTag);
         
         playerHeathSlider.maxValue = playerMaxHealth;
-        playerHeathSlider.value = statsSaves.HealthVar;
+        playerHeathSlider.value = playerMaxHealth;
         rageBarSlider.value = statsSaves.RageVar;
         rageBarSlider.maxValue = maxRageBar;
         _currentRageModeCooldown = rageModeCooldown;
