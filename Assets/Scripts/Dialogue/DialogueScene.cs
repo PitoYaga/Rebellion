@@ -39,7 +39,6 @@ public class DialogueScene : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             timer += Time.deltaTime;
-            Debug.Log(timer);
             if (timer >= 1.7f)
             {
                 SceneManager.LoadScene(_sceneIndex + 1);
