@@ -469,7 +469,7 @@ MonoBehaviour:
   shurikenMagazineText: {fileID: 0}
   rageBar: 0
   maxRageBar: 100
-  rageModeCooldown: 5
+  rageModeCooldown: 10
   rageModeFeedback: {fileID: 2216990759961383936}
   rageModeOn: 0
   playerHeathSlider: {fileID: 0}
@@ -13130,7 +13130,7 @@ SkinnedMeshRenderer:
   - {fileID: 2100000, guid: f541c3513b9e5df46b1278c79126c42f, type: 2}
   - {fileID: 2100000, guid: f541c3513b9e5df46b1278c79126c42f, type: 2}
   - {fileID: 2100000, guid: f541c3513b9e5df46b1278c79126c42f, type: 2}
-  - {fileID: 2100000, guid: b08858ead1a542e498727a1f34ccca23, type: 2}
+  - {fileID: 2100000, guid: f541c3513b9e5df46b1278c79126c42f, type: 2}
   - {fileID: 2100000, guid: f541c3513b9e5df46b1278c79126c42f, type: 2}
   - {fileID: 2100000, guid: f541c3513b9e5df46b1278c79126c42f, type: 2}
   - {fileID: 2100000, guid: f541c3513b9e5df46b1278c79126c42f, type: 2}

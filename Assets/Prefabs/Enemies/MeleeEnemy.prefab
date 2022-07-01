@@ -499,9 +499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d88dc0a1e0f98a4f972720644d61854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeEnemyMaxHealth: 20
-  meleeEnemyHealth: 20
-  enemyRageXp: 20
+  meleeEnemyMaxHealth: 30
+  meleeEnemyHealth: 30
+  enemyRageXp: 15
   currentSpeed: 0
   walkSpeed: 10
   chaseSpeed: 80
@@ -513,7 +513,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  enemyDamage: 1
+  enemyDamage: 5
   meleeAttackSpeed: 1.5
   enemyAttackArea: {fileID: 8639151428758960451}
   currentChaseRadius: 80
